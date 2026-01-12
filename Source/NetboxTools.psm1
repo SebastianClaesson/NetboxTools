@@ -1,6 +1,3 @@
-[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '',
-	Justification = 'Excluded in ScriptAnalyzer for this module build script')]
-
 $script:NbxConfig = @{
 	'Connected'     = $true
 	'Choices'       = @{

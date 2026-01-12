@@ -1,3 +1,6 @@
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingConvertToSecureStringWithPlainText', '',
+	Justification = 'Excluded in ScriptAnalyzer for this module build script')]
+
 $script:NbxConfig = @{
 	'Connected'     = $true
 	'Choices'       = @{
@@ -7,14 +10,13 @@ $script:NbxConfig = @{
 	'NbxVersion'    = @{
 		'Netbox-version' = '3.5.4'
 	}
-	'Timeout' = 30
-	'Credential' =  [System.Management.Automation.PSCredential]::Empty
-	'InvokeParams' = @{ SkipCertificateCheck = $false }
+	'Timeout'       = 30
+	'Credential'    = [System.Management.Automation.PSCredential]::Empty
+	'InvokeParams'  = @{ SkipCertificateCheck = $false }
 }
 
 # import classes
-foreach ($file in (Get-ChildItem "$PSScriptRoot\Classes\*.ps1"))
-{
+foreach ($file in (Get-ChildItem "$PSScriptRoot\Classes\*.ps1")) {
 	try {
 		Write-Verbose "Importing $($file.FullName)"
 		. $file.FullName
@@ -25,8 +27,7 @@ foreach ($file in (Get-ChildItem "$PSScriptRoot\Classes\*.ps1"))
 }
 
 # import private functions
-foreach ($file in (Get-ChildItem "$PSScriptRoot\Private\*.ps1"))
-{
+foreach ($file in (Get-ChildItem "$PSScriptRoot\Private\*.ps1")) {
 	try {
 		Write-Verbose "Importing $($file.FullName)"
 		. $file.FullName
@@ -37,8 +38,7 @@ foreach ($file in (Get-ChildItem "$PSScriptRoot\Private\*.ps1"))
 }
 
 # import public functions
-foreach ($file in (Get-ChildItem "$PSScriptRoot\Public\*.ps1"))
-{
+foreach ($file in (Get-ChildItem "$PSScriptRoot\Public\*.ps1")) {
 	try {
 		Write-Verbose "Importing $($file.FullName)"
 		. $file.FullName

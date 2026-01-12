@@ -6,36 +6,8 @@ function Get-NbxVirtualMachineInterface {
 
     .DESCRIPTION
         Obtains the interface objects for one or more VMs
-
-    .PARAMETER Limit
-        Number of results to return per page.
-
-    .PARAMETER Offset
-        The initial index from which to return the results.
-
     .PARAMETER Id
         Database ID of the interface
-
-    .PARAMETER Name
-        Name of the interface
-
-    .PARAMETER Enabled
-        True/False if the interface is enabled
-
-    .PARAMETER MTU
-        Maximum Transmission Unit size. Generally 1500 or 9000
-
-    .PARAMETER Virtual_Machine_Id
-        ID of the virtual machine to which the interface(s) are assigned.
-
-    .PARAMETER Virtual_Machine
-        Name of the virtual machine to get interfaces
-
-    .PARAMETER MAC_Address
-        MAC address assigned to the interface
-
-    .PARAMETER Raw
-        A description of the Raw parameter.
 
     .EXAMPLE
         PS C:\> Get-NbxVirtualMachineInterface
@@ -48,37 +20,18 @@ function Get-NbxVirtualMachineInterface {
     param
     (
         [Parameter(ValueFromPipeline = $true)]
-        [uint64]$Id,
-
-        [string]$Name,
-
-        [string]$Query,
-
-        [boolean]$Enabled,
-
-        [uint16]$MTU,
-
-        [uint64]$Virtual_Machine_Id,
-
-        [string]$Virtual_Machine,
-
-        [string]$MAC_Address,
-
-        [uint16]$Limit,
-
-        [uint16]$Offset,
-
-        [switch]$Raw
+        [uint64]$Id
     )
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('virtualization', 'interfaces'))
-
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $uri = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters
-
-        InvokeNbxRequest -URI $uri -Raw:$Raw
+    if ($Id) {
+        $Id | ForEach-Object {
+            Write-Verbose "Getting intervface with ID: $($_) at $($script:NbxConfig.URI)/virtualization/interfaces/$($_)/"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/$($_)" -Method GET
+        }
+    }
+    else {
+        Write-Verbose "Getting All intervfaces at $($script:NbxConfig.URI)/virtualization/interfaces"
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/?limit=9999" -Method GET
     }
 
 }

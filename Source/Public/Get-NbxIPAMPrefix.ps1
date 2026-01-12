@@ -23,7 +23,6 @@ function Get-NbxIPAMPrefix {
         [uint64[]]$Id
     )
 
-
     if ($Id) {
         $Id | ForEach-Object {
             InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/" -Method GET

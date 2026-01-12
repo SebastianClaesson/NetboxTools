@@ -1,32 +1,12 @@
 function Get-NbxTag {
 
     [CmdletBinding()]
-    [OutputType([pscustomobject])]
     param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [uint64]$Id,
-
-        [string]$Name,
-
-        [string]$Slug,
-
-        [uint16]$Limit,
-
-        [uint16]$Offset,
-
-        [switch]$Raw
+        [Parameter()]
+        [uint64]$Id
     )
 
-    process {
-
-        $Segments = [System.Collections.ArrayList]::new(@('extras', 'tags'))
-
-        $URIComponents = BuildURIComponents -URISegments $Segments.Clone() -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters
-
-        InvokeNbxRequest -URI $URI -Raw:$Raw
-    }
-
+    Write-Verbose "Getting All tags at $($script:NbxConfig.URI)/extras/tags"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/?limit=9999" -Method GET
 }

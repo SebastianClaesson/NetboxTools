@@ -3,14 +3,6 @@ function Get-NbxVersion {
     [CmdletBinding()]
     param ()
 
-    $Segments = [System.Collections.ArrayList]::new(@('status'))
-
-    $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary @{
-        'format' = 'json'
-    }
-
-    $URI = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters -SkipConnectedCheck
-
-    InvokeNbxRequest -URI $URI
-
+    Write-Verbose "Getting Netbox status information at $($script:NbxConfig.URI)/status"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/status" -Method GET
 }

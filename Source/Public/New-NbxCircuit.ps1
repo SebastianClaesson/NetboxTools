@@ -40,17 +40,13 @@ function New-NbxCircuit {
         [switch]$Raw
     )
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('circuits', 'circuits'))
-        $Method = 'POST'
-
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments
-
-        if ($Force -or $PSCmdlet.ShouldProcess($CID, 'Create new circuit')) {
-            InvokeNbxRequest -URI $URI -Method $Method -Body $URIComponents.Parameters -Raw:$Raw
-        }
+    $Body = @{
+    
     }
+
+    $Json = $Body | ConvertTo-Json -Depth 100
+
+    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/circuits/circuits"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/circuits" -Method POST -Body $Json
 
 }

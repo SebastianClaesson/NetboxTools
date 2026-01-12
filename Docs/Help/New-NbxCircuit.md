@@ -258,6 +258,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ProviderAccount
+Specifies the ProviderAccount parameter.
+
+```yaml
+Type: UInt64
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -WhatIf
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.

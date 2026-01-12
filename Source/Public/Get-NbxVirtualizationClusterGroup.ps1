@@ -3,29 +3,18 @@ function Get-NbxVirtualizationClusterGroup {
     [CmdletBinding()]
     param
     (
-        [string]$Name,
-
-        [string]$Slug,
-
-        [string]$Description,
-
-        [string]$Query,
-
-        [uint64[]]$Id,
-
-        [uint16]$Limit,
-
-        [uint16]$Offset,
-
-        [switch]$Raw
+        [uint64[]]$Id
     )
 
-    $Segments = [System.Collections.ArrayList]::new(@('virtualization', 'cluster-groups'))
-
-    $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-    $uri = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters
-
-    InvokeNbxRequest -URI $uri -Raw:$Raw
+    if ($Id) {
+        $Id | ForEach-Object {
+            Write-Verbose "Getting virtualization cluster group with ID: $($_) at $($script:NbxConfig.URI)/virtualization/cluster-groups/$($_)/"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/$($_)" -Method GET
+        }
+    }
+    else {
+        Write-Verbose "Getting All virtualization cluster groups at $($script:NbxConfig.URI)/virtualization/cluster-groups"
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/?limit=9999" -Method GET
+    }
 
 }

@@ -1,6 +1,6 @@
 function Get-NbxIPAMRole {
 
-<#
+    <#
     .SYNOPSIS
         Get IPAM Prefix/VLAN roles
 
@@ -9,27 +9,6 @@ function Get-NbxIPAMRole {
 
     .PARAMETER Id
         Unique ID
-
-    .PARAMETER Query
-        Search query
-
-    .PARAMETER Name
-        Role name
-
-    .PARAMETER Slug
-        Role URL slug
-
-    .PARAMETER Brief
-        Brief format
-
-    .PARAMETER Limit
-        Result limit
-
-    .PARAMETER Offset
-        Result offset
-
-    .PARAMETER Raw
-        A description of the Raw parameter.
 
     .EXAMPLE
         PS C:\> Get-NbxIPAMRole
@@ -41,57 +20,18 @@ function Get-NbxIPAMRole {
     [CmdletBinding()]
     param
     (
-        [Parameter(ParameterSetName = 'Query',
-                   Position = 0)]
-        [string]$Name,
-
-        [Parameter(ParameterSetName = 'Query')]
-        [string]$Query,
-
-        [Parameter(ParameterSetName = 'ByID')]
-        [uint64[]]$Id,
-
-        [Parameter(ParameterSetName = 'Query')]
-        [string]$Slug,
-
-        [Parameter(ParameterSetName = 'Query')]
-        [switch]$Brief,
-
-        [Parameter(ParameterSetName = 'Query')]
-        [uint16]$Limit,
-
-        [Parameter(ParameterSetName = 'Query')]
-        [uint16]$Offset,
-
-        [switch]$Raw
+        [Parameter()]
+        [uint64[]]$Id
     )
 
-    switch ($PSCmdlet.ParameterSetName) {
-        'ById' {
-            foreach ($Role_ID in $Id) {
-                $Segments = [System.Collections.ArrayList]::new(@('ipam', 'roles', $Role_ID))
-
-                $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters -SkipParameterByName 'Id'
-
-                $uri = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters
-
-                InvokeNbxRequest -URI $uri -Raw:$Raw
-            }
-
-            break
-        }
-
-        default {
-            $Segments = [System.Collections.ArrayList]::new(@('ipam', 'roles'))
-
-            $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-            $uri = BuildNewURI -Segments $URIComponents.Segments -Parameters $URIComponents.Parameters
-
-            InvokeNbxRequest -URI $uri -Raw:$Raw
-
-            break
+    if ($Id) {
+        $Id | ForEach-Object {
+            Write-Verbose "Getting IPAM Role with ID: $($_) at $($script:NbxConfig.URI)/ipam/roles/$($_)/"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/$($_)" -Method GET
         }
     }
-
+    else {
+        Write-Verbose "Getting All IPAM Roles at $($script:NbxConfig.URI)/ipam/roles"
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/?limit=9999" -Method GET
+    }
 }

@@ -87,7 +87,7 @@ function InvokeNbxRestMethod {
             @{ Content = $Result; Headers = $ResponseHeaders; StatusCode = $ResponseStatusCode }
         }
         else {
-            $Result
+            $Result.Resluts
         }
     }
 }

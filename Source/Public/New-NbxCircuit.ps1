@@ -12,6 +12,10 @@ function New-NbxCircuit {
         [Parameter(Mandatory)]
         [uint64]$Provider,
 
+        [Parameter()]
+        [Int64]
+        $ProviderAccount,
+
         [Parameter(Mandatory)]
         [uint64]$Type,
 
@@ -41,7 +45,11 @@ function New-NbxCircuit {
     )
 
     $Body = @{
-    
+        CID            = $CID
+        Provider       = $Provider
+        ProviderAccount = 
+        Type           = $Type
+        Status         = $Status
     }
 
     $Json = $Body | ConvertTo-Json -Depth 100

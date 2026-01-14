@@ -1,30 +1,42 @@
 ---
-external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+document type: cmdlet
+external help file: NetboxTools-Help.xml
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Set-NbxCipherSSL
 ---
 
 # Set-NbxCipherSSL
 
 ## SYNOPSIS
+
 {{ Fill in the Synopsis }}
 
 ## SYNTAX
+
+### __AllParameterSets
 
 ```
 Set-NbxCipherSSL
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Specifies the in the parameter.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+
 PS C:\> {{ Add example code here }}
-```
 
 {{ Add example description here }}
 
@@ -32,12 +44,18 @@ PS C:\> {{ Add example code here }}
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
 ### System.Object
+
+{{ Fill in the Description }}
+
 ## NOTES
 
+
+
+
 ## RELATED LINKS
+
+{{ Fill in the related links here }}
 

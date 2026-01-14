@@ -1,64 +1,61 @@
 ---
-external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+document type: cmdlet
+external help file: NetboxTools-Help.xml
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxAPIDefinition
 ---
 
 # Get-NbxAPIDefinition
 
 ## SYNOPSIS
+
 {{ Fill in the Synopsis }}
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxAPIDefinition [[-Format] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxAPIDefinition
 ```
 
+## ALIASES
+
+This cmdlet has the following aliases,
+  {{Insert list of aliases}}
+
 ## DESCRIPTION
+
 Specifies the in the parameter.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
+
 PS C:\> {{ Add example code here }}
-```
 
 {{ Add example description here }}
 
 ## PARAMETERS
 
-### -Format
-Specifies output format.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: json, yaml
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
-
-### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
-
 ## INPUTS
-
-### None
 
 ## OUTPUTS
 
 ### System.Object
+
+{{ Fill in the Description }}
+
 ## NOTES
 
+
+
+
 ## RELATED LINKS
+
+{{ Fill in the related links here }}
 

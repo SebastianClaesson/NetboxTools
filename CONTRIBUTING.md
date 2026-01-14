@@ -6,7 +6,7 @@ You are more than welcome to contribute to the NetboxTools module, whether it is
 
 - Fork this repo (see [this forking guide](https://guides.github.com/activities/forking/) for more information).
 - Checkout the repo locally with `git clone git@github.com:{your_username}/NetboxTools.git`.
-- If you haven't already, you will need the [PlatyPs](https://github.com/PowerShell/platyPS) PowerShell Module to generate command help and docs.
+- If you haven't already, you will need the [Microsoft.Powershell.PlatyPS](https://github.com/PowerShell/platyPS) PowerShell Module to generate command help and docs.
 
 ## Developing
 
@@ -42,17 +42,17 @@ Exclusion of standard tests can be done using the SkipTest attribute.
 
 Introducing additional exclusions should be discussed in a GitHub issue before implementation.
 
-### platyPS
+### Microsoft.Powershell.PlatyPS
 
-[platyPS](https://github.com/PowerShell/platyPS) is used to write the external help in markdown. When contributing always make sure that the changes are added to the help file.
+[Microsoft.Powershell.PlatyPS](https://github.com/PowerShell/platyPS) is used to write the external help in markdown. When contributing always make sure that the changes are added to the help file.
 
 #### Quickstart
 
-- Install the platyPS module from the [PowerShell Gallery](https://powershellgallery.com):
+- Install the Microsoft.Powershell.PlatyPS module from the [PowerShell Gallery](https://powershellgallery.com):
 
 ```powershell
-Install-Module -Name platyPS -Scope CurrentUser
-Import-Module platyPS
+Install-Module -Name Microsoft.Powershell.PlatyPS -Scope CurrentUser
+Import-Module Microsoft.Powershell.PlatyPS
 ```
 
 - Create initial Markdown help file for `NetboxTools` module (This will only create help files for new commands, existing files will not be overwritten):
@@ -60,7 +60,7 @@ Import-Module platyPS
 ```powershell
 # you should have module imported in the session
 Import-Module .\Source\NetboxTools.psd1
-New-MarkdownHelp -Command My-NewCommand -OutputFolder .\Docs\Help
+New-MarkdownCommandHelp -Command My-NewCommand -OutputFolder .\Docs\Help
 ```
 
 Edit the markdown file(s) in the `.\Docs\Help` folder and populate `{{ ... }}` placeholders with missed help content.

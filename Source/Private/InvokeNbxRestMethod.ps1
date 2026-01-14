@@ -88,8 +88,11 @@ function InvokeNbxRestMethod {
         if ($FullResponse) {
             @{ Content = $Result; Headers = $ResponseHeaders; StatusCode = $ResponseStatusCode }
         }
-        else {
+        elseif ($Result.psobject.Properties.name -contains 'results') {
             $Result.Results
+        }
+        else {
+            $Result
         }
     }
 }

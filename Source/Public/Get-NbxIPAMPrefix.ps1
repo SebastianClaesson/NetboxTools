@@ -16,20 +16,32 @@ function Get-NbxIPAMPrefix {
         Additional information about the function.
 #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Query')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(ParameterSetName = 'Id')]
+        [uint64[]]$Id,
+
+        [Parameter(ParameterSetName = 'Query')]
+        [string]
+        $Contains
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/" -Method GET
+            }
+        }
+        'Query' {
+            if ($PSBoundParameters.ContainsKey('Contains')) {
+                $Id | ForEach-Object {
+                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&limit=9999" -Method GET
+                }
+            }
+            else {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/?limit=9999" -Method GET
+            }
         }
     }
-    else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/?limit=9999" -Method GET
-    }
-
 }

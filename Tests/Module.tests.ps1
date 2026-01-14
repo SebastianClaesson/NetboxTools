@@ -1,7 +1,7 @@
 param(
     [Parameter()]
-    [ValidateScript({$_ -match '\.psm1$'}, ErrorMessage = 'Please input a PSM1 file')]
-    $PSM1 = "$PSScriptRoot\..\Source\netboxTools.psm1"
+    [ValidateScript({ $_ -match '\.psm1$' }, ErrorMessage = 'Please input a PSM1 file')]
+    $PSM1 = "$PSScriptRoot\..\Source\NetboxTools.psm1"
 )
 
 BeforeDiscovery {
@@ -33,12 +33,12 @@ BeforeDiscovery {
         # Get all lines from the PSM1 matching "function word-word {"
         $regEx = Get-Item $psm1 | Select-String -Pattern '^function\s{1}(?<FunctionName>[a-zA-Z]+\-[a-zA-Z]+)\s+\{\s*$'
         # Get the word-word part only
-        $PublicFunctions = ($regEx.Matches.Groups | Where-Object {$_.Name -eq "FunctionName"}).Value
+        $PublicFunctions = ($regEx.Matches.Groups | Where-Object { $_.Name -eq "FunctionName" }).Value
         # Get only those where first word is approved
         $ApprovedVerbs = (Get-Verb).Verb
         $PublicFunctions = $PublicFunctions.Where({
-            ($_ -split '-')[0] -in $ApprovedVerbs
-        })
+                ($_ -split '-')[0] -in $ApprovedVerbs
+            })
     }
     
     # Set up public testcases
@@ -48,7 +48,7 @@ BeforeDiscovery {
     
     foreach ($PublicFunction in $PublicFunctions) {
         $PublicTestCases += @{
-            Function = $PublicFunction
+            Function          = $PublicFunction
             ExportedFunctions = $ExportedFunctions
         }
         $Parameters = (Get-Command $PublicFunction).Parameters.GetEnumerator() | Where-Object {
@@ -57,7 +57,7 @@ BeforeDiscovery {
         } | Select-Object -ExpandProperty Key
         foreach ($Parameter in $Parameters) {
             $ParametersTestCases += @{
-                Function = $PublicFunction
+                Function  = $PublicFunction
                 Parameter = $Parameter
             }
         }
@@ -66,7 +66,7 @@ BeforeDiscovery {
     foreach ($ExportedFunction in $ExportedFunctions) {
         $ExportedFunctionsTestCases += @{
             ExportedFunction = $ExportedFunction
-            PublicFunctions = $PublicFunctions
+            PublicFunctions  = $PublicFunctions
         }
     }
     
@@ -81,17 +81,17 @@ BeforeDiscovery {
         # Get all lines from the PSM1 matching "function words(s) {"
         $regEx = Get-Item $psm1 | Select-String -Pattern '^function\s{1}(?<FunctionName>.+)\s+\{\s*$'
         # Get the function name part only
-        $PrivateFunctions = ($regEx.Matches.Groups | Where-Object {$_.Name -eq "FunctionName"}).Value
+        $PrivateFunctions = ($regEx.Matches.Groups | Where-Object { $_.Name -eq "FunctionName" }).Value
         # Get only those not in public functions
         $PrivateFunctions = $PrivateFunctions.Where({
-            $_ -notin $PublicFunctions
-        })
+                $_ -notin $PublicFunctions
+            })
     }
     
     $PrivateTestCases = @()
     foreach ($PrivateFunction in $PrivateFunctions) {
         $PrivateTestCases += @{
-            Function = $PrivateFunction
+            Function          = $PrivateFunction
             ExportedFunctions = $ExportedFunctions
         }
     }
@@ -159,18 +159,18 @@ Describe "Module $ModuleName" {
         # Tests only for compiled modules goes here
         if ($CompiledModule) {
             It "Public function '<Function>' has been exported" -TestCases $PublicTestCases {
-                param ( $Function,  $ExportedFunctions)
+                param ( $Function, $ExportedFunctions)
                 $ExportedFunctions | Should -Contain $Function -Because 'It should be exported'
             }
 
             It "Exported function '<ExportedFunction>' is supposed to be public" -TestCases $ExportedFunctionsTestCases {
-                param ( $ExportedFunction,  $PublicFunctions)
+                param ( $ExportedFunction, $PublicFunctions)
 
                 $ExportedFunction | Should -BeIn $PublicFunctions -Because 'If function is exported but not a public function thats not correct'
             }
         }
     }
-<#
+    <#
     # Only run test cases for private functions if we have any to run
     if ($PrivateTestCases.count -gt 0) {
         Context 'Validate private functions' -skip {

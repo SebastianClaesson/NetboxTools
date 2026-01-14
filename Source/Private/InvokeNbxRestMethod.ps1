@@ -57,7 +57,7 @@ function InvokeNbxRestMethod {
                 'Method'  = $Method
                 'Headers' = @{
                     'Authorization' = "Token $Token"
-                    # "Accept"        = 'application/json; indent=4'
+                    "Accept"        = 'application/json; indent=4'
                     'ContentType'   = $ContentType
                 }
                 'ContentType'   = $ContentType
@@ -71,6 +71,7 @@ function InvokeNbxRestMethod {
 
     if (-not [string]::IsNullOrEmpty($Body)) {
         $InvokeSplat.Add('Body', $Body)
+        Write-verbose "$($Body.GetEnumerator())"
     }
 
     if ($FullResponse) {

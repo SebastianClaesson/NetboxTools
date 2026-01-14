@@ -8,17 +8,16 @@ function New-NbxIPAMPrefix {
         [Parameter(Mandatory)]
         [string]$Prefix,
 
-        [object]$Status = 'Active',
+        [ValidateSet('container', 'active', 'reserved', 'deprecated')]
+        [string]$Status = 'active',
 
         [uint64]$Tenant,
 
-        [object]$Role,
+        [object]$Role = $null,
 
-        [bool]$IsPool,
+        [bool]$IsPool = $true,
 
         [string]$Description,
-
-        [uint64]$Site,
 
         [uint64]$VRF,
 
@@ -30,16 +29,27 @@ function New-NbxIPAMPrefix {
     )
 
     $Body = @{
-        Prefix        = $Prefix
-        Status       = $Status
-        Tenant       = $Tenant
-        Role         = $Role
-        IsPool       = $IsPool
-        Description  = $Description
-        Site         = $Site
-        VRF          = $VRF
-        VLAN         = $VLAN
-        Custom_Fields= $Custom_Fields
+        prefix        = $Prefix
+        status       = $Status
+        role         = $Role
+        is_pool       = $IsPool
+        site         = $Site
+    }
+
+    if ($PSBoundParameters.ContainsKey('Description')) {
+        $Body.Add('description',$Description)
+    }
+    if ($PSBoundParameters.ContainsKey('Custom_Fields')) {
+        $Body.Add('custom_fields',$Custom_Fields)
+    }
+    if ($PSBoundParameters.ContainsKey('Tenant')) {
+        $Body.Add('tenant',$Tenant)
+    }
+    if ($PSBoundParameters.ContainsKey('VLAN')) {
+        $Body.Add('vlan',$VLAN)
+    }
+    if ($PSBoundParameters.ContainsKey('VRF')) {
+        $Body.Add('vrf',$VRF)
     }
 
     $Json = $Body | ConvertTo-Json -Compress

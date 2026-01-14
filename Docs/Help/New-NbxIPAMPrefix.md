@@ -21,21 +21,21 @@ Creates a new IPAM prefix in NetBox.
 
 ```
 New-NbxIPAMPrefix [-Prefix] <string> [[-Status] <Object>] [[-Tenant] <ulong>] [[-Role] <Object>]
- [[-IsPool] <bool>] [[-Description] <string>] [[-Site] <ulong>] [[-VRF] <ulong>] [[-VLAN] <ulong>]
+ [[-IsPool] <bool>] [[-Description] <string>] [[-VRF] <ulong>] [[-VLAN] <ulong>]
  [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Adds a prefix record (e.g., 192.0.2.0/24) to NetBox with optional site, role, and tenant parameters.
+Adds a prefix record (e.g., 192.0.2.0/24) to NetBox with optional role, and tenant parameters.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> New-NbxIPAMPrefix -Prefix '192.0.2.0/24' -Site 1
+PS C:\> New-NbxIPAMPrefix -Prefix '192.0.2.0/24' 
 
-Creates the prefix 192.0.2.0/24 on site ID 1.
+Creates the prefix 192.0.2.0/24
 
 ## PARAMETERS
 
@@ -178,27 +178,6 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 3
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Site
-
-Specifies the Site parameter.
-
-```yaml
-Type: System.UInt64
-DefaultValue: None
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 6
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false

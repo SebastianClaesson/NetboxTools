@@ -10,7 +10,7 @@ function InvokeNbxRestMethod {
         [string]$Body,
 
         [Parameter()]
-        [string]$ContentType = 'application/json',
+        [string]$ContentType = 'application/json; charset=utf-8',
 
         [Parameter()]
         [switch]$FullResponse,
@@ -48,6 +48,7 @@ function InvokeNbxRestMethod {
                     "Accept"        = 'application/json; indent=4'
                     'ContentType'   = $ContentType
                 }
+                'ContentType'   = $ContentType
             }
         }
         else {
@@ -56,9 +57,10 @@ function InvokeNbxRestMethod {
                 'Method'  = $Method
                 'Headers' = @{
                     'Authorization' = "Token $Token"
-                    "Accept"        = 'application/json; indent=4'
+                    # "Accept"        = 'application/json; indent=4'
                     'ContentType'   = $ContentType
                 }
+                'ContentType'   = $ContentType
             }
         }
 

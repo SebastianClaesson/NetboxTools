@@ -13,7 +13,7 @@ title: Set-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -29,7 +29,7 @@ Set-NbxDCIMFrontPort [-Id] <ulong[]> [[-Device] <ushort>] [[-Module] <ushort>] [
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -41,7 +41,7 @@ Specifies the in the parameter.
 
 PS C:\> {{ Add example code here }}
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -374,17 +374,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.UInt64
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ### System.UInt64[]
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -393,5 +393,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+
+
 

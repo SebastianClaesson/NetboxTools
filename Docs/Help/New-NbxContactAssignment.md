@@ -27,7 +27,7 @@ New-NbxContactAssignment [-Content_Type] <string> [-Object_Id] <ulong> [-Contact
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -222,13 +222,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -238,4 +238,5 @@ Valid content types: https://docs.Nbx.dev/en/stable/features/contacts/#contacts_
 ## RELATED LINKS
 
  
+
 

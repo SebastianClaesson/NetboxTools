@@ -28,7 +28,7 @@ New-NbxIPAMVLAN [-VID] <ushort> [-Name] <string> [[-Status] <Object>] [[-Tenant]
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -270,7 +270,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -280,4 +280,5 @@ Additional information about the function.
 ## RELATED LINKS
 
  
+
 

@@ -13,7 +13,7 @@ title: New-NbxVirtualMachine
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -29,7 +29,7 @@ New-NbxVirtualMachine [-Name] <string> [-Site] <ulong> [[-Cluster] <ulong>] [[-T
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -397,7 +397,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -406,5 +406,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+
+
 

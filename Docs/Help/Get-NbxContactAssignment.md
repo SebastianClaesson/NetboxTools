@@ -25,18 +25,19 @@ Get-NbxContactAssignment [[-Id] <ulong[]>] [<CommonParameters>]
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-A detailed description of the Get-NbxContactAssignment function.
+Retrieves one or more contact assignment objects from NetBox. Use -Id to specify database IDs to return specific assignments.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 Get-NbxContactAssignment
+
+A short example description.
 
 ## PARAMETERS
 
@@ -70,7 +71,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+System.Object
+
+Objects representing contact assignment records returned by the cmdlet.
 
 ## NOTES
 

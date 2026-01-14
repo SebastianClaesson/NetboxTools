@@ -38,7 +38,7 @@ Specifies the in the parameter.
 
 PS C:\> <Run the cmdlet with appropriate parameters>
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -65,4 +65,5 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 ## RELATED LINKS
 
  
+
 

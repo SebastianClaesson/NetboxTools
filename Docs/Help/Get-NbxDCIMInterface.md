@@ -38,7 +38,7 @@ Specifies the in the parameter.
 
 PS C:\> <Run the cmdlet with appropriate parameters>
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -59,7 +59,7 @@ None. This cmdlet does not accept pipeline input.
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -69,4 +69,5 @@ None. This cmdlet does not accept pipeline input.
 ## RELATED LINKS
 
  
+
 

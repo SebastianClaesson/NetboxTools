@@ -13,7 +13,7 @@ title: Get-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -59,7 +59,7 @@ None. This cmdlet does not accept pipeline input.
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -69,4 +69,5 @@ None. This cmdlet does not accept pipeline input.
 ## RELATED LINKS
 
  
+
 

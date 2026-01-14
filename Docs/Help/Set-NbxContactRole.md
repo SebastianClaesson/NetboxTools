@@ -27,7 +27,7 @@ Set-NbxContactRole [-Id] <ulong[]> [[-Name] <string>] [[-Slug] <string>] [[-Desc
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -223,17 +223,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.UInt64[]
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ### System.String
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 
@@ -242,5 +242,6 @@ Additional information about the function.
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+
+
 

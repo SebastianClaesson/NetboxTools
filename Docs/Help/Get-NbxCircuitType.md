@@ -13,7 +13,7 @@ title: Get-NbxCircuitType
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves circuit type resources from NetBox (for example, types of circuits such as 'Metro' or 'Long-haul').
 
 ## SYNTAX
 
@@ -29,21 +29,21 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more circuit type objects from a NetBox instance. Use `-Id` to return specific types by NetBox database ID; if `-Id` is omitted the cmdlet returns all circuit types. Update this description with any additional filtering or endpoint details as needed.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxCircuitType -Id 42
 
-A short example description.
+Returns the circuit type object whose NetBox database ID is 42.
 
 ## PARAMETERS
 
 ### -Id
 
-Specifies the Id parameter.
+Specifies one or more NetBox database IDs of the circuit types to retrieve. When omitted, the cmdlet returns all circuit types.
 
 ```yaml
 Type: System.UInt64[]
@@ -71,11 +71,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Object
 
-{{ Fill in the Description }}
+Objects representing NetBox circuit type records. Typical properties include `id` (System.UInt64), `name` (string), `slug` (string), and `description` (string).
 
 ## NOTES
 
@@ -85,4 +87,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## RELATED LINKS
 
  
+
 

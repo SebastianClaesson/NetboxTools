@@ -13,7 +13,7 @@ title: Get-NbxDCIMDeviceRole
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -86,4 +86,5 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 ## RELATED LINKS
 
  
+
 

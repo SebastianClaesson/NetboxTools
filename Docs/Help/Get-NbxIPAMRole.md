@@ -26,7 +26,7 @@ Get-NbxIPAMRole [[-Id] <ulong[]>] [<CommonParameters>]
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+  This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -82,4 +82,5 @@ Additional information about the function.
 ## RELATED LINKS
 
  
+
 

@@ -20,7 +20,7 @@ Remove an IP address range from Netbox
 ### __AllParameterSets
 
 ```
-Remove-NbxIPAMAddressRange
+Remove-NbxIPAMAddressRange [-Id] <ulong[]> [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -39,6 +39,34 @@ Removes/deletes an IP address range from Netbox by ID
 Remove-NbxIPAMAddressRange -Id 1234
 
 ## PARAMETERS
+
+### -Id
+
+Database ID of the IP address range object.
+
+```yaml
+Type: System.UInt64[]
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

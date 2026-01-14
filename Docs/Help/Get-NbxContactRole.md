@@ -20,7 +20,7 @@ Get a contact role from Netbox
 ### __AllParameterSets
 
 ```
-Get-NbxContactRole
+Get-NbxContactRole [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -39,6 +39,34 @@ A detailed description of the Get-NbxContactRole function.
 Get-NbxContactRole
 
 ## PARAMETERS
+
+### -Id
+
+The database ID of the contact role
+
+```yaml
+Type: System.UInt64[]
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

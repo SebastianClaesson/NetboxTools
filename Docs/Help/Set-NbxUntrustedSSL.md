@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: NetboxTools-Help.xml
+external help file: netboxTools-help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools

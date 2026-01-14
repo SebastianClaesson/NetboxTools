@@ -20,7 +20,7 @@ A convenience method for returning available IP addresses within a prefix
 ### __AllParameterSets
 
 ```
-Get-NbxIPAMAvailableIP
+Get-NbxIPAMAvailableIP [-Prefix_ID] <ulong> [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -41,6 +41,35 @@ Get-NbxIPAMAvailableIP -Prefix_ID (Get-NbxIPAMPrefix -Prefix 192.0.2.0/24).id
 Get (Next) Available IP on the Prefix 192.0.2.0/24
 
 ## PARAMETERS
+
+### -Prefix_ID
+
+A description of the Prefix_ID parameter.
+
+```yaml
+Type: System.UInt64
+DefaultValue: 0
+SupportsWildcards: false
+Aliases:
+- Id
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

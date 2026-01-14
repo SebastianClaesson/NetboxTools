@@ -20,7 +20,7 @@ A brief description of the Get-NbxIPAMPrefix function.
 ### __AllParameterSets
 
 ```
-Get-NbxIPAMPrefix
+Get-NbxIPAMPrefix [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -39,6 +39,34 @@ A detailed description of the Get-NbxIPAMPrefix function.
 Get-NbxIPAMPrefix
 
 ## PARAMETERS
+
+### -Id
+
+A description of the Id parameter.
+
+```yaml
+Type: System.UInt64[]
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

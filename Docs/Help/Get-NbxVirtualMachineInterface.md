@@ -20,7 +20,7 @@ Gets VM interfaces
 ### __AllParameterSets
 
 ```
-Get-NbxVirtualMachineInterface
+Get-NbxVirtualMachineInterface [[-Id] <ulong>] [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -40,7 +40,39 @@ Get-NbxVirtualMachineInterface
 
 ## PARAMETERS
 
+### -Id
+
+Database ID of the interface
+
+```yaml
+Type: System.UInt64
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
+
+### System.UInt64
+
+{{ Fill in the Description }}
 
 ## OUTPUTS
 

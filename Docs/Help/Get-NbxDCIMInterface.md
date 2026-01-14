@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: NetboxTools-Help.xml
+external help file: netboxTools-help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
@@ -20,7 +20,7 @@ title: Get-NbxDCIMInterface
 ### __AllParameterSets
 
 ```
-Get-NbxDCIMInterface
+Get-NbxDCIMInterface [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -41,6 +41,13 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

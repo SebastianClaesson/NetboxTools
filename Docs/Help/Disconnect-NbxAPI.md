@@ -1,6 +1,6 @@
 ---
 document type: cmdlet
-external help file: NetboxTools-Help.xml
+external help file: netboxTools-help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
@@ -20,7 +20,7 @@ Disconnects from the Netbox API and clears the stored connection configuration
 ### __AllParameterSets
 
 ```
-Disconnect-NbxAPI
+Disconnect-NbxAPI [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -42,6 +42,13 @@ Disconnect-NbxAPI
 This example clears the active Netbox API connection and removes any stored token and configuration.
 
 ## PARAMETERS
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

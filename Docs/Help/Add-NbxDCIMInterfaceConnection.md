@@ -20,7 +20,8 @@ Create a new connection between two interfaces
 ### __AllParameterSets
 
 ```
-Add-NbxDCIMInterfaceConnection
+Add-NbxDCIMInterfaceConnection [[-Connection_Status] <Object>] [-Interface_A] <ulong>
+ [-Interface_B] <ulong> [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -39,6 +40,76 @@ Create a new connection between two interfaces
 Add-NbxDCIMInterfaceConnection -Interface_A $value1 -Interface_B $value2
 
 ## PARAMETERS
+
+### -Connection_Status
+
+Is it connected or planned?
+
+```yaml
+Type: System.Object
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Interface_A
+
+Database ID of interface A
+
+```yaml
+Type: System.UInt64
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Interface_B
+
+Database ID of interface B
+
+```yaml
+Type: System.UInt64
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### CommonParameters
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

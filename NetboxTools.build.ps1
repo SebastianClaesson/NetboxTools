@@ -36,10 +36,12 @@ task RunScriptAnalyzer {
 
 Task Build_Documentation {
     # New-ExternalHelp -Path $HelpSourcePath -OutputPath "$OutputPath\en-US"
-    $mdfiles = Measure-PlatyPSMarkdown -Path .\Docs\Help\*.md
+    $mdfiles = Measure-PlatyPSMarkdown -Path ".\Docs\Help\*.md"
     $mdfiles | Where-Object Filetype -match 'CommandHelp' |
     Import-MarkdownCommandHelp -Path { $_.FilePath } |
     Export-MamlCommandHelp -OutputFolder "$OutputPath\en-US"
+    Move-Item -Path "$OutputPath\en-US\NetboxTools\NetboxTools-Help.xml" -Destination "$OutputPath\en-US\NetboxTools-Help.xml" 
+    Remove-Item "$OutputPath\en-US\NetboxTools" -Force
 }
 
 task Compile_Module {

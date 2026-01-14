@@ -4,9 +4,13 @@ function Get-NbxAPIDefinition {
     param
     (
         [ValidateSet('json', 'yaml', IgnoreCase = $true)]
-        [string]$Format = 'json'
+        [string]$Format = 'json',
+
+        [Parameter()]
+        [string]
+        $Language = 'en'
     )
 
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/schema/?format=$Format/" -Method GET
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/schema/?format=$Format&lang=$Language" -Method GET
 
 }

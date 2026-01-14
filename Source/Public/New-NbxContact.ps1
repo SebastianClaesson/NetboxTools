@@ -10,32 +10,8 @@ function New-NbxContact {
     .PARAMETER Name
         The contacts full name, e.g "Leroy Jenkins"
 
-    .PARAMETER Email
-        Email address of the contact
-
-    .PARAMETER Title
-        Job title or other title related to the contact
-
-    .PARAMETER Phone
-        Telephone number
-
-    .PARAMETER Address
-        Physical address, usually mailing address
-
-    .PARAMETER Description
-        Short description of the contact
-
-    .PARAMETER Comments
-        Detailed comments. Markdown supported.
-
-    .PARAMETER Link
-        URI related to the contact
-
-    .PARAMETER Custom_Fields
-        A description of the Custom_Fields parameter.
-
-    .PARAMETER Raw
-        A description of the Raw parameter.
+    .PARAMETER OptionalAttribute
+        Optional Attributes as a hashtable, allowed values; api/schema/swagger-ui/#/tenancy/tenancy_contacts_create
 
     .EXAMPLE
         PS C:\> New-NbxContact -Name 'Leroy Jenkins' -Email 'leroy.jenkins@example.com'
@@ -44,53 +20,33 @@ function New-NbxContact {
         Additional information about the function.
 #>
 
-    [CmdletBinding(ConfirmImpact = 'Low',
-                   SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory,
-                   ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Mandatory)]
         [ValidateLength(1, 100)]
         [string]$Name,
 
-        [Parameter(Mandatory)]
-        [ValidateLength(0, 254)]
-        [string]$Email,
-
-        [ValidateLength(0, 100)]
-        [string]$Title,
-
-        [ValidateLength(0, 50)]
-        [string]$Phone,
-
-        [ValidateLength(0, 200)]
-        [string]$Address,
-
-        [ValidateLength(0, 200)]
-        [string]$Description,
-
-        [string]$Comments,
-
-        [ValidateLength(0, 200)]
-        [string]$Link,
-
-        [hashtable]$Custom_Fields,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('tenancy', 'contacts'))
-        $Method = 'POST'
+    $Body = @{
+        name            = $Name
+    }
 
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments
-
-        if ($PSCmdlet.ShouldProcess($Name, 'Create new contact')) {
-            InvokeNbxRequest -URI $URI -Method $Method -Body $URIComponents.Parameters -Raw:$Raw
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
         }
     }
+
+    $Json = $Body | ConvertTo-Json -Compress
+
+    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/tenancy/contacts"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/" -Method POST -Body $Json
 
 }

@@ -11,49 +11,36 @@ function New-NbxIPAMPrefix {
         [ValidateSet('container', 'active', 'reserved', 'deprecated')]
         [string]$Status = 'active',
 
-        [uint64]$Tenant,
-
-        [object]$Role = $null,
-
         [bool]$IsPool = $true,
 
         [string]$Description,
 
-        [uint64]$VRF,
-
-        [uint64]$VLAN,
-
-        [hashtable]$Custom_Fields,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
     $Body = @{
         prefix        = $Prefix
         status       = $Status
-        role         = $Role
         is_pool       = $IsPool
-        site         = $Site
     }
 
     if ($PSBoundParameters.ContainsKey('Description')) {
-        $Body.Add('description',$Description)
+        $Body.Add('description',$Description) | Out-Null
     }
-    if ($PSBoundParameters.ContainsKey('Custom_Fields')) {
-        $Body.Add('custom_fields',$Custom_Fields)
-    }
-    if ($PSBoundParameters.ContainsKey('Tenant')) {
-        $Body.Add('tenant',$Tenant)
-    }
-    if ($PSBoundParameters.ContainsKey('VLAN')) {
-        $Body.Add('vlan',$VLAN)
-    }
-    if ($PSBoundParameters.ContainsKey('VRF')) {
-        $Body.Add('vrf',$VRF)
+
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
+        }
     }
 
     $Json = $Body | ConvertTo-Json -Compress
 
+    Write-Verbose "Creating a new ip address prefix at $($script:NbxConfig.URI)/ipam/prefixes"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method POST -Body $Json
 
 }

@@ -13,7 +13,7 @@ title: Add-NbxDCIMRearPort
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -27,20 +27,19 @@ Add-NbxDCIMRearPort [-Device] <ulong> [-Name] <string> [-Type] <string> [[-Modul
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Detailed description of the cmdlet's behavior. Update this with function-specific details.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> <Run the cmdlet with appropriate parameters>
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -267,7 +266,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+Detailed description of the cmdlet's behavior. Update this with function-specific details.
 
 ## NOTES
 
@@ -276,5 +275,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

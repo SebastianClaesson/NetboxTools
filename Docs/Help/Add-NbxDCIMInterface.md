@@ -13,7 +13,7 @@ title: Add-NbxDCIMInterface
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Creates a new network interface on a NetBox device by posting interface metadata to the NetBox DCIM API.
 
 ## SYNTAX
 
@@ -28,20 +28,27 @@ Add-NbxDCIMInterface [-Device] <ulong> [-Name] <string> [[-Type] <string>] [[-En
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Use this cmdlet to add a network interface to a device in NetBox. The cmdlet constructs a JSON body from the provided parameters and posts it to the NetBox DCIM interfaces endpoint. Required parameters are `-Device` and `-Name`. The `-Type` parameter defaults to `virtual`; use `-Mode` with VLAN parameters to set access or tagged VLAN behavior.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Create a basic interface
 
-PS C:\> {{ Add example code here }}
+```powershell
+Add-NbxDCIMInterface -Device 123 -Name "Ethernet0" -Type "1000base-t" -Enabled $true
+```
+Adds an enabled 1Gb interface named "Ethernet0" to device ID 123.
 
-{{ Add example description here }}
+### Example 2: Create an interface with VLANs and MTU
+
+```powershell
+Add-NbxDCIMInterface -Device 123 -Name "vlan10" -Type "virtual" -Description "Customer VLAN" -Mode "Tagged" -Tagged_VLANs 10,20 -MTU 1500
+```
+Creates a virtual interface configured for tagged VLANs 10 and 20 with an MTU of 1500.
 
 ## PARAMETERS
 
@@ -327,11 +334,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A PSCustomObject representing the created interface returned by the NetBox API (JSON converted to an object).
 
 ## NOTES
 
@@ -340,5 +349,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

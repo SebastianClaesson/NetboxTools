@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> <Run the cmdlet with appropriate parameters>
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -64,5 +64,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

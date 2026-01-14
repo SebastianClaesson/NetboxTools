@@ -32,8 +32,7 @@ Connect-NbxAPI -Hostname <string> [-Scheme <string>] [-Port <ushort>] [<CommonPa
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -185,5 +184,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

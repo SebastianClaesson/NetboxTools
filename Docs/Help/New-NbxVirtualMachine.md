@@ -41,7 +41,7 @@ Specifies the in the parameter.
 
 PS C:\> {{ Add example code here }}
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 

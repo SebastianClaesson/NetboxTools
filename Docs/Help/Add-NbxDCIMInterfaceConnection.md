@@ -26,8 +26,7 @@ Add-NbxDCIMInterfaceConnection [[-Connection_Status] <Object>] [-Interface_A] <u
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -117,7 +116,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+Detailed description of the cmdlet's behavior. Update this with function-specific details.
 
 ## NOTES
 
@@ -126,5 +125,5 @@ Additional information about the function.
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

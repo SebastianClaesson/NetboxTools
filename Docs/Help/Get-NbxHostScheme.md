@@ -13,7 +13,7 @@ title: Get-NbxHostScheme
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -26,7 +26,7 @@ Get-NbxHostScheme [<CommonParameters>]
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -36,7 +36,7 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> <Run the cmdlet with appropriate parameters>
 
 {{ Add example description here }}
 
@@ -55,7 +55,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Object
 
-{{ Fill in the Description }}
+Detailed description of the cmdlet's behavior. Update this with function-specific details.
 
 ## NOTES
 
@@ -64,5 +64,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

@@ -279,5 +279,5 @@ Additional information about the function.
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

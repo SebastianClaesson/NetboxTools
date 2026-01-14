@@ -13,7 +13,7 @@ title: Add-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Creates a new front port on a NetBox device by calling the NetBox DCIM API.
 
 ## SYNTAX
 
@@ -27,20 +27,27 @@ Add-NbxDCIMFrontPort [-Device] <ulong> [-Name] <string> [-Type] <string> [-Rear_
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Use this cmdlet to create a front port on a device in NetBox. The cmdlet collects the provided parameters into a JSON body and posts it to the NetBox DCIM front-ports API endpoint. Required parameters: `-Device`, `-Name`, `-Type`, and `-Rear_Port`.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: Create a basic front port
 
-PS C:\> {{ Add example code here }}
+```powershell
+Add-NbxDCIMFrontPort -Device 123 -Name "1/1" -Type "fiber" -Rear_Port 456
+```
+Creates a front port named "1/1" of type "fiber" on device ID 123 and links it to rear port ID 456.
 
-{{ Add example description here }}
+### Example 2: Create a front port with metadata
+
+```powershell
+Add-NbxDCIMFrontPort -Device 123 -Name "1/2" -Type "electrical" -Rear_Port 457 -Label "Port A" -Color "ff0000" -Rear_Port_Position 1 -Description "Link to patch panel" -Mark_Connected $true -Tags 10,20
+```
+Creates a front port with label, color, position, description, connection mark and tags.
 
 ## PARAMETERS
 
@@ -284,11 +291,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Management.Automation.PSObject
 
-{{ Fill in the Description }}
+A PSCustomObject representing the created front port as returned by the NetBox API (JSON converted to an object).
 
 ## NOTES
 
@@ -297,5 +306,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

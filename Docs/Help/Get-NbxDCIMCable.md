@@ -13,7 +13,7 @@ title: Get-NbxDCIMCable
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+A brief description of the cmdlet's purpose; update this with implementation-specific details.
 
 ## SYNTAX
 
@@ -26,7 +26,7 @@ Get-NbxDCIMCable [[-Id] <ulong[]>] [<CommonParameters>]
 ## ALIASES
 
 This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -38,7 +38,7 @@ Specifies the in the parameter.
 
 PS C:\> {{ Add example code here }}
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -74,17 +74,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.UInt64
 
-{{ Fill in the Description }}
+None. This cmdlet does not accept pipeline input.
 
 ### System.UInt64[]
 
-{{ Fill in the Description }}
+None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
 
-{{ Fill in the Description }}
+Objects returned by the cmdlet (typically API response objects).
 
 ## NOTES
 
@@ -93,5 +93,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

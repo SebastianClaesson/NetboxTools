@@ -38,7 +38,7 @@ Specifies the in the parameter.
 
 PS C:\> {{ Add example code here }}
 
-{{ Add example description here }}
+A short example description.
 
 ## PARAMETERS
 
@@ -85,5 +85,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

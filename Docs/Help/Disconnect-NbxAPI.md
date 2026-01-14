@@ -25,8 +25,7 @@ Disconnect-NbxAPI [<CommonParameters>]
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
+This cmdlet has no aliases.
 
 ## DESCRIPTION
 
@@ -61,5 +60,5 @@ Running this cmdlet does not communicate with the Netbox API; it only clears the
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

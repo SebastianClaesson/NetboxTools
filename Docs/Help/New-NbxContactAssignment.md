@@ -237,5 +237,5 @@ Valid content types: https://docs.Nbx.dev/en/stable/features/contacts/#contacts_
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+ 
 

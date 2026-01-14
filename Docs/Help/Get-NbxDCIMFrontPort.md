@@ -23,11 +23,6 @@ Retrieves front port objects from NetBox (ports exposed on device front panels).
 Get-NbxDCIMFrontPort [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets front port records for DCIM devices in NetBox. Use `-Id` to retrieve specific front ports or omit to list all.
@@ -63,11 +58,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -26,10 +26,6 @@ Add-NbxDCIMInterface [-Device] <ulong> [-Name] <string> [[-Type] <string>] [[-En
  [[-Tagged_VLANs] <ushort[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Use this cmdlet to add a network interface to a device in NetBox. The cmdlet constructs a JSON body from the provided parameters and posts it to the NetBox DCIM interfaces endpoint. Required parameters are `-Device` and `-Name`. The `-Type` parameter defaults to `virtual`; use `-Mode` with VLAN parameters to set access or tagged VLAN behavior.
@@ -344,10 +340,4 @@ A PSCustomObject representing the created interface returned by the NetBox API (
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

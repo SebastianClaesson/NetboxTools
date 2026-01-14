@@ -23,11 +23,6 @@ Retrieves rear port records for DCIM devices from NetBox.
 Get-NbxDCIMRearPort [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more rear port objects. Use `-Id` to select specific rear ports or omit to list all rear ports for devices.
@@ -63,11 +58,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

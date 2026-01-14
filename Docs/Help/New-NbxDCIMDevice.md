@@ -28,11 +28,6 @@ New-NbxDCIMDevice [-Name] <string> [-Device_Role] <Object> [-Device_Type] <Objec
  [[-Custom_Fields] <hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -533,7 +528,4 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 
 ## RELATED LINKS
-
- 
-
 

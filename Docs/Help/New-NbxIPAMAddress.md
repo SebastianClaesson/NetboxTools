@@ -26,11 +26,6 @@ New-NbxIPAMAddress [-Address] <string> [[-Status] <Object>] [[-Tenant] <ulong>] 
  [[-Assigned_Object_Id] <ulong>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Create a new IP address to Netbox with a status of Active by default.
@@ -387,10 +382,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

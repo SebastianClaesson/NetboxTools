@@ -23,10 +23,6 @@ Retrieves circuit type resources from NetBox (for example, types of circuits suc
 Get-NbxCircuitType [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more circuit type objects from a NetBox instance. Use `-Id` to return specific types by NetBox database ID; if `-Id` is omitted the cmdlet returns all circuit types. Update this description with any additional filtering or endpoint details as needed.
@@ -81,11 +77,5 @@ Objects representing NetBox circuit type records. Typical properties include `id
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

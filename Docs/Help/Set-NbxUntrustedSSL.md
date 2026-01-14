@@ -23,11 +23,6 @@ Controls whether SSL certificate validation is enforced for NetBox connections.
 Set-NbxUntrustedSSL
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

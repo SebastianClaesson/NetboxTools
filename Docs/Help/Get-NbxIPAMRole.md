@@ -23,11 +23,6 @@ Get IPAM Prefix/VLAN roles
 Get-NbxIPAMRole [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 A role indicates the function of a prefix or VLAN.
@@ -83,10 +78,5 @@ Objects representing IPAM role records (properties: `id`, `name`, `slug`, `descr
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

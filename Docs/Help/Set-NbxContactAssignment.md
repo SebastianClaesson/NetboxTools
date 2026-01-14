@@ -25,11 +25,6 @@ Set-NbxContactAssignment [-Id] <ulong[]> [[-Content_Type] <string>] [[-Object_Id
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Updates a contact role assignment in Netbox

@@ -23,11 +23,6 @@ Updates a host port record in NetBox.
 Set-NbxHostPort [-Port] <ushort> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

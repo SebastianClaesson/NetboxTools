@@ -23,11 +23,6 @@ Retrieves device type definitions from NetBox (e.g., server models, chassis type
 Get-NbxDCIMDeviceType [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more device type objects from NetBox. Use `-Id` to request specific device types by database ID; omit `-Id` to list all device types.
@@ -61,11 +56,5 @@ Objects representing device type records (properties may include `id`, `model`, 
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

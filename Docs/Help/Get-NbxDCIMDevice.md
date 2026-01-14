@@ -23,11 +23,6 @@ Retrieves DCIM device objects from NetBox.
 Get-NbxDCIMDevice [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -82,10 +77,4 @@ Objects representing DCIM device records (common properties: `id`, `name`, `devi
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

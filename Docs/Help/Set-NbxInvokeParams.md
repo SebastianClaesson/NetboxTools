@@ -23,11 +23,6 @@ Configures invocation parameters for NetBox API calls used by the module.
 Set-NbxInvokeParams [-InvokeParams] <array> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

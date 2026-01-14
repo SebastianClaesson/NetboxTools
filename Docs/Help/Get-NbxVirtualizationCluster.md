@@ -23,11 +23,6 @@ Obtains virtualization clusters from Netbox.
 Get-NbxVirtualizationCluster [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Obtains one or more virtualization clusters based on provided filters.
@@ -75,10 +70,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

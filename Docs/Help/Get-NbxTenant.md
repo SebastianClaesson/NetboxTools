@@ -23,11 +23,6 @@ Retrieves tenant records from NetBox.
 Get-NbxTenant [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more tenant objects from NetBox. Use `-Id` to select specific tenants by ID; omit `-Id` to list all tenants.
@@ -83,10 +78,5 @@ Objects representing tenant records (properties include `id`, `name`, `slug`, `d
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

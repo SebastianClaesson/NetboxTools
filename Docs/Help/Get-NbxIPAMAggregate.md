@@ -23,11 +23,6 @@ Retrieves aggregate prefixes (supernets) from NetBox.
 Get-NbxIPAMAggregate [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets aggregate (supernet) entries from IPAM in NetBox. Use `-Id` to select specific aggregates or omit to list all.
@@ -82,10 +77,4 @@ Objects representing aggregate prefix records (properties include `id`, `prefix`
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

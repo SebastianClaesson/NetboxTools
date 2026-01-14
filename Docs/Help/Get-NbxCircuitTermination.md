@@ -23,10 +23,6 @@ Retrieves circuit termination objects from NetBox.
 Get-NbxCircuitTermination [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more circuit termination records (attachment points for circuits). Use `-Id` to limit results to specific terminations by NetBox ID.
@@ -81,10 +77,4 @@ None. This cmdlet does not accept pipeline input.
 Objects returned by the cmdlet (typically API response objects).
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

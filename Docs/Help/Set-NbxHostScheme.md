@@ -23,11 +23,6 @@ Sets the URL scheme (http/https) for NetBox host configuration.
 Set-NbxHostScheme [[-Scheme] <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

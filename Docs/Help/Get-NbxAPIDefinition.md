@@ -23,10 +23,6 @@ Retrieves the API definition from the NetBox instance (OpenAPI/Swagger format).
 Get-NbxAPIDefinition [[-Format] <string>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets the NetBox API definition (for example, OpenAPI/Swagger JSON or YAML). Use `-Format` to request a specific format if supported by the API.
@@ -81,10 +77,4 @@ The API definition as a string (JSON or YAML) depending on the requested format.
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

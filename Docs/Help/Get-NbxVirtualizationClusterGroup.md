@@ -23,11 +23,6 @@ Retrieves virtualization cluster group records from NetBox.
 Get-NbxVirtualizationClusterGroup [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -80,11 +75,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

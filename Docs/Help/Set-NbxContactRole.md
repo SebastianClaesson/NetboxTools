@@ -24,11 +24,6 @@ Set-NbxContactRole [-Id] <ulong[]> [[-Name] <string>] [[-Slug] <string>] [[-Desc
  [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Updates a contact role in Netbox

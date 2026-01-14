@@ -30,10 +30,6 @@ Connect-NbxAPI -Hostname <string> -Token <string> [-Scheme <string>] [-Port <ush
 Connect-NbxAPI -Hostname <string> [-Scheme <string>] [-Port <ushort>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Connect to the Netbox API using an API Token.
@@ -183,6 +179,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
-
- 
-

@@ -23,11 +23,6 @@ Get a contact from Netbox
 Get-NbxContact [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Obtain a contact or contacts from Netbox by ID or query
@@ -75,10 +70,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

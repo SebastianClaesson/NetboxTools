@@ -23,11 +23,6 @@ Retrieves IPAM prefixes from NetBox (network prefixes such as 192.0.2.0/24).
 Get-NbxIPAMPrefix [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more IPAM prefix objects from NetBox. Use `-Id` to select by database ID, or use other filters when available to locate prefixes.
@@ -83,10 +78,5 @@ Objects representing IPAM prefixes (properties include `id`, `prefix`, `status`,
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -23,11 +23,6 @@ Configures the default API timeout used by the module.
 Set-NbxTimeout [[-TimeoutSeconds] <ushort>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

@@ -26,11 +26,6 @@ New-NbxIPAMAddressRange [-Start_Address] <string> [-End_Address] <string> [[-Sta
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Create a new IP address range to Netbox with a status of Active by default.
@@ -369,7 +364,4 @@ https://Nbx.neonet.org/static/docs/models/ipam/iprange/
 
 
 ## RELATED LINKS
-
- 
-
 

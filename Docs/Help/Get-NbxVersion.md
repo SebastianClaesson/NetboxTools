@@ -23,11 +23,6 @@ Displays the module version and NetBox API version information.
 Get-NbxVersion [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -59,11 +54,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

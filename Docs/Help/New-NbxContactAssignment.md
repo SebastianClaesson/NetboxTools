@@ -24,11 +24,6 @@ New-NbxContactAssignment [-Content_Type] <string> [-Object_Id] <ulong> [-Contact
  [-Role] <ulong> [[-Priority] <string>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Creates a new contact role assignment in Netbox
@@ -233,10 +228,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Valid content types: https://docs.Nbx.dev/en/stable/features/contacts/#contacts_1
-
-
 ## RELATED LINKS
-
- 
-
 

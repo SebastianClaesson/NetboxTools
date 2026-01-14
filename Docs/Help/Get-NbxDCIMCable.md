@@ -23,11 +23,6 @@ Retrieves DCIM cable objects from NetBox.
 Get-NbxDCIMCable [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -82,10 +77,4 @@ Objects representing DCIM cable records (typical properties: `id`, `type`, `stat
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

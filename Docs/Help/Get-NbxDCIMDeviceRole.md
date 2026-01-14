@@ -23,11 +23,6 @@ Retrieves device roles from NetBox (e.g., 'server', 'switch').
 Get-NbxDCIMDeviceRole [-Id <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets device role objects from NetBox. Use `-Id` to select specific roles by database ID.
@@ -80,11 +75,5 @@ Objects representing device role records (properties include `id`, `name`, `slug
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

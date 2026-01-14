@@ -24,10 +24,6 @@ Add-NbxDCIMInterfaceConnection [[-Connection_Status] <Object>] [-Interface_A] <u
  [-Interface_B] <ulong> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Create a new connection between two interfaces
@@ -121,9 +117,4 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-

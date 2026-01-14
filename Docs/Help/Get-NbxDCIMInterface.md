@@ -23,11 +23,6 @@ Retrieves DCIM interface objects (device interfaces) from NetBox.
 Get-NbxDCIMInterface [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more DCIM interface records. Use `-Id` to specify particular interfaces; omit to list interfaces across devices.
@@ -61,11 +56,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -29,11 +29,6 @@ Set-NbxDCIMDevice [-Id] <ulong[]> [[-Name] <string>] [[-Device_Role] <Object>]
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

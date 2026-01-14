@@ -25,11 +25,6 @@ New-NbxContact [-Name] <string> [-Email] <string> [[-Title] <string>] [[-Phone] 
  [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Creates a new contact object in Netbox which can be linked to other objects
@@ -319,10 +314,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -25,11 +25,6 @@ New-NbxIPAMPrefix [-Prefix] <string> [[-Status] <Object>] [[-Tenant] <ulong>] [[
  [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Adds a prefix record (e.g., 192.0.2.0/24) to NetBox with optional site, role, and tenant parameters.
@@ -337,11 +332,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

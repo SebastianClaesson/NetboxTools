@@ -26,11 +26,6 @@ Set-NbxContact [-Id] <ulong[]> [[-Name] <string>] [[-Email] <string>] [[-Group] 
  [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Updates a contact object in Netbox which can be linked to other objects

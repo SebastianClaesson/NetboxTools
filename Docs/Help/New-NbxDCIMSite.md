@@ -27,11 +27,6 @@ New-NbxDCIMSite [-Name] <string> [[-Slug] <string>] [[-Facility] <string>] [[-AS
  [[-Comments] <string>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Create a new Site to Netbox
@@ -444,7 +439,4 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 ## RELATED LINKS
-
- 
-
 

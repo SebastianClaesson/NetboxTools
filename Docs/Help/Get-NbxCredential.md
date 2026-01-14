@@ -23,11 +23,6 @@ Retrieves stored credentials or credential metadata used by NetBox integrations.
 Get-NbxCredential [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Returns credential objects or PSCredential entries associated with NetBox. Use this cmdlet to inspect configured credentials for use with other NetBox operations.
@@ -59,11 +54,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

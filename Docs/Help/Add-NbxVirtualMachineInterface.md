@@ -24,10 +24,6 @@ Add-NbxVirtualMachineInterface [-Name] <string> [-Virtual_Machine] <ulong> [[-En
  [[-MAC_Address] <string>] [[-MTU] <ushort>] [[-Description] <string>] [-Raw] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Creates a virtual machine interface associated with a specified virtual machine. You can set properties such as `Name`, `MAC_Address`, `MTU`, and `Enabled`.
@@ -212,10 +208,4 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

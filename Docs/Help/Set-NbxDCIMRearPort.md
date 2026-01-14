@@ -26,11 +26,6 @@ Set-NbxDCIMRearPort [-Id] <ulong[]> [[-Device] <ulong>] [[-Module] <ulong>] [[-N
  [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

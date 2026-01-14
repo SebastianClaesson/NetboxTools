@@ -23,11 +23,6 @@ Delete a virtual machine
 Remove-NbxVirtualMachine [-Id] <ulong[]> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Deletes a virtual machine from Netbox by ID

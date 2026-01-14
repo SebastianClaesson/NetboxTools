@@ -23,10 +23,6 @@ Disconnects from the Netbox API and clears the stored connection configuration
 Disconnect-NbxAPI [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Disconnects from the currently configured Netbox API by clearing the module-level connection configuration (`$script:NbxConfig`).
@@ -56,9 +52,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 Running this cmdlet does not communicate with the Netbox API; it only clears the locally stored configuration and authentication token.
-
-
 ## RELATED LINKS
-
- 
-

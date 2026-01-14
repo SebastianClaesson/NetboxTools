@@ -23,11 +23,6 @@ Retrieves platform records from NetBox (platforms associated with device types).
 Get-NbxDCIMPlatform [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets platform objects (e.g., OS/platform metadata) from NetBox. Use `-Id` to target specific entries.
@@ -80,11 +75,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

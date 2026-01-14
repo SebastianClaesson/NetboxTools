@@ -23,11 +23,6 @@ Retrieves VLAN records from NetBox's IPAM component.
 Get-NbxIPAMVLAN [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more VLAN objects. Use `-Id` to return specific VLANs or omit to list all.
@@ -80,11 +75,5 @@ Objects representing VLAN records (properties include `id`, `vid`, `name`, `stat
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -25,11 +25,6 @@ Set-NbxDCIMInterfaceConnection [-Id] <ulong[]> [[-Connection_Status] <Object>]
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Update an interface connection

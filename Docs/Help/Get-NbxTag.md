@@ -23,11 +23,6 @@ Retrieves tag records used for categorizing NetBox objects.
 Get-NbxTag [[-Id] <ulong>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets tag objects from NetBox. Use `-Id` to select specific tags or omit to list all tags.
@@ -84,11 +79,5 @@ Objects representing tag records (`id`, `name`, `slug`).
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

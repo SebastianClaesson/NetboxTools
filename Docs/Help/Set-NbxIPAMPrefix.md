@@ -26,11 +26,6 @@ Set-NbxIPAMPrefix [-Id] <ulong[]> [[-Prefix] <string>] [[-Status] <string>] [[-T
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

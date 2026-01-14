@@ -23,10 +23,6 @@ Retrieves circuit provider records from NetBox.
 Get-NbxCircuitProvider [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more circuit provider objects from NetBox. Use `-Id` to request specific providers by NetBox database ID; omit `-Id` to return all providers.
@@ -81,10 +77,4 @@ Objects representing circuit provider records (properties include `id`, `name`, 
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

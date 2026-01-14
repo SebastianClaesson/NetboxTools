@@ -26,11 +26,6 @@ Set-NbxIPAMAddress [-Id] <ulong[]> [[-Address] <string>] [[-Status] <string>] [[
  [[-Dns_name] <string>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

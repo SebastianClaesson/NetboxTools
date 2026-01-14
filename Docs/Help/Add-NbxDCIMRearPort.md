@@ -24,11 +24,6 @@ Add-NbxDCIMRearPort [-Device] <ulong> [-Name] <string> [-Type] <string> [[-Modul
  [[-Label] <string>] [[-Color] <string>] [[-Positions] <ushort>] [[-Description] <string>]
  [[-Mark_Connected] <bool>] [[-Tags] <ushort[]>] [<CommonParameters>]
 ```
-
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Creates a rear port attached to the specified device in NetBox using the provided properties (Name, Type, Label, Color, Positions, etc.). Use `-Device` to specify the parent device by NetBox ID.
@@ -272,10 +267,4 @@ Objects representing the newly created rear port record. Typical properties incl
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

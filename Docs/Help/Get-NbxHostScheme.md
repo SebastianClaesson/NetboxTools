@@ -23,11 +23,6 @@ Retrieves host scheme definitions from NetBox (URI/host naming schemes, etc.).
 Get-NbxHostScheme [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets host scheme objects from NetBox. Use `-Id` to request specific schemes.
@@ -59,11 +54,5 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

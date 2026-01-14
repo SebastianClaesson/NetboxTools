@@ -25,11 +25,6 @@ New-NbxIPAMVLAN [-VID] <ushort> [-Name] <string> [[-Status] <Object>] [[-Tenant]
  [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Create a new VLAN in Netbox with a status of Active by default.
@@ -275,10 +270,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

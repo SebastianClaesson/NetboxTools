@@ -23,10 +23,6 @@ Get a contact Assignment from Netbox
 Get-NbxContactAssignment [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Retrieves one or more contact assignment objects from NetBox. Use -Id to specify database IDs to return specific assignments.
@@ -82,9 +78,4 @@ Objects representing contact assignment records returned by the cmdlet.
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-

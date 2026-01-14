@@ -23,11 +23,6 @@ Retrieves hostname configuration or host records related to NetBox-managed devic
 Get-NbxHostname [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Returns hostname entries or host records associated with devices. Use filters or `-Id` where supported to narrow results.
@@ -59,11 +54,5 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

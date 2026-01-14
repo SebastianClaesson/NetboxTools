@@ -23,11 +23,6 @@ Remove a Site
 Remove-NbxDCIMSite [-Id] <uint> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Remove a DCIM Site from Netbox
@@ -131,7 +126,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 ## RELATED LINKS
-
-
 
 

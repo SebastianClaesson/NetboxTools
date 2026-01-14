@@ -23,11 +23,6 @@ Removes an interface
 Remove-NbxDCIMInterface [-Id] <ulong[]> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Removes an interface by ID from a device

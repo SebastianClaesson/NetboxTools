@@ -23,11 +23,6 @@ Retrieves DCIM cable termination objects (a/b endpoints) from NetBox.
 Get-NbxDCIMCableTermination [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.
@@ -82,10 +77,4 @@ Objects representing cable termination records (typical properties: `id`, `objec
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

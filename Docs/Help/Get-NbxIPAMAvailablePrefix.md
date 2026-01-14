@@ -23,11 +23,6 @@ A convenience method for returning available range within a prefix
 Get-NbxIPAMAvailablePrefix [-Prefix_ID] <ulong> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 By default, the number of IPs returned will be equivalent to PAGINATE_COUNT.
@@ -88,10 +83,5 @@ A collection of candidate available prefix objects or ranges within the specifie
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

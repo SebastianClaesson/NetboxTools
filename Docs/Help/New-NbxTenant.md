@@ -24,11 +24,6 @@ New-NbxTenant [-Name] <string> [-Slug] <string> [[-Description] <string>]
  [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Creates a new tenant object in Netbox
@@ -213,10 +208,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

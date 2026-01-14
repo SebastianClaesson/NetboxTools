@@ -23,11 +23,6 @@ Removes an interface connection between two interfaces in NetBox.
 Remove-NbxDCIMInterfaceConnection [-Id] <ulong[]> [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

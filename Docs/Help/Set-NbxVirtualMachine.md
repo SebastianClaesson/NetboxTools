@@ -26,11 +26,6 @@ Set-NbxVirtualMachine [-Id] <ulong> [[-Name] <string>] [[-Role] <ulong>] [[-Clus
  [[-Custom_Fields] <hashtable>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

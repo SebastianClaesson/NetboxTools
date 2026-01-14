@@ -23,11 +23,6 @@ Retrieves IPAM address records from NetBox (individual IP addresses).
 Get-NbxIPAMAddress [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets IP address objects from the IPAM area of NetBox. Use `-Id` or appropriate filters to narrow results.
@@ -80,10 +75,4 @@ Detailed description of the cmdlet's behavior. Update this with function-specifi
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

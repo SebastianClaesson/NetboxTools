@@ -27,11 +27,6 @@ Set-NbxDCIMInterface [-Id] <ulong[]> [[-Device] <ulong>] [[-Name] <string>] [[-E
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

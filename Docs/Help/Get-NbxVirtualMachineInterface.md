@@ -23,11 +23,6 @@ Gets VM interfaces
 Get-NbxVirtualMachineInterface [[-Id] <ulong>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Obtains the interface objects for one or more VMs
@@ -79,10 +74,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

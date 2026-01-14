@@ -23,11 +23,6 @@ Updates the stored hostname for a NetBox host record.
 Set-NbxHostName [-Hostname] <string> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

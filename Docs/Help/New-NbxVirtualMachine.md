@@ -26,11 +26,6 @@ New-NbxVirtualMachine [-Name] <string> [-Site] <ulong> [[-Cluster] <ulong>] [[-T
  [[-Custom_Fields] <hashtable>] [[-Comments] <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

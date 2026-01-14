@@ -23,11 +23,6 @@ A convenience method for returning available IP addresses within a prefix
 Get-NbxIPAMAvailableIP [-Prefix_ID] <ulong> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 A convenience method for returning available IP addresses within a prefix
@@ -84,10 +79,5 @@ A textual representation of available IP address(es) (e.g., '192.0.2.1') or obje
 ## NOTES
 
 Additional information about the function.
-
-
 ## RELATED LINKS
-
- 
-
 

@@ -26,11 +26,6 @@ Set-NbxDCIMFrontPort [-Id] <ulong[]> [[-Device] <ushort>] [[-Module] <ushort>] [
  [[-Tags] <ulong[]>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

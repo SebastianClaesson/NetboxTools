@@ -26,11 +26,6 @@ Set-NbxIPAMAddressRange [-Id] <ulong[]> [[-Start_Address] <string>] [[-End_Addre
  [[-Tags] <Object[]>] [-Mark_Utilized] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Specifies the in the parameter.

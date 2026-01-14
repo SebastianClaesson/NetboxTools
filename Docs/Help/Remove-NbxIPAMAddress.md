@@ -23,11 +23,6 @@ Remove an IP address from Netbox
 Remove-NbxIPAMAddress [-Id] <ulong[]> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Removes/deletes an IP address from Netbox by ID and optional other filters

@@ -23,11 +23,6 @@ Retrieves configured timeout values used by the module or API client.
 Get-NbxTimeout [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Returns current timeout settings or default timeout values used by the module for API requests. Use this to inspect or document timeouts.
@@ -61,11 +56,5 @@ Timeout value(s) in seconds (may return a single value or a set of named timeout
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

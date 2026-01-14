@@ -23,11 +23,6 @@ Retrieves IPAM address range objects from NetBox (contiguous address ranges with
 Get-NbxIPAMAddressRange [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Gets one or more IPAM address range records from NetBox. Use `-Id` to return specific ranges by NetBox database ID; omit `-Id` to list all ranges.
@@ -82,11 +77,5 @@ Objects representing address range records (properties include `id`, `start_addr
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-
 

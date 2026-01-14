@@ -25,10 +25,6 @@ Add-NbxDCIMFrontPort [-Device] <ulong> [-Name] <string> [-Type] <string> [-Rear_
  [[-Description] <string>] [[-Mark_Connected] <bool>] [[-Tags] <ushort[]>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has no aliases.
-
 ## DESCRIPTION
 
 Use this cmdlet to create a front port on a device in NetBox. The cmdlet collects the provided parameters into a JSON body and posts it to the NetBox DCIM front-ports API endpoint. Required parameters: `-Device`, `-Name`, `-Type`, and `-Rear_Port`.
@@ -301,10 +297,4 @@ A PSCustomObject representing the created front port as returned by the NetBox A
 
 ## NOTES
 
-
-
-
 ## RELATED LINKS
-
- 
-

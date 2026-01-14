@@ -76,6 +76,8 @@ function InvokeNbxRestMethod {
         $InvokeSplat.Add('StatusCodeVariable', 'ResponseStatusCode')
     }
 
+    Write-Verbose "Invoking endpoint '$($InvokeSplat.Uri)' with method '$($InvokeSplat.Method)'"
+
     if ($OutFile) {
         Write-Debug "$Method $Uri"
         Invoke-RestMethod @InvokeSplat -OutFile $OutFile
@@ -87,7 +89,7 @@ function InvokeNbxRestMethod {
             @{ Content = $Result; Headers = $ResponseHeaders; StatusCode = $ResponseStatusCode }
         }
         else {
-            $Result.Resluts
+            $Result.Results
         }
     }
 }

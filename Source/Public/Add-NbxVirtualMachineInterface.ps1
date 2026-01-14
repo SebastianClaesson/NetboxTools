@@ -28,7 +28,7 @@ function Add-NbxVirtualMachineInterface {
         Description     = $Description
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/" -Method POST -Body $Json
 

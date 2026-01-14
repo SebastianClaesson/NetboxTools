@@ -42,7 +42,7 @@ function New-NbxIPAMPrefix {
         Custom_Fields= $Custom_Fields
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method POST -Body $Json
 

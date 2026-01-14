@@ -105,7 +105,7 @@ function New-NbxIPAMAddress {
         assigned_object_id   = $Assigned_Object_Id
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/" -Method POST -Body $Json
 

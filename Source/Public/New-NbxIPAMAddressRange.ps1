@@ -99,7 +99,7 @@ function New-NbxIPAMAddressRange {
         mark_utilized  = $Mark_Utilized.IsPresent
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/" -Method POST -Body $Json
 

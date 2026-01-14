@@ -53,7 +53,7 @@ function Add-NbxDCIMInterface {
         Tagged_VLANs  = $Tagged_VLANs
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/interfaces/" -Method POST -Body $Json
 

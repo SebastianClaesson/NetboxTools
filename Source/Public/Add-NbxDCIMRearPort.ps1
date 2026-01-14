@@ -42,7 +42,7 @@ function Add-NbxDCIMRearPort {
         tags           = $Tag
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/rear-ports/" -Method POST -Body $Json
 

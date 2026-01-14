@@ -44,7 +44,7 @@ function Set-NbxIPAMPrefix {
         Is_Pool       = $Is_Pool
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/" -Method PATCH -Body $Json
     

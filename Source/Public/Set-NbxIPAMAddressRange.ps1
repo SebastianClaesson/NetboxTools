@@ -45,7 +45,7 @@ function Set-NbxIPAMAddressRange {
         Mark_Utilized  = $Mark_Utilized
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/$($_)/" -Method PATCH -Body $Json
 

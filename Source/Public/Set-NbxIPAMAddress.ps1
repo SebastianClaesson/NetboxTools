@@ -54,7 +54,7 @@ function Set-NbxIPAMAddress {
             Dns_name             = $Dns_name
         }
 
-        $Json = $Body | ConvertTo-Json -Depth 100
+        $Json = $Body | ConvertTo-Json -Compress
 
         InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/$($_)/" -Method PATCH -Body $Json
     }

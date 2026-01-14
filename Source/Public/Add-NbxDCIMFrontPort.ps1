@@ -46,7 +46,7 @@ function Add-NbxDCIMFrontPort {
         tags               = $Tags
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/front-ports/" -Method POST -Body $Json
 

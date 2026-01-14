@@ -75,7 +75,7 @@ function New-NbxIPAMVLAN {
         custom_fields = $Custom_Fields
     }
 
-    $Json = $Body | ConvertTo-Json -Depth 100
+    $Json = $Body | ConvertTo-Json -Compress
 
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/" -Method POST -Body $Json
 

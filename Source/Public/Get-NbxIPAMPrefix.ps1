@@ -36,7 +36,7 @@ function Get-NbxIPAMPrefix {
         'Query' {
             if ($PSBoundParameters.ContainsKey('Contains')) {
                 $Id | ForEach-Object {
-                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&limit=9999" -Method GET
+                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&limit=9999/" -Method GET
                 }
             }
             else {

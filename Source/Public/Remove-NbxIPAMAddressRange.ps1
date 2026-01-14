@@ -29,7 +29,7 @@ function Remove-NbxIPAMAddressRange {
 
 
     $Id | ForEach-Object {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/$($_)" -Method DELETE
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/$($_)/" -Method DELETE
     }
     
 }

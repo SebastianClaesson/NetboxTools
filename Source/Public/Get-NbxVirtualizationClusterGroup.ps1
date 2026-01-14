@@ -9,7 +9,7 @@ function Get-NbxVirtualizationClusterGroup {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting virtualization cluster group with ID: $($_) at $($script:NbxConfig.URI)/virtualization/cluster-groups/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/$($_)/" -Method GET
         }
     }
     else {

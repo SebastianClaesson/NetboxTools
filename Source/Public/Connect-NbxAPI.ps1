@@ -70,7 +70,8 @@ function Connect-NbxAPI {
 
             if (-not $PSBoundParameters.ContainsKey('SkipVerification')) {
                 # Get User context
-                $Me = InvokeNbxRestMethod -Method GET -Token $script:NbxConfig.Token -Uri "$($script:NbxConfig.URI)/users/config/"
+                # Using Full Reponse switch as Results is a property not returned by the endpoint
+                $Me = InvokeNbxRestMethod -Method GET -Token $script:NbxConfig.Token -Uri "$($script:NbxConfig.URI)/users/config/" -FullResponse
 
                 if ($Me) {
                     Write-Verbose "Connected to Netbox"

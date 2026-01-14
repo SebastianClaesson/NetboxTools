@@ -13,7 +13,7 @@ title: Set-NbxVirtualMachine
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates a virtual machine record in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxVirtualMachine -ID 10 -Name 'vm1'
 
-A short example description.
+Renames VM ID 10 to 'vm1'.
 
 ## PARAMETERS
 

@@ -108,7 +108,7 @@ HelpMessage: ''
 
 ### -Id
 
-{{ Fill Id Description }}
+Identifier of the contact assignment to update.
 
 ```yaml
 Type: System.UInt64[]

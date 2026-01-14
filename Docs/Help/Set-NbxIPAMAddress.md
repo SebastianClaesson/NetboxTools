@@ -13,7 +13,7 @@ title: Set-NbxIPAMAddress
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates properties of an existing IPAM address record in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxIPAMAddress -ID 321 -Description 'Reserved'
 
-A short example description.
+Sets the description for address ID 321.
 
 ## PARAMETERS
 

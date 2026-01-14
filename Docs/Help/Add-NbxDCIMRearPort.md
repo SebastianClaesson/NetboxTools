@@ -13,7 +13,7 @@ title: Add-NbxDCIMRearPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Adds a rear port to a DCIM device in NetBox.
 
 ## SYNTAX
 
@@ -31,15 +31,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Detailed description of the cmdlet's behavior. Update this with function-specific details.
+Creates a rear port attached to the specified device in NetBox using the provided properties (Name, Type, Label, Color, Positions, etc.). Use `-Device` to specify the parent device by NetBox ID.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Add-NbxDCIMRearPort -Device 123 -Name 'Rear-1' -Type 'LC' -Positions 24 -Label 'R1'
 
-A short example description.
+Adds a rear port named 'Rear-1' of type 'LC' with 24 positions to device with ID 123.
 
 ## PARAMETERS
 
@@ -262,11 +262,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
-### System.Management.Automation.PSObject
+### System.Object
 
-Detailed description of the cmdlet's behavior. Update this with function-specific details.
+Objects representing the newly created rear port record. Typical properties include `id`, `name`, `type`, `positions`, and `label`.
 
 ## NOTES
 

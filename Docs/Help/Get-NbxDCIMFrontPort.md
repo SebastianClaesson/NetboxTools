@@ -13,7 +13,7 @@ title: Get-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves front port objects from NetBox (ports exposed on device front panels).
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets front port records for DCIM devices in NetBox. Use `-Id` to retrieve specific front ports or omit to list all.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMFrontPort -Device 1
 
-A short example description.
+Returns front ports for device ID 1.
 
 ## PARAMETERS
 

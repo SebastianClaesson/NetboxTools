@@ -38,9 +38,9 @@ An arbitrary limit
 
 ### EXAMPLE 1
 
-Get-NbxIPAMAvailableIP -Prefix_ID (Get-NbxIPAMPrefix -Prefix 192.0.2.0/24).id
+PS C:\> Get-NbxIPAMAvailablePrefix -Prefix_ID (Get-NbxIPAMPrefix -Prefix 192.0.2.0/24).id
 
-Get (Next) Available IP on the Prefix 192.0.2.0/24
+Returns available prefix ranges or candidate sub-prefixes for the specified prefix.
 
 ## PARAMETERS
 
@@ -77,9 +77,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.UInt64
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Prefix identifier passed to the cmdlet.
 
 ## OUTPUTS
+
+System.Object
+
+A collection of candidate available prefix objects or ranges within the specified prefix.
 
 ## NOTES
 

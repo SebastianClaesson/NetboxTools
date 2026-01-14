@@ -13,7 +13,7 @@ title: Get-NbxDCIMDevice
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves DCIM device objects from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMDevice -Id 10
 
-A short example description.
+Returns the DCIM device with ID 10.
 
 ## PARAMETERS
 
@@ -72,19 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### System.UInt64
-
-None. This cmdlet does not accept pipeline input.
-
-### System.UInt64[]
-
 None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
 
-Objects returned by the cmdlet (typically API response objects).
+Objects representing DCIM device records (common properties: `id`, `name`, `device_role`, `device_type`, `site`).
 
 ## NOTES
 

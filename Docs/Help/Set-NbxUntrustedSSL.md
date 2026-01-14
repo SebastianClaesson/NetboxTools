@@ -13,7 +13,7 @@ title: Set-NbxUntrustedSSL
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Controls whether SSL certificate validation is enforced for NetBox connections.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxUntrustedSSL -State $true
 
-A short example description.
+Allows connections to NetBox with untrusted SSL certificates.
 
 ## PARAMETERS
 

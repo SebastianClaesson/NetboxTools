@@ -13,7 +13,7 @@ title: Set-NbxHostPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates a host port record in NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxHostPort -Port 8080
 
-A short example description.
+Sets the NetBox host port to 8080.
 
 ## PARAMETERS
 

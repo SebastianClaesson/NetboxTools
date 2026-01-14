@@ -13,7 +13,7 @@ title: Get-NbxIPAMAggregate
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves aggregate prefixes (supernets) from NetBox.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets aggregate (supernet) entries from IPAM in NetBox. Use `-Id` to select specific aggregates or omit to list all.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxIPAMAggregate -Id 5
 
-A short example description.
+Returns the aggregate prefix with ID 5.
 
 ## PARAMETERS
 
@@ -72,11 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Object
 
-Detailed description of the cmdlet's behavior. Update this with function-specific details.
+Objects representing aggregate prefix records (properties include `id`, `prefix`, `rir_name`, `date_added`).
 
 ## NOTES
 

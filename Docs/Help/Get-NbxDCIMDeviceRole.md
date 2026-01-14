@@ -13,7 +13,7 @@ title: Get-NbxDCIMDeviceRole
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves device roles from NetBox (e.g., 'server', 'switch').
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets device role objects from NetBox. Use `-Id` to select specific roles by database ID.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMDeviceRole -Id 5
 
-A short example description.
+Returns the device role with ID 5.
 
 ## PARAMETERS
 
@@ -76,7 +76,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Object
 
-Detailed description of the cmdlet's behavior. Update this with function-specific details.
+Objects representing device role records (properties include `id`, `name`, `slug`, and `description`).
 
 ## NOTES
 

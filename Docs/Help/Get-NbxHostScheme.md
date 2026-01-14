@@ -13,7 +13,7 @@ title: Get-NbxHostScheme
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves host scheme definitions from NetBox (URI/host naming schemes, etc.).
 
 ## SYNTAX
 
@@ -30,7 +30,7 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets host scheme objects from NetBox. Use `-Id` to request specific schemes.
 
 ## EXAMPLES
 

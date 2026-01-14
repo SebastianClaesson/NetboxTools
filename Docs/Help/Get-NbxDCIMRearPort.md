@@ -13,7 +13,7 @@ title: Get-NbxDCIMRearPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves rear port records for DCIM devices from NetBox.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more rear port objects. Use `-Id` to select specific rear ports or omit to list all rear ports for devices.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxDCIMRearPort -Id 22
 
-A short example description.
+Returns the rear port with ID 22.
 
 ## PARAMETERS
 

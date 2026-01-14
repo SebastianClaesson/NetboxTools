@@ -13,7 +13,7 @@ title: New-NbxDCIMDevice
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Creates a new DCIM device record in NetBox.
 
 ## SYNTAX
 
@@ -41,9 +41,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> New-NbxDCIMDevice -Name 'sw01' -Device_Type 3 -Device_Role 2 -Site 1
 
-A short example description.
+Creates device 'sw01' with the specified type and role on site 1.
 
 ## PARAMETERS
 

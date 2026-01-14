@@ -13,7 +13,7 @@ title: Set-NbxHostScheme
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Sets the URL scheme (http/https) for NetBox host configuration.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxHostScheme -Scheme 'https'
 
-A short example description.
+Switches the connection scheme to https.
 
 ## PARAMETERS
 

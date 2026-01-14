@@ -13,7 +13,7 @@ title: Get-NbxHostPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves host port records (host-side port representations) from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxHostPort -Id 7
 
-A short example description.
+Returns host port with ID 7.
 
 ## PARAMETERS
 

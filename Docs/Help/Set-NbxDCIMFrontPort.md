@@ -13,7 +13,7 @@ title: Set-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates a front port on a device in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxDCIMFrontPort -ID 7 -Label 'F1'
 
-A short example description.
+Updates front port ID 7 label to 'F1'.
 
 ## PARAMETERS
 

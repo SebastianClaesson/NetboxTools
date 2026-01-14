@@ -13,7 +13,7 @@ title: New-NbxCircuit
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Creates a new circuit record in NetBox.
 
 ## SYNTAX
 
@@ -40,7 +40,7 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> New-NbxCircuit -Provider 5 -Type 2 -Status 'Active'
 
 A short example description.
 

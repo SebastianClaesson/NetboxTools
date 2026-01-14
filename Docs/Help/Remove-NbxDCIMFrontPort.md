@@ -13,7 +13,7 @@ title: Remove-NbxDCIMFrontPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Removes a front port from a device in NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-NbxDCIMFrontPort -ID 3
 
-A short example description.
+Removes front port ID 3.
 
 ## PARAMETERS
 

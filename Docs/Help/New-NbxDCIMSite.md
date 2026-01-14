@@ -48,7 +48,7 @@ Add new Site MySite on Netbox
 
 ### -ASN
 
-{{ Fill ASN Description }}
+Specifies the autonomous system number (ASN) for the site.
 
 ```yaml
 Type: System.UInt64
@@ -69,7 +69,7 @@ HelpMessage: ''
 
 ### -Comments
 
-{{ Fill Comments Description }}
+Additional comments for the site.
 
 ```yaml
 Type: System.String
@@ -112,7 +112,7 @@ HelpMessage: ''
 
 ### -Contact_Email
 
-{{ Fill Contact_Email Description }}
+Contact email address for the site's primary contact.
 
 ```yaml
 Type: System.String
@@ -133,7 +133,7 @@ HelpMessage: ''
 
 ### -Contact_Name
 
-{{ Fill Contact_Name Description }}
+Name of the site's primary contact.
 
 ```yaml
 Type: System.String
@@ -154,7 +154,7 @@ HelpMessage: ''
 
 ### -Contact_Phone
 
-{{ Fill Contact_Phone Description }}
+Phone number for the site's primary contact.
 
 ```yaml
 Type: System.String
@@ -175,7 +175,7 @@ HelpMessage: ''
 
 ### -Description
 
-{{ Fill Description Description }}
+A longer description of the site.
 
 ```yaml
 Type: System.String
@@ -196,7 +196,7 @@ HelpMessage: ''
 
 ### -Facility
 
-{{ Fill Facility Description }}
+Facility name or identifier for the site.
 
 ```yaml
 Type: System.String
@@ -217,7 +217,7 @@ HelpMessage: ''
 
 ### -Latitude
 
-{{ Fill Latitude Description }}
+Latitude coordinate for the site's location.
 
 ```yaml
 Type: System.Decimal
@@ -238,7 +238,7 @@ HelpMessage: ''
 
 ### -Longitude
 
-{{ Fill Longitude Description }}
+Longitude coordinate for the site's location.
 
 ```yaml
 Type: System.Decimal
@@ -259,7 +259,7 @@ HelpMessage: ''
 
 ### -Name
 
-{{ Fill Name Description }}
+Site name (required).
 
 ```yaml
 Type: System.String
@@ -280,7 +280,7 @@ HelpMessage: ''
 
 ### -Raw
 
-{{ Fill Raw Description }}
+Return raw API response instead of a typed object.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -301,7 +301,7 @@ HelpMessage: ''
 
 ### -Region
 
-{{ Fill Region Description }}
+Region ID to associate the site with.
 
 ```yaml
 Type: System.UInt64
@@ -322,7 +322,7 @@ HelpMessage: ''
 
 ### -Slug
 
-{{ Fill Slug Description }}
+Unique slug for the site used in URLs.
 
 ```yaml
 Type: System.String
@@ -343,7 +343,7 @@ HelpMessage: ''
 
 ### -Status
 
-{{ Fill Status Description }}
+Operational status of the site (e.g., active, planned).
 
 ```yaml
 Type: System.String
@@ -364,7 +364,7 @@ HelpMessage: ''
 
 ### -Tenant
 
-{{ Fill Tenant Description }}
+Tenant ID for the site owner.
 
 ```yaml
 Type: System.UInt64
@@ -385,7 +385,7 @@ HelpMessage: ''
 
 ### -Tenant_Group
 
-{{ Fill Tenant_Group Description }}
+Tenant group ID associated with the site.
 
 ```yaml
 Type: System.UInt64

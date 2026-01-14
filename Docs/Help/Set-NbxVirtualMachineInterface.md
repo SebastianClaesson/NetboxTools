@@ -13,7 +13,7 @@ title: Set-NbxVirtualMachineInterface
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates an interface belonging to a virtual machine in NetBox.
 
 ## SYNTAX
 
@@ -38,9 +38,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxVirtualMachineInterface -VM 5 -Name 'eth0' -Enabled $true
 
-A short example description.
+Enables the interface 'eth0' on VM ID 5.
 
 ## PARAMETERS
 

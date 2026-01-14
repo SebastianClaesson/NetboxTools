@@ -13,7 +13,7 @@ title: Get-NbxHostname
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves hostname configuration or host records related to NetBox-managed devices.
 
 ## SYNTAX
 
@@ -30,7 +30,7 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Returns hostname entries or host records associated with devices. Use filters or `-Id` where supported to narrow results.
 
 ## EXAMPLES
 

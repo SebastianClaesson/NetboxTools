@@ -13,7 +13,7 @@ title: Get-NbxDCIMPlatform
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves platform records from NetBox (platforms associated with device types).
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets platform objects (e.g., OS/platform metadata) from NetBox. Use `-Id` to target specific entries.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMPlatform -ID 5
 
-A short example description.
+Returns platform with ID 5.
 
 ## PARAMETERS
 

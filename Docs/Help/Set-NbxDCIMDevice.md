@@ -13,7 +13,7 @@ title: Set-NbxDCIMDevice
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates a device record in NetBox.
 
 ## SYNTAX
 
@@ -42,9 +42,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxDCIMDevice -ID 10 -Name 'sw02'
 
-A short example description.
+Renames device ID 10 to 'sw02'.
 
 ## PARAMETERS
 

@@ -72,7 +72,7 @@ HelpMessage: ''
 
 ### -Id
 
-{{ Fill Id Description }}
+Identifier of the site to remove.
 
 ```yaml
 Type: System.UInt32

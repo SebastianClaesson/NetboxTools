@@ -13,7 +13,7 @@ title: Get-NbxTenant
 
 ## SYNOPSIS
 
-Get a tenent from Nbx
+Retrieves tenant records from NetBox.
 
 ## SYNTAX
 
@@ -30,13 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-A detailed description of the Get-NbxTenant function.
+Gets one or more tenant objects from NetBox. Use `-Id` to select specific tenants by ID; omit `-Id` to list all tenants.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-Get-NbxTenant
+PS C:\> Get-NbxTenant -Id 8
+
+Returns the tenant with ID 8.
 
 ## PARAMETERS
 
@@ -70,7 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+System.Object
+
+Objects representing tenant records (properties include `id`, `name`, `slug`, `description`).
 
 ## NOTES
 

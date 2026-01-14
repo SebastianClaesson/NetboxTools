@@ -13,7 +13,7 @@ title: Set-NbxInvokeParams
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Configures invocation parameters for NetBox API calls used by the module.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxInvokeParams -Timeout 60 -Retry 3
 
-A short example description.
+Sets a 60s timeout and 3 retries for API calls.
 
 ## PARAMETERS
 

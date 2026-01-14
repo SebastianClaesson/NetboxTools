@@ -13,7 +13,7 @@ title: New-NbxVirtualMachine
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Creates a new virtual machine in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> New-NbxVirtualMachine -Name 'vm1' -Cluster 2
 
-A short example description.
+Creates a VM named 'vm1' on cluster ID 2.
 
 ## PARAMETERS
 

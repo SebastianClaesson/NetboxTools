@@ -13,7 +13,7 @@ title: Get-NbxDCIMCableTermination
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves DCIM cable termination objects (a/b endpoints) from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMCableTermination -Id 300
 
-A short example description.
+Returns the cable termination with ID 300.
 
 ## PARAMETERS
 
@@ -72,19 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### System.UInt64
-
-None. This cmdlet does not accept pipeline input.
-
-### System.UInt64[]
-
 None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
 
-Objects returned by the cmdlet (typically API response objects).
+Objects representing cable termination records (typical properties: `id`, `object_type`, `object_id`, `connection_status`).
 
 ## NOTES
 

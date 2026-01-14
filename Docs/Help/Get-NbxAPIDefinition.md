@@ -13,7 +13,7 @@ title: Get-NbxAPIDefinition
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves the API definition from the NetBox instance (OpenAPI/Swagger format).
 
 ## SYNTAX
 
@@ -29,15 +29,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets the NetBox API definition (for example, OpenAPI/Swagger JSON or YAML). Use `-Format` to request a specific format if supported by the API.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxAPIDefinition -Format json
 
-A short example description.
+Retrieves the NetBox API definition in JSON format.
 
 ## PARAMETERS
 
@@ -71,11 +71,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
-### System.Object
+### System.String
 
-Detailed description of the cmdlet's behavior. Update this with function-specific details.
+The API definition as a string (JSON or YAML) depending on the requested format.
 
 ## NOTES
 

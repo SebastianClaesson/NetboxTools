@@ -13,7 +13,7 @@ title: Set-NbxTimeout
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Configures the default API timeout used by the module.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxTimeout -Seconds 30
 
-A short example description.
+Sets the API request timeout to 30 seconds.
 
 ## PARAMETERS
 

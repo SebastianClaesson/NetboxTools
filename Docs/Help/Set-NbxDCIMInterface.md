@@ -13,7 +13,7 @@ title: Set-NbxDCIMInterface
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates an interface's metadata in NetBox (description, enabled state, mtu, etc.).
 
 ## SYNTAX
 
@@ -40,9 +40,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxDCIMInterface -ID 200 -Description 'Uplink'
 
-A short example description.
+Sets the description for interface ID 200.
 
 ## PARAMETERS
 

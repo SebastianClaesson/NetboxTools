@@ -13,7 +13,7 @@ title: Get-NbxTimeout
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves configured timeout values used by the module or API client.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Returns current timeout settings or default timeout values used by the module for API requests. Use this to inspect or document timeouts.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxTimeout
 
-A short example description.
+Returns configured timeout values (in seconds).
 
 ## PARAMETERS
 
@@ -51,11 +51,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.UInt16
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Timeout value(s) in seconds (may return a single value or a set of named timeout options).
 
 ## NOTES
 

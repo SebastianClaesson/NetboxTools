@@ -13,7 +13,7 @@ title: Get-NbxIPAMAddressRange
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves IPAM address range objects from NetBox (contiguous address ranges within prefixes).
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more IPAM address range records from NetBox. Use `-Id` to return specific ranges by NetBox database ID; omit `-Id` to list all ranges.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxIPAMAddressRange -Id 123
 
-A short example description.
+Returns the address range with ID 123.
 
 ## PARAMETERS
 
@@ -72,11 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Object
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Objects representing address range records (properties include `id`, `start_address`, `end_address`, `prefix`).
 
 ## NOTES
 

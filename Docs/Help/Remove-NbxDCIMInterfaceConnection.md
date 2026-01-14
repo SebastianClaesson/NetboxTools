@@ -13,7 +13,7 @@ title: Remove-NbxDCIMInterfaceConnection
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Removes an interface connection between two interfaces in NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-NbxDCIMInterfaceConnection -ID 9
 
-A short example description.
+Removes the interface connection ID 9.
 
 ## PARAMETERS
 

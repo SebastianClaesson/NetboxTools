@@ -13,7 +13,7 @@ title: Get-NbxCredential
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves stored credentials or credential metadata used by NetBox integrations.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Returns credential objects or PSCredential entries associated with NetBox. Use this cmdlet to inspect configured credentials for use with other NetBox operations.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxCredential
 
-A short example description.
+Returns all stored credential objects; output is a `PSCredential` or credential metadata object.
 
 ## PARAMETERS
 

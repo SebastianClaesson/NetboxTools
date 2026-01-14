@@ -13,7 +13,7 @@ title: Get-NbxIPAMVLAN
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves VLAN records from NetBox's IPAM component.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more VLAN objects. Use `-Id` to return specific VLANs or omit to list all.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxIPAMVLAN -Id 10
 
-A short example description.
+Returns the VLAN record with ID 10.
 
 ## PARAMETERS
 
@@ -74,9 +74,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
+System.Object
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Objects representing VLAN records (properties include `id`, `vid`, `name`, `status`, `site`).
 
 ## NOTES
 

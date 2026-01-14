@@ -72,7 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+System.Object
+
+Objects representing IPAM role records (properties: `id`, `name`, `slug`, `description`).
 
 ## NOTES
 

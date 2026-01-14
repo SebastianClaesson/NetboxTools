@@ -13,7 +13,7 @@ title: Set-NbxIPAMAddressRange
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates an existing address range record in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxIPAMAddressRange -ID 44 -Start '192.0.2.10' -End '192.0.2.20'
 
-A short example description.
+Updates the start/end of the address range ID 44.
 
 ## PARAMETERS
 

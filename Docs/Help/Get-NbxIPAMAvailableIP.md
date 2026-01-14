@@ -73,7 +73,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+System.String
+
+A textual representation of available IP address(es) (e.g., '192.0.2.1') or objects containing IP details depending on the parameters passed.
 
 ## NOTES
 

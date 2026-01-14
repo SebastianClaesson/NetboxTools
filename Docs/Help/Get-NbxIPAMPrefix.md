@@ -13,7 +13,7 @@ title: Get-NbxIPAMPrefix
 
 ## SYNOPSIS
 
-A brief description of the Get-NbxIPAMPrefix function.
+Retrieves IPAM prefixes from NetBox (network prefixes such as 192.0.2.0/24).
 
 ## SYNTAX
 
@@ -30,13 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-A detailed description of the Get-NbxIPAMPrefix function.
+Gets one or more IPAM prefix objects from NetBox. Use `-Id` to select by database ID, or use other filters when available to locate prefixes.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
-Get-NbxIPAMPrefix
+PS C:\> Get-NbxIPAMPrefix -Id 321
+
+Returns the IPAM prefix with ID 321.
 
 ## PARAMETERS
 
@@ -70,7 +72,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+System.Object
+
+Objects representing IPAM prefixes (properties include `id`, `prefix`, `status`, `role`, `site`).
 
 ## NOTES
 

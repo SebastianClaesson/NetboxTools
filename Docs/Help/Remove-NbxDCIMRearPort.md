@@ -13,7 +13,7 @@ title: Remove-NbxDCIMRearPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Removes a rear port from a device in NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Remove-NbxDCIMRearPort -ID 5
 
-A short example description.
+Removes rear port ID 5 from NetBox.
 
 ## PARAMETERS
 

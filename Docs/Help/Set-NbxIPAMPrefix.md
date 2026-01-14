@@ -13,7 +13,7 @@ title: Set-NbxIPAMPrefix
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates properties of an IPAM prefix in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxIPAMPrefix -ID 12 -Description 'Updated'
 
-A short example description.
+Updates the description of prefix ID 12.
 
 ## PARAMETERS
 

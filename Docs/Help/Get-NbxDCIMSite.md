@@ -13,7 +13,7 @@ title: Get-NbxDCIMSite
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves site records from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxDCIMSite -Name 'Site A'
 
-A short example description.
+Returns site records with name 'Site A'.
 
 ## PARAMETERS
 

@@ -13,7 +13,7 @@ title: Get-NbxCircuitTermination
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves circuit termination objects from NetBox.
 
 ## SYNTAX
 
@@ -29,15 +29,16 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more circuit termination records (attachment points for circuits). Use `-Id` to limit results to specific terminations by NetBox ID.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxCircuitTermination -Id 99
 
-A short example description.
+Returns the circuit termination with NetBox ID 99.
+
 ## PARAMETERS
 
 ### -Id

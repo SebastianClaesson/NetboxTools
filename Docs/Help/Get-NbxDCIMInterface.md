@@ -13,7 +13,7 @@ title: Get-NbxDCIMInterface
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves DCIM interface objects (device interfaces) from NetBox.
 
 ## SYNTAX
 
@@ -30,15 +30,13 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
-
-## EXAMPLES
+Gets one or more DCIM interface records. Use `-Id` to specify particular interfaces; omit to list interfaces across devices.
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxDCIMInterface -Id 101
 
-A short example description.
+Returns the DCIM interface with NetBox ID 101.
 
 ## PARAMETERS
 

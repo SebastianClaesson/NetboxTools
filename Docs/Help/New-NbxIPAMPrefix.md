@@ -13,7 +13,7 @@ title: New-NbxIPAMPrefix
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Creates a new IPAM prefix in NetBox.
 
 ## SYNTAX
 
@@ -32,15 +32,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Adds a prefix record (e.g., 192.0.2.0/24) to NetBox with optional site, role, and tenant parameters.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> New-NbxIPAMPrefix -Prefix '192.0.2.0/24' -Site 1
 
-A short example description.
+Creates the prefix 192.0.2.0/24 on site ID 1.
 
 ## PARAMETERS
 

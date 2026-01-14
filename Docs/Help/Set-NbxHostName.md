@@ -13,7 +13,7 @@ title: Set-NbxHostName
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates the stored hostname for a NetBox host record.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxHostName -Host 'netbox.example.com'
 
-A short example description.
+Updates the configured NetBox host name.
 
 ## PARAMETERS
 

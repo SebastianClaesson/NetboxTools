@@ -13,7 +13,7 @@ title: Get-NbxTag
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves tag records used for categorizing NetBox objects.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets tag objects from NetBox. Use `-Id` to select specific tags or omit to list all tags.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxTag -Id 7
 
-A short example description.
+Returns the tag with ID 7.
 
 ## PARAMETERS
 
@@ -78,9 +78,9 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## OUTPUTS
 
-### System.Management.Automation.PSObject
+System.Management.Automation.PSObject
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Objects representing tag records (`id`, `name`, `slug`).
 
 ## NOTES
 

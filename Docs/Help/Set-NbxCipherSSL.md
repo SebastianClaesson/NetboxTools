@@ -13,7 +13,7 @@ title: Set-NbxCipherSSL
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Configures the SSL cipher suite policy used for NetBox connections.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxCipherSSL -Ciphers 'TLS_AES_128_GCM_SHA256'
 
-A short example description.
+Sets the preferred SSL cipher list.
 
 ## PARAMETERS
 

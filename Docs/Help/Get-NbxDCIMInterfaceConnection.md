@@ -13,7 +13,7 @@ title: Get-NbxDCIMInterfaceConnection
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves interface connection objects (links between interfaces) from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxDCIMInterfaceConnection -ID 9
 
-A short example description.
+Returns the interface connection with ID 9.
 
 ## PARAMETERS
 

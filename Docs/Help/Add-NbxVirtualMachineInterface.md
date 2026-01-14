@@ -13,7 +13,7 @@ title: Add-NbxVirtualMachineInterface
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Adds a network interface to a virtual machine in NetBox.
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Creates a virtual machine interface associated with a specified virtual machine. You can set properties such as `Name`, `MAC_Address`, `MTU`, and `Enabled`.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Add-NbxVirtualMachineInterface -Virtual_Machine 55 -Name 'eth0' -MAC_Address '00:11:22:33:44:55' -Enabled -MTU 1500
 
-A short example description.
+Adds an enabled interface 'eth0' with the specified MAC and MTU to VM with ID 55.
 
 ## PARAMETERS
 
@@ -198,7 +198,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
+
+### System.Object
+
+Objects representing the created virtual machine interface record.
 
 ### System.Object
 

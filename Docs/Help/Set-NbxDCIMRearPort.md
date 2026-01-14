@@ -13,7 +13,7 @@ title: Set-NbxDCIMRearPort
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Updates an existing rear port on a device in NetBox.
 
 ## SYNTAX
 
@@ -39,9 +39,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Set-NbxDCIMRearPort -ID 5 -Label '1'
 
-A short example description.
+Updates the rear port label for port ID 5.
 
 ## PARAMETERS
 

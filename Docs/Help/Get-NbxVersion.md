@@ -13,7 +13,7 @@ title: Get-NbxVersion
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Displays the module version and NetBox API version information.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxVersion
 
-A short example description.
+Returns the NetBox instance version information.
 
 ## PARAMETERS
 

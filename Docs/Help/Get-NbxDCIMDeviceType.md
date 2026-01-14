@@ -13,7 +13,7 @@ title: Get-NbxDCIMDeviceType
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves device type definitions from NetBox (e.g., server models, chassis types).
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has the following aliases,
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets one or more device type objects from NetBox. Use `-Id` to request specific device types by database ID; omit `-Id` to list all device types.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxDCIMDeviceType -Id 7
 
-A short example description.
+Returns the device type entry with ID 7.
 
 ## PARAMETERS
 
@@ -51,11 +51,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
 ### System.Object
 
-A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+Objects representing device type records (properties may include `id`, `model`, `manufacturer`, `slug`, `u_height`).
 
 ## NOTES
 

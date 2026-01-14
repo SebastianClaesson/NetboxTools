@@ -13,7 +13,7 @@ title: Get-NbxVirtualizationClusterGroup
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves virtualization cluster group records from NetBox.
 
 ## SYNTAX
 
@@ -36,9 +36,9 @@ Specifies the in the parameter.
 
 ### Example 1
 
-PS C:\> {{ Add example code here }}
+PS C:\> Get-NbxVirtualizationClusterGroup -Name 'Group1'
 
-A short example description.
+Returns cluster group(s) matching 'Group1'.
 
 ## PARAMETERS
 

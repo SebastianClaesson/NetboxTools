@@ -13,7 +13,7 @@ title: Get-NbxIPAMAddress
 
 ## SYNOPSIS
 
-A brief description of the cmdlet's purpose; update this with implementation-specific details.
+Retrieves IPAM address records from NetBox (individual IP addresses).
 
 ## SYNTAX
 
@@ -30,15 +30,15 @@ This cmdlet has no aliases.
 
 ## DESCRIPTION
 
-Specifies the in the parameter.
+Gets IP address objects from the IPAM area of NetBox. Use `-Id` or appropriate filters to narrow results.
 
 ## EXAMPLES
 
 ### Example 1
 
-PS C:\> <Run the cmdlet with appropriate parameters>
+PS C:\> Get-NbxIPAMAddress -Id 400
 
-A short example description.
+Returns the IPAM address record with ID 400.
 
 ## PARAMETERS
 

@@ -27,7 +27,7 @@ function Get-NbxTenant {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting IPAM tenant with ID: $($_) at $($script:NbxConfig.URI)/tenancy/tenants/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/$($_)/" -Method GET
         }
     }
     else {

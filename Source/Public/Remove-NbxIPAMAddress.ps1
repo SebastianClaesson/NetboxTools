@@ -25,7 +25,7 @@ function Remove-NbxIPAMAddress {
     )
 
     $Id | ForEach-Object {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/$($_)" -Method DELETE
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/$($_)/" -Method DELETE
     }
 
 }

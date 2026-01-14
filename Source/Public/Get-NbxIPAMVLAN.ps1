@@ -9,7 +9,7 @@ function Get-NbxIPAMVLAN {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting IPAM VLAN with ID: $($_) at $($script:NbxConfig.URI)/ipam/vlans/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/$($_)/" -Method GET
         }
     }
     else {

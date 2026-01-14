@@ -27,7 +27,7 @@ function Get-NbxIPAMRole {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting IPAM Role with ID: $($_) at $($script:NbxConfig.URI)/ipam/roles/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/$($_)/" -Method GET
         }
     }
     else {

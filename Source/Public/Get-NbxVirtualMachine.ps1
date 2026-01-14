@@ -26,7 +26,7 @@ function Get-NbxVirtualMachine {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting virtual machine with ID: $($_) at $($script:NbxConfig.URI)/virtualization/virtual-machines/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/virtual-machines/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/virtual-machines/$($_)/" -Method GET
         }
     }
     else {

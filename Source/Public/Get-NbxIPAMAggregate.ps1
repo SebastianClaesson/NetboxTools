@@ -10,7 +10,7 @@ function Get-NbxIPAMAggregate {
     if ($Id) {
         $Id | ForEach-Object {
             Write-Verbose "Getting IPAM aggregate with ID: $($_) at $($script:NbxConfig.URI)/ipam/aggregates/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/aggregates/$($_)" -Method GET
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/aggregates/$($_)/" -Method GET
         }
     }
     else {

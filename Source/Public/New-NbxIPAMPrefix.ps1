@@ -44,6 +44,6 @@ function New-NbxIPAMPrefix {
 
     $Json = $Body | ConvertTo-Json -Depth 100
 
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes" -Method POST -Body $Json
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method POST -Body $Json
 
 }

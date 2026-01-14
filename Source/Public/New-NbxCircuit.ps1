@@ -55,6 +55,6 @@ function New-NbxCircuit {
     $Json = $Body | ConvertTo-Json -Depth 100
 
     Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/circuits/circuits"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/circuits" -Method POST -Body $Json
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/circuits/" -Method POST -Body $Json
 
 }

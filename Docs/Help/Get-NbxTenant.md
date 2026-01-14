@@ -1,204 +1,82 @@
 ---
-external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+document type: cmdlet
+external help file: NetboxTools-Help.xml
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxTenant
 ---
 
 # Get-NbxTenant
 
 ## SYNOPSIS
-Get a tenent from Nbx
+
+Retrieves tenant records from NetBox.
 
 ## SYNTAX
 
-### Query (Default)
-```
-Get-NbxTenant [[-Name] <String>] [-Query <String>] [-Slug <String>] [-Group <String>] [-GroupID <UInt64>]
- [-CustomFields <Hashtable>] [-Limit <UInt16>] [-Offset <UInt16>] [-Raw] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
-```
+### __AllParameterSets
 
-### ByID
 ```
-Get-NbxTenant [-Id <UInt64[]>] [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxTenant [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-A detailed description of the Get-NbxTenant function.
+
+Gets one or more tenant objects from NetBox. Use `-Id` to select specific tenants by ID; omit `-Id` to list all tenants.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
-```
-Get-NbxTenant
-```
+
+PS C:\> Get-NbxTenant -Id 8
+
+Returns the tenant with ID 8.
 
 ## PARAMETERS
 
-### -Name
-The specific name of the tenant.
-Must match exactly as is defined in Netbox
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Id
+
 The database ID of the tenant
 
 ```yaml
-Type: UInt64[]
-Parameter Sets: ByID
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.UInt64[]
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
-
-### -Query
-A standard search query that will match one or more tenants.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Slug
-The specific slug of the tenant.
-Must match exactly as is defined in Netbox
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Group
-The specific group as defined in Netbox.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -GroupID
-The database ID of the group in Netbox
-
-```yaml
-Type: UInt64
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -CustomFields
-Hashtable in the format @{"field_name" = "value"} to search
-
-```yaml
-Type: Hashtable
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Limit
-Limit the number of results to this number
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Offset
-Start the search at this index in results
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: 0
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Raw
-Return the unparsed data from the HTTP request
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
+None. This cmdlet does not accept pipeline input.
+
 ## OUTPUTS
 
-## NOTES
-Additional information about the function.
+System.Object
 
+Objects representing tenant records (properties include `id`, `name`, `slug`, `description`).
+
+## NOTES
+
+Additional information about the function.
 ## RELATED LINKS
 

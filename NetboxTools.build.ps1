@@ -1,4 +1,4 @@
-#Requires -Modules 'InvokeBuild', 'PlatyPS', 'Pester'
+#Requires -Modules 'InvokeBuild', 'Microsoft.Powershell.PlatyPS', 'Pester', 'PsScriptAnalyzer'
 
 param (
     [string]$Version = '1.0.0'
@@ -35,7 +35,13 @@ task RunScriptAnalyzer {
 }
 
 Task Build_Documentation {
-    New-ExternalHelp -Path $HelpSourcePath -OutputPath "$OutputPath\en-US"
+    # New-ExternalHelp -Path $HelpSourcePath -OutputPath "$OutputPath\en-US"
+    $mdfiles = Measure-PlatyPSMarkdown -Path ".\Docs\Help\*.md"
+    $mdfiles | Where-Object Filetype -match 'CommandHelp' |
+    Import-MarkdownCommandHelp -Path { $_.FilePath } |
+    Export-MamlCommandHelp -OutputFolder "$OutputPath\en-US"
+    Move-Item -Path "$OutputPath\en-US\NetboxTools\NetboxTools-Help.xml" -Destination "$OutputPath\en-US\NetboxTools-Help.xml" 
+    Remove-Item "$OutputPath\en-US\NetboxTools" -Force
 }
 
 task Compile_Module {
@@ -99,8 +105,8 @@ task Compile_Module {
 Get-Module -Name $ModuleName | Remove-Module -Force
 # Default task :
 task . Clean,
-    Unit_Tests,
-    RunScriptAnalyzer,
-    Build_Documentation,
-    Compile_Module,
-    Unit_Tests_Compiled
+Unit_Tests,
+RunScriptAnalyzer,
+Build_Documentation,
+Compile_Module,
+Unit_Tests_Compiled

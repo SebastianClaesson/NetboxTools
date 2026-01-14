@@ -1,170 +1,80 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxDCIMCableTermination
 ---
 
 # Get-NbxDCIMCableTermination
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves DCIM cable termination objects (a/b endpoints) from NetBox.
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxDCIMCableTermination [[-Limit] <UInt16>] [[-Offset] <UInt16>] [[-Id] <UInt64[]>] [[-Cable] <UInt64>]
- [[-Cable_End] <String>] [[-Termination_Type] <String>] [[-Termination_ID] <UInt64>] [-Raw]
- [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxDCIMCableTermination [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 Specifies the in the parameter.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxDCIMCableTermination -Id 300
+
+Returns the cable termination with ID 300.
 
 ## PARAMETERS
 
-### -Cable
-Specifies the Cable parameter.
-
-```yaml
-Type: UInt64
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Cable_End
-Specifies the Cable_End parameter.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Id
+
 Specifies the Id parameter.
 
 ```yaml
-Type: UInt64[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.UInt64[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: true
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
-
-### -Limit
-Specifies the Limit parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Offset
-Specifies the Offset parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Raw
-Specifies the Raw parameter.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Termination_ID
-Specifies the Termination_ID parameter.
-
-```yaml
-Type: UInt64
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 6
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Termination_Type
-Specifies the Termination_Type parameter.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 5
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### System.UInt64[]
+None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
+
+Objects representing cable termination records (typical properties: `id`, `object_type`, `object_id`, `connection_status`).
+
 ## NOTES
 
 ## RELATED LINKS
-

@@ -1,141 +1,181 @@
 ---
-external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+document type: cmdlet
+external help file: NetboxTools-Help.xml
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Connect-NbxAPI
 ---
 
 # Connect-NbxAPI
 
 ## SYNOPSIS
-Connects to the Netbox API and stores the connection configuration for subsequent cmdlets. Supports authenticated (token) and anonymous modes.
+
+Connect to the Netbox API using an API Token
 
 ## SYNTAX
 
-### Authorized
+### Authorized (Default)
+
 ```
-Connect-NbxAPI -Hostname <String> -Token <String> [-Scheme <String>] [-Port <UInt16>] [-SkipVerification] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Connect-NbxAPI -Hostname <string> -Token <string> [-Scheme <string>] [-Port <ushort>]
+ [-SkipVerification] [<CommonParameters>]
 ```
 
 ### Anonymous
+
 ```
-Connect-NbxAPI -Hostname <String> [-Scheme <String>] [-Port <UInt16>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Connect-NbxAPI -Hostname <string> [-Scheme <string>] [-Port <ushort>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Connects to a Netbox instance and creates the module-level `$script:NbxConfig` hashtable containing Hostname, Scheme, Port, URI, and (when provided) the Token. When run in the `Authorized` parameter set, the cmdlet will attempt to validate the provided token by calling the Netbox `/api/users/config/` endpoint unless `-SkipVerification` is supplied.
+
+Connect to the Netbox API using an API Token.
+This function sets up the global configuration
+for subsequent API calls.
 
 ## EXAMPLES
-
-### EXAMPLE 1: Authorized connection
-```powershell
-Connect-NbxAPI -Hostname "netbox.example.com" -Token "<api-token>"
-```
-Connects to Netbox using the provided token and validates access.
-
-### EXAMPLE 2: Anonymous connection
-```powershell
-Connect-NbxAPI -Hostname "netbox.example.com" -Scheme https -Port 8443
-```
-Sets the connection in anonymous mode (no token). Useful for endpoints that allow anonymous access.
-
-### EXAMPLE 3: Skip verification
-```powershell
-Connect-NbxAPI -Hostname "netbox.example.com" -Token "<api-token>" -SkipVerification
-```
-Stores the token without making a verification call to the API.
 
 ## PARAMETERS
 
 ### -Hostname
-The hostname for the Netbox instance (e.g., `netbox.example.com`).
+
+The hostname for the resource such as netbox.domain.com
 
 ```yaml
-Type: String
-Parameter Sets: Authorized, Anonymous
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Token
-The API token used for authenticated requests.
-
-```yaml
-Type: String
-Parameter Sets: Authorized
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Scheme-
-The URI scheme to use (`http` or `https`). Defaults to `https`.
-
-```yaml
-Type: String
-Parameter Sets: Authorized, Anonymous
-Aliases:
-
-Required: False
-Position: Named
-Default value: https
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Anonymous
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Authorized
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -Port
-The port on which Netbox is listening. Must be between 1 and 65535. Defaults to `443`.
+
+Port for the resource.
+Value between 1-65535
 
 ```yaml
-Type: UInt16
-Parameter Sets: Authorized, Anonymous
-Aliases:
+Type: System.UInt16
+DefaultValue: 443
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Anonymous
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Authorized
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: 443
-Accept pipeline input: False
-Accept wildcard characters: False
+### -Scheme
+
+Scheme for the URI such as HTTP or HTTPS.
+Defaults to HTTPS
+
+```yaml
+Type: System.String
+DefaultValue: https
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Anonymous
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+- Name: Authorized
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### -SkipVerification
-When supplied with the `-Token`, skips the verification call to the Netbox `/api/users/config/` endpoint. Use when token verification is not desired.
+
+Skip verification of organization access
 
 ```yaml
-Type: SwitchParameter
-Parameter Sets: Authorized
-Aliases:
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Authorized
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
+### -Token
+
+The API Token for authentication
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Authorized
+  Position: Named
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### None
-
 ## NOTES
-- The cmdlet sets `$script:NbxConfig` with a `URI` property that other cmdlets use to build API requests.
-- No network call is made for anonymous mode.
 
 ## RELATED LINKS
-

@@ -1,159 +1,80 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxCircuitType
 ---
 
 # Get-NbxCircuitType
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves circuit type resources from NetBox (for example, types of circuits such as 'Metro' or 'Long-haul').
 
 ## SYNTAX
 
-### Query (Default)
-```
-Get-NbxCircuitType [-Name <String>] [-Slug <String>] [-Query <String>] [-Limit <UInt16>] [-Offset <UInt16>]
- [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
-```
+### __AllParameterSets
 
-### ById
 ```
-Get-NbxCircuitType [-Id <UInt64[]>] [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxCircuitType [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Gets one or more circuit type objects from a NetBox instance. Use `-Id` to return specific types by NetBox database ID; if `-Id` is omitted the cmdlet returns all circuit types. Update this description with any additional filtering or endpoint details as needed.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxCircuitType -Id 42
+
+Returns the circuit type object whose NetBox database ID is 42.
 
 ## PARAMETERS
 
 ### -Id
-Specifies the Id parameter.
+
+Specifies one or more NetBox database IDs of the circuit types to retrieve. When omitted, the cmdlet returns all circuit types.
 
 ```yaml
-Type: UInt64[]
-Parameter Sets: ById
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.UInt64[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
-
-### -Limit
-Specifies the Limit parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-Specifies the Name to filter results.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Offset
-Specifies the Offset parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Query
-Specifies a Query string to filter results.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Raw
-When set, returns raw API data.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Slug
-Specifies the Slug parameter.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
+
+Objects representing NetBox circuit type records. Typical properties include `id` (System.UInt64), `name` (string), `slug` (string), and `description` (string).
+
 ## NOTES
 
 ## RELATED LINKS

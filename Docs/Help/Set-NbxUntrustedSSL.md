@@ -1,43 +1,57 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Set-NbxUntrustedSSL
 ---
 
 # Set-NbxUntrustedSSL
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Controls whether SSL certificate validation is enforced for NetBox connections.
 
 ## SYNTAX
+
+### __AllParameterSets
 
 ```
 Set-NbxUntrustedSSL
 ```
 
 ## DESCRIPTION
+
 Specifies the in the parameter.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Set-NbxUntrustedSSL -State $true
+
+Allows connections to NetBox with untrusted SSL certificates.
 
 ## PARAMETERS
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
 ### System.Object
+
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+
 ## NOTES
 
+
+
+
 ## RELATED LINKS
+
+
+
 

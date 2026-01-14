@@ -1,64 +1,80 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxAPIDefinition
 ---
 
 # Get-NbxAPIDefinition
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves the API definition from the NetBox instance (OpenAPI/Swagger format).
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxAPIDefinition [[-Format] <String>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxAPIDefinition [[-Format] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Gets the NetBox API definition (for example, OpenAPI/Swagger JSON or YAML). Use `-Format` to request a specific format if supported by the API.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxAPIDefinition -Format json
+
+Retrieves the NetBox API definition in JSON format.
 
 ## PARAMETERS
 
 ### -Format
+
 Specifies output format.
 
 ```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-Accepted values: json, yaml
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.String
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
 
-
-
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
-### System.Object
+### System.String
+
+The API definition as a string (JSON or YAML) depending on the requested format.
+
 ## NOTES
 
 ## RELATED LINKS
-

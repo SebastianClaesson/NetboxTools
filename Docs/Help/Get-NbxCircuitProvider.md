@@ -1,190 +1,80 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxCircuitProvider
 ---
 
 # Get-NbxCircuitProvider
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves circuit provider records from NetBox.
 
 ## SYNTAX
 
-### Query (Default)
-```
-Get-NbxCircuitProvider [-Name <String>] [-Query <String>] [-Slug <String>] [-ASN <String>] [-Account <String>]
- [-Limit <UInt16>] [-Offset <UInt16>] [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
-```
+### __AllParameterSets
 
-### ById
 ```
-Get-NbxCircuitProvider -Id <UInt64[]> [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxCircuitProvider [[-Id] <ulong[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Gets one or more circuit provider objects from NetBox. Use `-Id` to request specific providers by NetBox database ID; omit `-Id` to return all providers.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxCircuitProvider -Id 10
+
+Returns the circuit provider with database ID 10.
 
 ## PARAMETERS
 
-### -ASN
-Specifies the ASN parameter.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Account
-Specifies the Account parameter.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Id
+
 Specifies the Id parameter.
 
 ```yaml
-Type: UInt64[]
-Parameter Sets: ById
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
+Type: System.UInt64[]
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
-
-### -Limit
-Specifies the Limit parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-Specifies the Name filter.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Offset
-Specifies the Offset parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Query
-Specifies a Query string to filter results.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Raw
-When set, returns raw API data.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Slug
-Specifies the Slug to filter results.
-
-```yaml
-Type: String
-Parameter Sets: Query
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 
 ### System.Object
+
+Objects representing circuit provider records (properties include `id`, `name`, `slug`, `asn`, etc.).
+
 ## NOTES
 
 ## RELATED LINKS
-

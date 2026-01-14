@@ -1,138 +1,81 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxTag
 ---
 
 # Get-NbxTag
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves tag records used for categorizing NetBox objects.
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxTag [[-Id] <UInt64>] [[-Name] <String>] [[-Slug] <String>] [[-Limit] <UInt16>] [[-Offset] <UInt16>]
- [-Raw] [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxTag [[-Id] <ulong>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Gets tag objects from NetBox. Use `-Id` to select specific tags or omit to list all tags.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxTag -Id 7
+
+Returns the tag with ID 7.
 
 ## PARAMETERS
 
 ### -Id
+
 Specifies the Id parameter.
 
 ```yaml
-Type: UInt64
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Type: System.UInt64
+DefaultValue: None
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
 ```
-
-### -Limit
-Specifies the Limit parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Name
-Specifies the Name parameter.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Offset
-Specifies the Offset parameter.
-
-```yaml
-Type: UInt16
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 4
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Raw
-When set, returns raw API data.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Slug
-Specifies the Slug parameter.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
 ### System.UInt64
 
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+
 ## OUTPUTS
 
-### System.Management.Automation.PSObject
+System.Management.Automation.PSObject
+
+Objects representing tag records (`id`, `name`, `slug`).
 
 ## NOTES
 

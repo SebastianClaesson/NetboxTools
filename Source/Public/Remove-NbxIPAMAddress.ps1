@@ -10,9 +10,6 @@ function Remove-NbxIPAMAddress {
     .PARAMETER Id
         Database ID of the IP address object.
 
-    .PARAMETER Force
-        Do not confirm.
-
     .EXAMPLE
         PS C:\> Remove-NbxIPAMAddress -Id $value1
 
@@ -26,7 +23,6 @@ function Remove-NbxIPAMAddress {
         [Parameter(Mandatory)]
         [uint64[]]$Id
     )
-
 
     $Id | ForEach-Object {
         InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/$($_)" -Method DELETE

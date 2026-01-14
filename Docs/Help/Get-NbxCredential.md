@@ -1,47 +1,56 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxCredential
 ---
 
 # Get-NbxCredential
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves stored credentials or credential metadata used by NetBox integrations.
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxCredential [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxCredential [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Returns credential objects or PSCredential entries associated with NetBox. Use this cmdlet to inspect configured credentials for use with other NetBox operations.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxCredential
+
+Returns all stored credential objects; output is a `PSCredential` or credential metadata object.
 
 ## PARAMETERS
 
-
-
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
-### None
 
 ## OUTPUTS
 
 ### System.Management.Automation.PSCredential
+
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
 
 ## NOTES
 

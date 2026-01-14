@@ -1,47 +1,57 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxHostPort
 ---
 
 # Get-NbxHostPort
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves host port records (host-side port representations) from NetBox.
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxHostPort [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxHostPort [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 Specifies the in the parameter.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> Get-NbxHostPort -Id 7
+
+Returns host port with ID 7.
 
 ## PARAMETERS
 
-
-
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
-### None
 
 ## OUTPUTS
 
 ### System.Object
+
+A detailed description of the cmdlet's behavior. Update with implementation-specific details.
+
 ## NOTES
 
 ## RELATED LINKS

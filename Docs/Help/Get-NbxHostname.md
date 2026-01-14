@@ -1,47 +1,57 @@
 ---
+document type: cmdlet
 external help file: netboxTools-help.xml
-Module Name: netboxTools
-online version:
-schema: 2.0.0
+HelpUri: ''
+Locale: sv-SE
+Module Name: NetboxTools
+ms.date: 01-14-2026
+PlatyPS schema version: 2024-05-01
+title: Get-NbxHostname
 ---
 
 # Get-NbxHostname
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Retrieves hostname configuration or host records related to NetBox-managed devices.
 
 ## SYNTAX
 
+### __AllParameterSets
+
 ```
-Get-NbxHostname [-ProgressAction <ActionPreference>] [<CommonParameters>]
+Get-NbxHostname [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Specifies the in the parameter.
+
+Returns hostname entries or host records associated with devices. Use filters or `-Id` where supported to narrow results.
 
 ## EXAMPLES
 
 ### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
-```
 
-{{ Add example description here }}
+PS C:\> <Run the cmdlet with appropriate parameters>
+
+A short example description.
 
 ## PARAMETERS
 
-
-
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
-### None
 
 ## OUTPUTS
 
 ### System.Object
+
+Detailed description of the cmdlet's behavior. Update this with function-specific details.
+
 ## NOTES
 
 ## RELATED LINKS

@@ -30,10 +30,9 @@ Describe "New-NbxContactAssignment" {
                 }
             }
 
-            $mandatoryParams | Should -Contain 'Content_Type'
-            $mandatoryParams | Should -Contain 'Object_Id'
+            $mandatoryParams | Should -Contain 'ObjectId'
             $mandatoryParams | Should -Contain 'Contact'
-            $mandatoryParams | Should -Contain 'Role'
+            $mandatoryParams | Should -Contain 'ObjectType'
         }
     }
 

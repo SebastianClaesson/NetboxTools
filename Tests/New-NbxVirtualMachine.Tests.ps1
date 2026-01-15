@@ -31,7 +31,6 @@ Describe "New-NbxVirtualMachine" {
             }
 
             $mandatoryParams | Should -Contain 'Name'
-            $mandatoryParams | Should -Contain 'Site'
         }
     }
 

@@ -2,7 +2,7 @@ function Get-NbxContactAssignment {
 
     <#
     .SYNOPSIS
-        Get a contact Assignment from Netbox
+        Get a contact assignment from NetBox
 
     .DESCRIPTION
         A detailed description of the Get-NbxContactAssignment function.

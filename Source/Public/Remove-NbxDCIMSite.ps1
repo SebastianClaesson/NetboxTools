@@ -5,7 +5,7 @@ function Remove-NbxDCIMSite {
             Remove a Site
 
         .DESCRIPTION
-            Remove a DCIM Site from Netbox
+            Remove a DCIM Site from NetBox
 
         .EXAMPLE
             Remove-NbxDCIMSite -Id 1

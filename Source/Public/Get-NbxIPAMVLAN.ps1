@@ -13,7 +13,7 @@ function Get-NbxIPAMVLAN {
         }
     }
     else {
-        Write-Verbose "Getting All IPAM VLANS at $($script:NbxConfig.URI)/ipam/vlans"
+        Write-Verbose "Getting All VLANs at $($script:NbxConfig.URI)/ipam/vlans"
         InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/?limit=9999" -Method GET
     }
 

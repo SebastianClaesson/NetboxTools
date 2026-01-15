@@ -2,7 +2,7 @@ function Get-NbxVirtualMachine {
 
     <#
     .SYNOPSIS
-        Obtains virtual machines from Netbox.
+        Obtains virtual machines from NetBox.
 
     .DESCRIPTION
         Obtains one or more virtual machines based on provided filters.

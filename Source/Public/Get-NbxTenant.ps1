@@ -2,7 +2,7 @@ function Get-NbxTenant {
 
     <#
     .SYNOPSIS
-        Get a tenent from Nbx
+        Get a tenant from NetBox
 
     .DESCRIPTION
         A detailed description of the Get-NbxTenant function.
@@ -26,12 +26,12 @@ function Get-NbxTenant {
 
     if ($Id) {
         $Id | ForEach-Object {
-            Write-Verbose "Getting IPAM tenant with ID: $($_) at $($script:NbxConfig.URI)/tenancy/tenants/$($_)/"
+            Write-Verbose "Getting tenant with ID: $($_) at $($script:NbxConfig.URI)/tenancy/tenants/$($_)/"
             InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/$($_)/" -Method GET
         }
     }
     else {
-        Write-Verbose "Getting All IPAM tenants at $($script:NbxConfig.URI)/tenancy/tenants"
+        Write-Verbose "Getting All tenants at $($script:NbxConfig.URI)/tenancy/tenants"
         InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/?limit=9999" -Method GET
     }
 

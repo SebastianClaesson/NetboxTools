@@ -2,7 +2,7 @@ function Get-NbxVirtualizationCluster {
 
     <#
     .SYNOPSIS
-        Obtains virtualization clusters from Netbox.
+        Obtains virtualization clusters from NetBox.
 
     .DESCRIPTION
         Obtains one or more virtualization clusters based on provided filters.

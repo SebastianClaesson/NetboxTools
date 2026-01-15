@@ -25,12 +25,12 @@ function Get-NbxVirtualMachineInterface {
 
     if ($Id) {
         $Id | ForEach-Object {
-            Write-Verbose "Getting intervface with ID: $($_) at $($script:NbxConfig.URI)/virtualization/interfaces/$($_)/"
+            Write-Verbose "Getting interface with ID: $($_) at $($script:NbxConfig.URI)/virtualization/interfaces/$($_)/"
             InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/$($_)/" -Method GET
         }
     }
     else {
-        Write-Verbose "Getting All intervfaces at $($script:NbxConfig.URI)/virtualization/interfaces"
+        Write-Verbose "Getting All interfaces at $($script:NbxConfig.URI)/virtualization/interfaces"
         InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/?limit=9999" -Method GET
     }
 

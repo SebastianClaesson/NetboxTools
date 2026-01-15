@@ -2,10 +2,10 @@ function Remove-NbxIPAMAddressRange {
 
     <#
     .SYNOPSIS
-        Remove an IP address range from Netbox
+        Remove an IP address range from NetBox
 
     .DESCRIPTION
-        Removes/deletes an IP address range from Netbox by ID
+        Removes/deletes an IP address range from NetBox by ID
 
     .PARAMETER Id
         Database ID of the IP address range object.

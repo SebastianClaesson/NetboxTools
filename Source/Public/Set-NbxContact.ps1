@@ -2,10 +2,10 @@ function Set-NbxContact {
 
 <#
     .SYNOPSIS
-        Update a contact in Netbox
+        Update a contact in NetBox
 
     .DESCRIPTION
-        Updates a contact object in Netbox which can be linked to other objects
+        Updates a contact object in NetBox which can be linked to other objects
 
     .PARAMETER Id
         A description of the Id parameter.

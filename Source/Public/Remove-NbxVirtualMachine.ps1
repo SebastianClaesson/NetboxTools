@@ -5,7 +5,7 @@ function Remove-NbxVirtualMachine {
         Delete a virtual machine
 
     .DESCRIPTION
-        Deletes a virtual machine from Netbox by ID
+        Deletes a virtual machine from NetBox by ID
 
     .PARAMETER Id
         Database ID of the virtual machine

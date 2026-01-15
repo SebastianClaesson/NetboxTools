@@ -2,7 +2,7 @@ function Get-NbxContactRole {
 
 <#
     .SYNOPSIS
-        Get a contact role from Netbox
+        Get a contact role from NetBox
 
     .DESCRIPTION
         A detailed description of the Get-NbxContactRole function.

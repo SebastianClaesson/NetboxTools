@@ -2,10 +2,10 @@ function Set-NbxContactAssignment {
 
 <#
     .SYNOPSIS
-        Update a contact role assignment in Netbox
+        Update a contact role assignment in NetBox
 
     .DESCRIPTION
-        Updates a contact role assignment in Netbox
+        Updates a contact role assignment in NetBox
 
     .PARAMETER Content_Type
         The content type for this assignment.

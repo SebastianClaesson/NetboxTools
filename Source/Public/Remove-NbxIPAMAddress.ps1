@@ -2,10 +2,10 @@ function Remove-NbxIPAMAddress {
 
     <#
     .SYNOPSIS
-        Remove an IP address from Netbox
+        Remove an IP address from NetBox
 
     .DESCRIPTION
-        Removes/deletes an IP address from Netbox by ID and optional other filters
+        Removes/deletes an IP address from NetBox by ID and optional other filters
 
     .PARAMETER Id
         Database ID of the IP address object.

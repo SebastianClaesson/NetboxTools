@@ -2,10 +2,10 @@ function Remove-NbxIPAMPrefix {
 
     <#
     .SYNOPSIS
-        Remove an IPAM prefixes from Netbox
+        Remove an IPAM prefix from NetBox
 
     .DESCRIPTION
-        Removes/deletes an IPAM prefix from Netbox by ID
+        Removes/deletes an IPAM prefix from NetBox by ID
 
     .PARAMETER Id
         Database ID of the IPAM prefix object.

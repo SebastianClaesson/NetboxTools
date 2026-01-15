@@ -31,8 +31,8 @@ function New-NbxIPAMAddress {
     )
 
     $Body = @{
-        start_address            = $Start_Address
-        end_address = $End_Address
+        start_address = $Start_Address
+        end_address   = $End_Address
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

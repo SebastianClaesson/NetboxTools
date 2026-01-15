@@ -1,6 +1,6 @@
 function New-NbxTenant {
 
-<#
+    <#
     .SYNOPSIS
         Create a new tenant in Netbox
 
@@ -41,14 +41,14 @@ function New-NbxTenant {
         [ValidatePattern('^[-a-zA-Z0-9_]+$')]
         [string]$Slug,
 
-  [Parameter()]
+        [Parameter()]
         [hashtable]
         $OptionalAttribute
     )
 
     $Body = @{
-        name            = $Name
-        slug       = $Slug
+        name = $Name
+        slug = $Slug
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

@@ -52,14 +52,14 @@ function New-NbxIPAMVLAN {
         [ValidateLength(1, 64)]
         [string]$Name,
 
-  [Parameter()]
+        [Parameter()]
         [hashtable]
         $OptionalAttribute
     )
 
     $Body = @{
-        vid            = $VID
-        name       = $Name
+        vid  = $VID
+        name = $Name
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

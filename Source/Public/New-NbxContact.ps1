@@ -1,6 +1,6 @@
 function New-NbxContact {
 
-<#
+    <#
     .SYNOPSIS
         Create a new contact in Netbox
 
@@ -33,7 +33,7 @@ function New-NbxContact {
     )
 
     $Body = @{
-        name            = $Name
+        name = $Name
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

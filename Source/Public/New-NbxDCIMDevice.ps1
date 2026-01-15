@@ -13,15 +13,15 @@ function New-NbxDCIMDevice {
         [Parameter(Mandatory)]
         [int]$Site,
 
-[Parameter()]
+        [Parameter()]
         [hashtable]
         $OptionalAttribute
     )
 
     $Body = @{
-        role            = $Role
-        device_type       = $DeviceType
-site = $Site
+        role        = $Role
+        device_type = $DeviceType
+        site        = $Site
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

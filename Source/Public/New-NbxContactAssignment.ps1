@@ -1,6 +1,6 @@
 function New-NbxContactAssignment {
 
-<#
+    <#
     .SYNOPSIS
         Create a new contact role assignment in Netbox
 
@@ -41,9 +41,9 @@ function New-NbxContactAssignment {
     )
 
     $Body = @{
-        object_type            = $ObjectType
-        object_id       = $ObjectId
-        contact           = $Contact
+        object_type = $ObjectType
+        object_id   = $ObjectId
+        contact     = $Contact
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

@@ -1,6 +1,6 @@
 function New-NbxIPAMAddressRange {
 
-<#
+    <#
     .SYNOPSIS
         Create a new IP address range to Netbox
 
@@ -38,8 +38,8 @@ function New-NbxIPAMAddressRange {
     )
 
     $Body = @{
-        start_address            = $Start_Address
-        end_address = $End_Address
+        start_address = $Start_Address
+        end_address   = $End_Address
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

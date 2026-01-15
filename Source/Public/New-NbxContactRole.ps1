@@ -1,6 +1,6 @@
 function New-NbxContactRole {
 
-<#
+    <#
     .SYNOPSIS
         Create a new contact role in Netbox
 
@@ -32,14 +32,14 @@ function New-NbxContactRole {
         [ValidatePattern('^[-a-zA-Z0-9_]+$')]
         [string]$Slug,
 
-[Parameter()]
+        [Parameter()]
         [hashtable]
         $OptionalAttribute
     )
 
     $Body = @{
-        name            = $Name
-        slug       = $Slug
+        name = $Name
+        slug = $Slug
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

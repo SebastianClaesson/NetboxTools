@@ -20,9 +20,9 @@ function New-NbxCircuit {
     )
 
     $Body = @{
-        cid            = $CID
-        provider       = $Provider
-        type           = $Type
+        cid      = $CID
+        provider = $Provider
+        type     = $Type
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

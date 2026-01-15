@@ -21,13 +21,13 @@ function New-NbxIPAMPrefix {
     )
 
     $Body = @{
-        prefix        = $Prefix
-        status       = $Status
-        is_pool       = $IsPool
+        prefix  = $Prefix
+        status  = $Status
+        is_pool = $IsPool
     }
 
     if ($PSBoundParameters.ContainsKey('Description')) {
-        $Body.Add('description',$Description) | Out-Null
+        $Body.Add('description', $Description) | Out-Null
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

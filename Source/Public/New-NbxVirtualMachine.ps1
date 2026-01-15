@@ -4,17 +4,17 @@ function New-NbxVirtualMachine {
     param
     (
         [Parameter(Mandatory)]
-[ValidateLength(1,64)]
+        [ValidateLength(1, 64)]
         [string]$Name,
 
-  [Parameter()]
+        [Parameter()]
         [hashtable]
         $OptionalAttribute
     )
 
     $Body = @{
-        name            = $Name
-        slug       = $Slug
+        name = $Name
+        slug = $Slug
     }
 
     if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {

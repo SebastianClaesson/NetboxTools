@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: netboxTools-help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 01-15-2026
 PlatyPS schema version: 2024-05-01
 title: New-NbxCircuit
 ---
@@ -20,11 +20,8 @@ Creates a new circuit record in NetBox.
 ### __AllParameterSets
 
 ```
-New-NbxCircuit [-CID] <string> [-Provider] <ulong> [[-ProviderAccount] <long>] [-Type] <ulong>
- [[-Status] <ushort>] [[-Description] <string>] [[-Tenant] <ulong>] [[-Termination_A] <string>]
- [[-Install_Date] <datetime>] [[-Termination_Z] <string>] [[-Commit_Rate] <ulong>]
- [[-Comments] <string>] [[-Custom_Fields] <hashtable>] [-Force] [-Raw] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+New-NbxCircuit [-CID] <string> [-Provider] <ulong> [-Type] <ulong>
+ [[-OptionalAttribute] <hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -55,7 +52,7 @@ ParameterSets:
   Position: 0
   IsRequired: true
   ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: true
+  ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
@@ -210,9 +207,31 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
+### -OptionalAttribute
+
+Hashtable of optional attributes
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### -Provider
 
 Specifies the Provider for the circuit.
+The provider ID
 
 ```yaml
 Type: System.UInt64
@@ -368,7 +387,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 3
+  Position: 2
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false

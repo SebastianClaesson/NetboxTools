@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: NetboxTools-Help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 01-15-2026
 PlatyPS schema version: 2024-05-01
 title: New-NbxContactAssignment
 ---
@@ -20,8 +20,8 @@ Create a new contact role assignment in Netbox
 ### __AllParameterSets
 
 ```
-New-NbxContactAssignment [-Content_Type] <string> [-Object_Id] <ulong> [-Contact] <ulong>
- [-Role] <ulong> [[-Priority] <string>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-NbxContactAssignment [-ObjectType] <string> [-ObjectId] <ulong> [-Contact] <ulong>
+ [[-OptionalAttribute] <hashtable>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -113,6 +113,69 @@ ParameterSets:
 - Name: (All)
   Position: 1
   IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ObjectId
+
+ID of the object to assign.
+
+```yaml
+Type: System.UInt64
+DefaultValue: 0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -ObjectType
+
+Object type
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OptionalAttribute
+
+Optional Attributes as a hashtable
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 3
+  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -229,4 +292,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 Valid content types: https://docs.Nbx.dev/en/stable/features/contacts/#contacts_1
 ## RELATED LINKS
+
 

@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: NetboxTools-Help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 01-15-2026
 PlatyPS schema version: 2024-05-01
 title: New-NbxContact
 ---
@@ -20,9 +20,7 @@ Create a new contact in Netbox
 ### __AllParameterSets
 
 ```
-New-NbxContact [-Name] <string> [-Email] <string> [[-Title] <string>] [[-Phone] <string>]
- [[-Address] <string>] [[-Description] <string>] [[-Comments] <string>] [[-Link] <string>]
- [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-NbxContact [-Name] <string> [[-OptionalAttribute] <hashtable>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -200,7 +198,28 @@ ParameterSets:
   Position: 0
   IsRequired: true
   ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -OptionalAttribute
+
+Optional Attributes as a hashtable, allowed values; api/schema/swagger-ui/#/tenancy/tenancy_contacts_create
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
@@ -313,6 +332,5 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-Additional information about the function.
 ## RELATED LINKS
 

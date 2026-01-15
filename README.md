@@ -12,6 +12,6 @@ This includes (but not limited to);
 - ~New authentication method that includes Anonymous authentication.~
 - ~Improved performance and reduce logic/unnesscary connections~
 - Removing certain parameters and using where-object for filtering instead of server-side (up for discussion)
-  - Implemented "OptionalParameters" as a input, to dynamically allow input when creating the body used for post.
+  - Implemented "OptionalAttribute" as a input, to dynamically allow input when creating the body used for post.
 - Utilizing the correct endpoints (Some functions have not been updated for over 3 years)
 - Support Entra id authentication

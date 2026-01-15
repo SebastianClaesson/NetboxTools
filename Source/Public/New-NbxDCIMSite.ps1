@@ -2,10 +2,10 @@ function New-NbxDCIMSite {
 
     <#
     .SYNOPSIS
-        Create a new Site to Netbox
+        Create a new site in NetBox
 
     .DESCRIPTION
-        Create a new Site to Netbox
+        Create a new site in NetBox
 
     .EXAMPLE
         New-NbxDCIMSite -name MySite

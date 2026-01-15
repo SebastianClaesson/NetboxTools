@@ -2,10 +2,10 @@ function New-NbxTenant {
 
     <#
     .SYNOPSIS
-        Create a new tenant in Netbox
+        Create a new tenant in NetBox
 
     .DESCRIPTION
-        Creates a new tenant object in Netbox
+        Creates a new tenant object in NetBox
 
     .PARAMETER Name
         The tenant name, e.g "Contoso Inc"
@@ -61,7 +61,7 @@ function New-NbxTenant {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new vlan at $($script:NbxConfig.URI)/tenancy/tenants"
+    Write-Verbose "Creating a new tenant at $($script:NbxConfig.URI)/tenancy/tenants"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/" -Method POST -Body $Json
 
 }

@@ -2,10 +2,10 @@ function New-NbxContactRole {
 
     <#
     .SYNOPSIS
-        Create a new contact role in Netbox
+        Create a new contact role in NetBox
 
     .DESCRIPTION
-        Creates a new contact role object in Netbox
+        Creates a new contact role object in NetBox
 
     .PARAMETER Name
         The contact role name, e.g "Network Support"
@@ -52,7 +52,7 @@ function New-NbxContactRole {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/tenancy/contacts"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/" -Method POST -Body $Json
+    Write-Verbose "Creating a new contact role at $($script:NbxConfig.URI)/tenancy/contact-roles"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-roles/" -Method POST -Body $Json
 
 }

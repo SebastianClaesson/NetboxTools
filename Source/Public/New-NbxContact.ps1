@@ -2,10 +2,10 @@ function New-NbxContact {
 
     <#
     .SYNOPSIS
-        Create a new contact in Netbox
+        Create a new contact in NetBox
 
     .DESCRIPTION
-        Creates a new contact object in Netbox which can be linked to other objects
+        Creates a new contact object in NetBox which can be linked to other objects
 
     .PARAMETER Name
         The contacts full name, e.g "Leroy Jenkins"

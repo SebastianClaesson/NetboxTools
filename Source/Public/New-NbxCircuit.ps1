@@ -1,5 +1,25 @@
 function New-NbxCircuit {
 
+    <#
+    .SYNOPSIS
+        Create a new circuit in NetBox
+
+    .DESCRIPTION
+        Creates a new circuit object in NetBox
+
+    .PARAMETER CID
+        The circuit ID
+
+    .PARAMETER Provider
+        The provider ID
+
+    .PARAMETER Type
+        The circuit type ID
+
+    .PARAMETER OptionalAttribute
+        Hashtable of optional attributes
+    #>
+
     [CmdletBinding(ConfirmImpact = 'Low',
         SupportsShouldProcess = $true)]
     [OutputType([pscustomobject])]

@@ -2,10 +2,10 @@ function New-NbxIPAMAddressRange {
 
     <#
     .SYNOPSIS
-        Create a new IP address range to Netbox
+        Create a new IP address range in NetBox
 
     .DESCRIPTION
-        Create a new IP address range to Netbox with a status of Active by default. The maximum supported
+        Create a new IP address range in NetBox with a status of Active by default. The maximum supported
         size of an IP range is 2^32 - 1.
 
     .PARAMETER Start_Address

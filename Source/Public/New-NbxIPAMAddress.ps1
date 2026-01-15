@@ -2,10 +2,10 @@ function New-NbxIPAMAddress {
 
     <#
     .SYNOPSIS
-        Create a new IP address to Netbox
+        Create a new IP address in NetBox
 
     .DESCRIPTION
-        Create a new IP address to Netbox with a status of Active by default.
+        Create a new IP address in NetBox with a status of Active by default.
 
     .PARAMETER Address
         IP address in CIDR notation: 192.168.1.1/24

@@ -1,5 +1,28 @@
 function New-NbxIPAMPrefix {
 
+    <#
+    .SYNOPSIS
+        Create a new IP prefix in NetBox
+
+    .DESCRIPTION
+        Creates a new IP prefix object in NetBox
+
+    .PARAMETER Prefix
+        The IP prefix, e.g. "192.168.1.0/24"
+
+    .PARAMETER Status
+        The status of the prefix
+
+    .PARAMETER IsPool
+        Whether the prefix is a pool
+
+    .PARAMETER Description
+        Description of the prefix
+
+    .PARAMETER OptionalAttribute
+        Hashtable of optional attributes
+    #>
+
     [CmdletBinding(ConfirmImpact = 'low',
         SupportsShouldProcess = $true)]
     [CmdletBinding()]
@@ -40,7 +63,7 @@ function New-NbxIPAMPrefix {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new ip address prefix at $($script:NbxConfig.URI)/ipam/prefixes"
+    Write-Verbose "Creating a new IP prefix at $($script:NbxConfig.URI)/ipam/prefixes"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method POST -Body $Json
 
 }

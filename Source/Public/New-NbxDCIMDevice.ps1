@@ -1,5 +1,25 @@
 function New-NbxDCIMDevice {
 
+    <#
+    .SYNOPSIS
+        Create a new device in NetBox
+
+    .DESCRIPTION
+        Creates a new device object in NetBox
+
+    .PARAMETER Role
+        The device role ID
+
+    .PARAMETER DeviceType
+        The device type ID
+
+    .PARAMETER Site
+        The site ID
+
+    .PARAMETER OptionalAttribute
+        Hashtable of optional attributes
+    #>
+
     [CmdletBinding()]
     #region Parameters
     param
@@ -34,7 +54,7 @@ function New-NbxDCIMDevice {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/dcim/devices"
+    Write-Verbose "Creating a new device at $($script:NbxConfig.URI)/dcim/devices"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/devices/" -Method POST -Body $Json
 
 }

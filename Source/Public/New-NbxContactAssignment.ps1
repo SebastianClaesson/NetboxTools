@@ -2,10 +2,10 @@ function New-NbxContactAssignment {
 
     <#
     .SYNOPSIS
-        Create a new contact role assignment in Netbox
+        Create a new contact role assignment in NetBox
 
     .DESCRIPTION
-        Creates a new contact role assignment in Netbox
+        Creates a new contact role assignment in NetBox
 
     .PARAMETER ContentType
         The content type for this assignment.
@@ -56,7 +56,7 @@ function New-NbxContactAssignment {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/tenancy/contact-assignments"
+    Write-Verbose "Creating a new contact assignment at $($script:NbxConfig.URI)/tenancy/contact-assignments"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-assignments/" -Method POST -Body $Json
 
 }

@@ -2,10 +2,10 @@ function New-NbxIPAMVLAN {
 
     <#
     .SYNOPSIS
-        Create a new VLAN
+        Create a new VLAN in NetBox
 
     .DESCRIPTION
-        Create a new VLAN in Netbox with a status of Active by default.
+        Create a new VLAN in NetBox with a status of Active by default.
 
     .PARAMETER VID
         The VLAN ID.

@@ -2,10 +2,10 @@ function New-NbxIPAMVLAN {
 
     <#
     .SYNOPSIS
-        Create a new VLAN
+        Create a new VLAN in NetBox
 
     .DESCRIPTION
-        Create a new VLAN in Netbox with a status of Active by default.
+        Create a new VLAN in NetBox with a status of Active by default.
 
     .PARAMETER VID
         The VLAN ID.
@@ -41,42 +41,39 @@ function New-NbxIPAMVLAN {
         Additional information about the function.
 #>
 
-    [CmdletBinding(ConfirmImpact = 'low',
-        SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    [CmdletBinding()]
     param
     (
         [Parameter(Mandatory)]
-        [uint16]$VID,
+        [ValidateRange(1, 4094)]
+        [int]$VID,
 
         [Parameter(Mandatory)]
+        [ValidateLength(1, 64)]
         [string]$Name,
 
-        [object]$Status = 'Active',
-
-        [uint64]$Tenant,
-
-        [object]$Role,
-
-        [string]$Description,
-
-        [hashtable]$Custom_Fields,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
     $Body = @{
-        vid           = $VID
-        name          = $Name
-        status        = $Status
-        tenant        = $Tenant
-        role          = $Role
-        description   = $Description
-        custom_fields = $Custom_Fields
+        vid  = $VID
+        name = $Name
+    }
+
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
+        }
     }
 
     $Json = $Body | ConvertTo-Json -Compress
 
+    Write-Verbose "Creating a new vlan at $($script:NbxConfig.URI)/ipam/vlans"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/" -Method POST -Body $Json
 
 }
+

@@ -1,10 +1,10 @@
 function Connect-NbxAPI {
     <#
     .SYNOPSIS
-        Connect to the Netbox API using an API Token
+        Connect to the NetBox API using an API Token
 
     .DESCRIPTION
-        Connect to the Netbox API using an API Token. This function sets up the global configuration
+        Connect to the NetBox API using an API Token. This function sets up the global configuration
         for subsequent API calls.
 
     .PARAMETER Hostname
@@ -54,7 +54,7 @@ function Connect-NbxAPI {
                 'URI'                = [System.UriBuilder]::new($Scheme, $Hostname, $Port, 'api').ToString().TrimEnd('/')
                 'AuthenticationType' = 'Anonymous'
             }
-            Write-Verbose "Connected to Netbox at $($script:NbxConfig.URI) in anonymous mode."
+            Write-Verbose "Connected to NetBox at $($script:NbxConfig.URI) in anonymous mode."
         }
         'Authorized' {
             $script:NbxConfig = @{
@@ -66,7 +66,7 @@ function Connect-NbxAPI {
                 'AuthenticationType' = 'Token'
             }
             
-            Write-Verbose "Connecting to Netbox at $($script:NbxConfig.URI) with provided token."
+            Write-Verbose "Connecting to NetBox at $($script:NbxConfig.URI) with provided token."
 
             if (-not $PSBoundParameters.ContainsKey('SkipVerification')) {
                 # Get User context
@@ -74,16 +74,16 @@ function Connect-NbxAPI {
                 $Me = InvokeNbxRestMethod -Method GET -Token $script:NbxConfig.Token -Uri "$($script:NbxConfig.URI)/users/config/" -FullResponse
 
                 if ($Me) {
-                    Write-Verbose "Connected to Netbox"
+                    Write-Verbose "Connected to NetBox"
                     Write-verbose $($Me | ConvertTo-json -Depth 100)
                 }
                 else {
-                    throw "Failed to connect to Netbox at $($script:NbxConfig.URI) using provided token."
+                    throw "Failed to connect to NetBox at $($script:NbxConfig.URI) using provided token."
                 }
 
             }
             else {
-                Write-Verbose 'Skipping netbox access verification.'
+                Write-Verbose 'Skipping NetBox access verification.'
             }
         }
     }

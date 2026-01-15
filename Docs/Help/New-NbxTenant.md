@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: NetboxTools-Help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 01-15-2026
 PlatyPS schema version: 2024-05-01
 title: New-NbxTenant
 ---
@@ -20,8 +20,8 @@ Create a new tenant in Netbox
 ### __AllParameterSets
 
 ```
-New-NbxTenant [-Name] <string> [-Slug] <string> [[-Description] <string>]
- [[-Custom_Fields] <hashtable>] [-Raw] [-WhatIf] [-Confirm] [<CommonParameters>]
+New-NbxTenant [-Name] <string> [-Slug] <string> [[-OptionalAttribute] <hashtable>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -35,70 +35,6 @@ Creates a new tenant object in Netbox
 New-NbxTenant -Name 'Contoso Inc' -Slug 'contoso-inc'
 
 ## PARAMETERS
-
-### -Confirm
-
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: ''
-SupportsWildcards: false
-Aliases:
-- cf
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Custom_Fields
-
-Hashtable of custom field values.
-
-```yaml
-Type: System.Collections.Hashtable
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 3
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Description
-
-Short description of the tenant
-
-```yaml
-Type: System.String
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 2
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
 
 ### -Name
 
@@ -114,25 +50,25 @@ ParameterSets:
   Position: 0
   IsRequired: true
   ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: true
+  ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 ```
 
-### -Raw
+### -OptionalAttribute
 
-Return the unparsed data from the HTTP request
+Optional Attributes as a hashtable
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
+Type: System.Collections.Hashtable
+DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: Named
+  Position: 2
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -146,6 +82,8 @@ HelpMessage: ''
 
 The unique URL for the tenant.
 Can only contain hypens, A-Z, a-z, 0-9, and underscores
+The unique URL for the tenant.
+Can only contain hypens, A-Z, a-z, 0-9, and underscores
 
 ```yaml
 Type: System.String
@@ -156,28 +94,6 @@ ParameterSets:
 - Name: (All)
   Position: 1
   IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -WhatIf
-
-Runs the command in a mode that only reports what would happen without performing the actions.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-DefaultValue: ''
-SupportsWildcards: false
-Aliases:
-- wi
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -207,6 +123,4 @@ A detailed description of the cmdlet's behavior. Update with implementation-spec
 
 ## NOTES
 
-Additional information about the function.
 ## RELATED LINKS
-

@@ -1,76 +1,62 @@
 function New-NbxContactAssignment {
 
-<#
+    <#
     .SYNOPSIS
-        Create a new contact role assignment in Netbox
+        Create a new contact role assignment in NetBox
 
     .DESCRIPTION
-        Creates a new contact role assignment in Netbox
+        Creates a new contact role assignment in NetBox
 
-    .PARAMETER Content_Type
+    .PARAMETER ContentType
         The content type for this assignment.
 
-    .PARAMETER Object_Id
+    .PARAMETER ObjectId
         ID of the object to assign.
 
     .PARAMETER Contact
         ID of the contact to assign.
 
-    .PARAMETER Role
-        ID of the contact role to assign.
-
-    .PARAMETER Priority
-        Piority of the contact assignment.
-
-    .PARAMETER Raw
-        Return the unparsed data from the HTTP request
-
     .EXAMPLE
-        PS C:\> New-NbxContactAssignment -Content_Type 'dcim.location' -Object_id 10 -Contact 15 -Role 10 -Priority 'Primary'
+        PS C:\> New-NbxContactAssignment -ContentType 'dcim.location' -Objectid 10 -Contact 15
 
     .NOTES
         Valid content types: https://docs.Nbx.dev/en/stable/features/contacts/#contacts_1
 #>
 
-    [CmdletBinding(ConfirmImpact = 'Low',
-                   SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory,
-                   ValueFromPipelineByPropertyName = $true)]
-        [ValidateSet('circuits.circuit', 'circuits.provider', 'circuits.provideraccount', 'dcim.device', 'dcim.location', 'dcim.manufacturer', 'dcim.powerpanel', 'dcim.rack', 'dcim.region', 'dcim.site', 'dcim.sitegroup', 'tenancy.tenant', 'virtualization.cluster', 'virtualization.clustergroup', 'virtualization.virtualmachine', IgnoreCase = $true)]
-        [string]$Content_Type,
+        [Parameter(Mandatory)]
+        [string]$ObjectType,
 
         [Parameter(Mandatory)]
-        [uint64]$Object_Id,
+        [uint64]$ObjectId,
 
         [Parameter(Mandatory)]
         [uint64]$Contact,
 
-        [Parameter(Mandatory)]
-        [uint64]$Role,
-
-        [ValidateSet('primary', 'secondary', 'tertiary', 'inactive', IgnoreCase = $true)]
-        [string]$Priority,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
-    begin {
-        $Method = 'POST'
+    $Body = @{
+        object_type = $ObjectType
+        object_id   = $ObjectId
+        contact     = $Contact
     }
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('tenancy', 'contact-assignments'))
-
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments
-
-        if ($PSCmdlet.ShouldProcess($Content_Type, 'Create new contact assignment')) {
-            InvokeNbxRequest -URI $URI -Method $Method -Body $URIComponents.Parameters -Raw:$Raw
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
         }
     }
+
+    $Json = $Body | ConvertTo-Json -Compress
+
+    Write-Verbose "Creating a new contact assignment at $($script:NbxConfig.URI)/tenancy/contact-assignments"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-assignments/" -Method POST -Body $Json
 
 }

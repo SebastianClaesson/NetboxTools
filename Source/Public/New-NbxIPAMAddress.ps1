@@ -2,49 +2,13 @@ function New-NbxIPAMAddress {
 
     <#
     .SYNOPSIS
-        Create a new IP address to Netbox
+        Create a new IP address in NetBox
 
     .DESCRIPTION
-        Create a new IP address to Netbox with a status of Active by default.
+        Create a new IP address in NetBox with a status of Active by default.
 
     .PARAMETER Address
         IP address in CIDR notation: 192.168.1.1/24
-
-    .PARAMETER Status
-        Status of the IP. Defaults to Active
-
-    .PARAMETER Tenant
-        Tenant ID
-
-    .PARAMETER VRF
-        VRF ID
-
-    .PARAMETER Role
-        Role such as anycast, loopback, etc... Defaults to nothing
-
-    .PARAMETER NAT_Inside
-        ID of IP for NAT
-
-    .PARAMETER Custom_Fields
-        Custom field hash table. Will be validated by the API service
-
-    .PARAMETER Interface
-        ID of interface to apply IP
-
-    .PARAMETER Description
-        Description of IP address
-
-    .PARAMETER Dns_name
-        DNS Name of IP address (example : netbox.example.com)
-
-    .PARAMETER Assigned_Object_Type
-        Assigned Object Type dcim.interface or virtualization.vminterface
-
-    .PARAMETER Assigned_Object_Id
-        Assigned Object ID
-
-    .PARAMETER Raw
-        Return raw results from API service
 
     .EXAMPLE
         New-NbxIPAMAddress -Address 192.0.2.1/32
@@ -55,58 +19,33 @@ function New-NbxIPAMAddress {
         Additional information about the function.
 #>
 
-    [CmdletBinding(ConfirmImpact = 'Low',
-        SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory,
-            ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Mandatory)]
         [string]$Address,
 
-        [object]$Status = 'Active',
-
-        [uint64]$Tenant,
-
-        [uint64]$VRF,
-
-        [object]$Role,
-
-        [uint64]$NAT_Inside,
-
-        [hashtable]$Custom_Fields,
-
-        [uint64]$Interface,
-
-        [string]$Description,
-
-        [string]$Dns_name,
-
-        [ValidateSet('dcim.interface', 'virtualization.vminterface', IgnoreCase = $true)]
-        [string]$Assigned_Object_Type,
-
-        [uint64]$Assigned_Object_Id,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
     $Body = @{
-        address              = $Address
-        status               = $Status
-        tenant               = $Tenant
-        vrf                  = $VRF
-        role                 = $Role
-        nat_inside           = $NAT_Inside
-        custom_fields       = $Custom_Fields
-        interface            = $Interface
-        description          = $Description
-        dns_name             = $Dns_name
-        assigned_object_type = $Assigned_Object_Type
-        assigned_object_id   = $Assigned_Object_Id
+        start_address = $Start_Address
+        end_address   = $End_Address
+    }
+
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
+        }
     }
 
     $Json = $Body | ConvertTo-Json -Compress
 
+    Write-Verbose "Creating a new ip address at $($script:NbxConfig.URI)/ipam/ip-addresses"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/" -Method POST -Body $Json
 
 }

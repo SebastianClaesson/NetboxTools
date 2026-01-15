@@ -1,65 +1,60 @@
 function New-NbxDCIMDevice {
 
-    [CmdletBinding(ConfirmImpact = 'low',
-        SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    <#
+    .SYNOPSIS
+        Create a new device in NetBox
+
+    .DESCRIPTION
+        Creates a new device object in NetBox
+
+    .PARAMETER Role
+        The device role ID
+
+    .PARAMETER DeviceType
+        The device type ID
+
+    .PARAMETER Site
+        The site ID
+
+    .PARAMETER OptionalAttribute
+        Hashtable of optional attributes
+    #>
+
+    [CmdletBinding()]
     #region Parameters
     param
     (
         [Parameter(Mandatory)]
-        [string]$Name,
+        [int]$Role,
 
         [Parameter(Mandatory)]
-        [object]$Device_Role,
+        [int]$DeviceType,
 
         [Parameter(Mandatory)]
-        [object]$Device_Type,
+        [int]$Site,
 
-        [Parameter(Mandatory)]
-        [uint64]$Site,
-
-        [object]$Status = 'Active',
-
-        [uint64]$Platform,
-
-        [uint64]$Tenant,
-
-        [uint64]$Cluster,
-
-        [uint64]$Rack,
-
-        [uint16]$Position,
-
-        [object]$Face,
-
-        [string]$Serial,
-
-        [string]$Asset_Tag,
-
-        [uint64]$Virtual_Chassis,
-
-        [uint64]$VC_Priority,
-
-        [uint64]$VC_Position,
-
-        [uint64]$Primary_IP4,
-
-        [uint64]$Primary_IP6,
-
-        [string]$Comments,
-
-        [hashtable]$Custom_Fields
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
-    #endregion Parameters
 
-    $Segments = [System.Collections.ArrayList]::new(@('dcim', 'devices'))
-
-    $URIComponents = BuildURIComponents -URISegments $Segments.Clone() -ParametersDictionary $PSBoundParameters
-
-    $URI = BuildNewURI -Segments $URIComponents.Segments
-
-    if ($PSCmdlet.ShouldProcess($Name, 'Create new Device')) {
-        InvokeNbxRequest -URI $URI -Body $URIComponents.Parameters -Method POST
+    $Body = @{
+        role        = $Role
+        device_type = $DeviceType
+        site        = $Site
     }
+
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
+        }
+    }
+
+    $Json = $Body | ConvertTo-Json -Compress
+
+    Write-Verbose "Creating a new device at $($script:NbxConfig.URI)/dcim/devices"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/devices/" -Method POST -Body $Json
 
 }

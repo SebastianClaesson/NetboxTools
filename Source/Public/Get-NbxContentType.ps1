@@ -2,7 +2,7 @@ function Get-NbxContentType {
 
     <#
     .SYNOPSIS
-        Get a content type definition from Netbox
+        Get a content type definition from NetBox
 
     .DESCRIPTION
         A detailed description of the Get-NbxContentType function.

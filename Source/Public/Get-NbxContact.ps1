@@ -2,10 +2,10 @@ function Get-NbxContact {
 
     <#
     .SYNOPSIS
-        Get a contact from Netbox
+        Get a contact from NetBox
 
     .DESCRIPTION
-        Obtain a contact or contacts from Netbox by ID or query
+        Obtain a contact or contacts from NetBox by ID or query
 
     .PARAMETER Name
         The specific name of the Contact. Must match exactly as is defined in Netbox

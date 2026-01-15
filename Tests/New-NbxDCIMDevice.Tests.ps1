@@ -30,9 +30,8 @@ Describe "New-NbxDCIMDevice" {
                 }
             }
 
-            $mandatoryParams | Should -Contain 'Name'
-            $mandatoryParams | Should -Contain 'Device_Role'
-            $mandatoryParams | Should -Contain 'Device_Type'
+            $mandatoryParams | Should -Contain 'Role'
+            $mandatoryParams | Should -Contain 'DeviceType'
             $mandatoryParams | Should -Contain 'Site'
         }
     }

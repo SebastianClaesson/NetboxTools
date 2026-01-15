@@ -2,10 +2,10 @@ function Set-NbxContactRole {
 
 <#
     .SYNOPSIS
-        Update a contact role in Netbox
+        Update a contact role in NetBox
 
     .DESCRIPTION
-        Updates a contact role in Netbox
+        Updates a contact role in NetBox
 
     .PARAMETER Name
         The contact role name, e.g "Network Support"

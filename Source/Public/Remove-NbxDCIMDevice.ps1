@@ -5,7 +5,7 @@ function Remove-NbxDCIMDevice {
         Delete a device
 
     .DESCRIPTION
-        Deletes a device from Netbox by ID
+        Deletes a device from NetBox by ID
 
     .PARAMETER Id
         Database ID of the device

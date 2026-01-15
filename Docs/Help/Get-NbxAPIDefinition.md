@@ -1,10 +1,10 @@
----
+﻿---
 document type: cmdlet
 external help file: netboxTools-help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 01-15-2026
 PlatyPS schema version: 2024-05-01
 title: Get-NbxAPIDefinition
 ---
@@ -20,7 +20,7 @@ Retrieves the API definition from the NetBox instance (OpenAPI/Swagger format).
 ### __AllParameterSets
 
 ```
-Get-NbxAPIDefinition [[-Format] <string>] [<CommonParameters>]
+Get-NbxAPIDefinition [[-Format] <string>] [[-Language] <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -58,6 +58,27 @@ AcceptedValues: []
 HelpMessage: ''
 ```
 
+### -Language
+
+Language
+
+```yaml
+Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
 ### CommonParameters
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
@@ -66,8 +87,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
-
-None. This cmdlet does not accept pipeline input.
 
 ## OUTPUTS
 

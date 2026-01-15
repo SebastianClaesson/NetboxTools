@@ -2,10 +2,10 @@ function New-NbxDCIMSite {
 
     <#
     .SYNOPSIS
-        Create a new Site to Netbox
+        Create a new site in NetBox
 
     .DESCRIPTION
-        Create a new Site to Netbox
+        Create a new site in NetBox
 
     .EXAMPLE
         New-NbxDCIMSite -name MySite
@@ -20,54 +20,35 @@ function New-NbxDCIMSite {
     param
     (
         [Parameter(Mandatory)]
+        [ValidateLength(1, 100)]
         [string]$Name,
 
+        [Parameter(Mandatory)]
+        [ValidateLength(1, 100)]
+        [ValidatePattern('^[-a-zA-Z0-9_]+$')]
         [string]$Slug,
 
-        [string]$Facility,
-
-        [uint64]$ASN,
-
-        [decimal]$Latitude,
-
-        [decimal]$Longitude,
-
-        [string]$Contact_Name,
-
-        [string]$Contact_Phone,
-
-        [string]$Contact_Email,
-
-        [uint64]$Tenant_Group,
-
-        [uint64]$Tenant,
-
-        [string]$Status,
-
-        [uint64]$Region,
-
-        [string]$Description,
-
-        [string]$Comments,
-
-        [switch]$Raw
+        [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('dcim', 'sites'))
-        $Method = 'POST'
+    $Body = @{
+        name = $Name
+        slug = $Slug
+    }
 
-        if (-not $PSBoundParameters.ContainsKey('slug')) {
-            $PSBoundParameters.Add('slug', $name)
-        }
-
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments
-
-        if ($PSCmdlet.ShouldProcess($name, 'Create new Site')) {
-            InvokeNbxRequest -URI $URI -Method $Method -Body $URIComponents.Parameters -Raw:$Raw
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
         }
     }
+
+    $Json = $Body | ConvertTo-Json -Compress
+
+    Write-Verbose "Creating a new site at $($script:NbxConfig.URI)/dcim/sites"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/sites/" -Method POST -Body $Json
 
 }

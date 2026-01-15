@@ -46,7 +46,7 @@ function New-NbxContact {
 
     $Json = $Body | ConvertTo-Json -Compress
 
-    Write-Verbose "Creating a new circuit at $($script:NbxConfig.URI)/tenancy/contacts"
+    Write-Verbose "Creating a new contact at $($script:NbxConfig.URI)/tenancy/contacts"
     InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/" -Method POST -Body $Json
 
 }

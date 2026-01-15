@@ -29,13 +29,10 @@ function New-NbxTenant {
         Additional information about the function.
 #>
 
-    [CmdletBinding(ConfirmImpact = 'Low',
-                   SupportsShouldProcess = $true)]
-    [OutputType([pscustomobject])]
+    [CmdletBinding()]
     param
     (
-        [Parameter(Mandatory,
-                   ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Mandatory)]
         [ValidateLength(1, 100)]
         [string]$Name,
 
@@ -44,25 +41,28 @@ function New-NbxTenant {
         [ValidatePattern('^[-a-zA-Z0-9_]+$')]
         [string]$Slug,
 
-        [ValidateLength(0, 200)]
-        [string]$Description,
-
-        [hashtable]$Custom_Fields,
-
-        [switch]$Raw
+  [Parameter()]
+        [hashtable]
+        $OptionalAttribute
     )
 
-    process {
-        $Segments = [System.Collections.ArrayList]::new(@('tenancy', 'tenants'))
-        $Method = 'POST'
+    $Body = @{
+        name            = $Name
+        slug       = $Slug
+    }
 
-        $URIComponents = BuildURIComponents -URISegments $Segments -ParametersDictionary $PSBoundParameters
-
-        $URI = BuildNewURI -Segments $URIComponents.Segments
-
-        if ($PSCmdlet.ShouldProcess($Address, 'Create new tenant')) {
-            InvokeNbxRequest -URI $URI -Method $Method -Body $URIComponents.Parameters -Raw:$Raw
+    if ($PSBoundParameters.ContainsKey('OptionalAttribute')) {
+        $OptionalAttribute.keys | Foreach-object {
+            $Key = $_
+            $Value = $OptionalAttribute[$Key]
+            $Body.Add($Key, $value) | Out-Null
         }
     }
 
+    $Json = $Body | ConvertTo-Json -Compress
+
+    Write-Verbose "Creating a new vlan at $($script:NbxConfig.URI)/tenancy/tenants"
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/" -Method POST -Body $Json
+
 }
+

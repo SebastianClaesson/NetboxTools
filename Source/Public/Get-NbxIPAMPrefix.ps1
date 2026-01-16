@@ -9,6 +9,10 @@ function Get-NbxIPAMPrefix {
 
     .PARAMETER Id
         A description of the Id parameter.
+
+    .PARAMETER Query
+        A hashtable containing all the parameters for a query string
+
     .EXAMPLE
         PS C:\> Get-NbxIPAMPrefix
 
@@ -16,15 +20,20 @@ function Get-NbxIPAMPrefix {
         Additional information about the function.
 #>
 
-    [CmdletBinding(DefaultParameterSetName = 'Query')]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter(ParameterSetName = 'Id')]
-        [uint64[]]$Id,
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
 
-        [Parameter(ParameterSetName = 'Query')]
-        [string]
-        $Contains
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
     switch ($PSCmdlet.ParameterSetName) {
@@ -34,14 +43,10 @@ function Get-NbxIPAMPrefix {
             }
         }
         'Query' {
-            if ($PSBoundParameters.ContainsKey('Contains')) {
-                $Id | ForEach-Object {
-                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&$($script:NbxConfig.MaxPageSize)/" -Method GET
-                }
-            }
-            else {
-                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
-            }
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/" -Method GET
         }
     }
 }

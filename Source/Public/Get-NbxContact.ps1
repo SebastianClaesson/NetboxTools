@@ -20,21 +20,34 @@ function Get-NbxContact {
         Additional information about the function.
 #>
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/$($_)/" -Method GET
+            }
+        }
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/" -Method GET
         }
     }
-    else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
-    }
-
 
 }

@@ -23,5 +23,5 @@ function Get-NbxVirtualizationCluster {
     )
 
     Write-Verbose "Getting All virtualization clusters at $($script:NbxConfig.URI)/virtualization/clusters"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/clusters/?limit=9999" -Method GET
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/clusters/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
 }

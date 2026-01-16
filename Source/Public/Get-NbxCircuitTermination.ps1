@@ -13,7 +13,7 @@ function Get-NbxCircuitTermination {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-terminations/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-terminations/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

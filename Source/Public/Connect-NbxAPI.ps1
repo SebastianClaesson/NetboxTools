@@ -53,6 +53,7 @@ function Connect-NbxAPI {
                 'Port'               = $Port
                 'URI'                = [System.UriBuilder]::new($Scheme, $Hostname, $Port, 'api').ToString().TrimEnd('/')
                 'AuthenticationType' = 'Anonymous'
+                'MaxPageSize' = 0
             }
             Write-Verbose "Connected to NetBox at $($script:NbxConfig.URI) in anonymous mode."
         }
@@ -64,6 +65,7 @@ function Connect-NbxAPI {
                 'URI'                = [System.UriBuilder]::new($Scheme, $Hostname, $Port, 'api').ToString().TrimEnd('/')
                 'Token'              = $Token
                 'AuthenticationType' = 'Token'
+                'MaxPageSize' = 0
             }
             
             Write-Verbose "Connecting to NetBox at $($script:NbxConfig.URI) with provided token."

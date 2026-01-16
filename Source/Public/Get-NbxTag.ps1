@@ -8,5 +8,5 @@ function Get-NbxTag {
     )
 
     Write-Verbose "Getting All tags at $($script:NbxConfig.URI)/extras/tags"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/?limit=9999" -Method GET
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
 }

@@ -15,3 +15,11 @@ This includes (but not limited to);
   - Implemented "OptionalAttribute" as a input, to dynamically allow input when creating the body used for post.
 - Utilizing the correct endpoints (Some functions have not been updated for over 3 years)
 - Support Entra id authentication
+
+## Notes
+We have no limit for max page size returned by the api (as it is set to 0)
+If you are experiencing performance issues when querying, please set the max page size to your desired value.
+
+```pwsh
+$NbxConfig.MaxPageSize = 100
+```

@@ -15,7 +15,7 @@ function Get-NbxIPAMAddressRange {
     }
     else {
         Write-Verbose "Getting All IPAM Address Ranges at $($script:NbxConfig.URI)/ipam/ip-ranges"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

@@ -57,7 +57,7 @@ function Get-NbxContactAssignment {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-assignments/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-assignments/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

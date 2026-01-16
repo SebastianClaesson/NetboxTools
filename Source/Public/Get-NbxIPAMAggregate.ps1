@@ -15,7 +15,7 @@ function Get-NbxIPAMAggregate {
     }
     else {
         Write-Verbose "Getting All IPAM aggregates at $($script:NbxConfig.URI)/ipam/aggregates"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/aggregates/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/aggregates/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

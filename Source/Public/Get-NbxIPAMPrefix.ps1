@@ -36,11 +36,11 @@ function Get-NbxIPAMPrefix {
         'Query' {
             if ($PSBoundParameters.ContainsKey('Contains')) {
                 $Id | ForEach-Object {
-                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&limit=9999/" -Method GET
+                    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$($_)/?contains=$($Contains)&$($script:NbxConfig.MaxPageSize)/" -Method GET
                 }
             }
             else {
-                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/?limit=9999" -Method GET
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
             }
         }
     }

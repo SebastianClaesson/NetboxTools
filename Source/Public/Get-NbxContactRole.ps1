@@ -33,7 +33,7 @@ function Get-NbxContactRole {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-roles/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contact-roles/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

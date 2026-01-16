@@ -14,7 +14,7 @@ function Get-NbxIPAMAddress {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-addresses/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

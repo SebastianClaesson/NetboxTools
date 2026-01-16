@@ -13,7 +13,7 @@ function Get-NbxDCIMDevice {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/devices/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/devices/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

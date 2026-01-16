@@ -30,7 +30,7 @@ function Get-NbxContentType {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/object-types/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/object-types/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 

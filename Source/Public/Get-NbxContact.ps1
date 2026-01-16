@@ -33,7 +33,7 @@ function Get-NbxContact {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/contacts/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 

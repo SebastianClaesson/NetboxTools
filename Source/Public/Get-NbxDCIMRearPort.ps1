@@ -4,6 +4,6 @@ function Get-NbxDCIMRearPort {
     [OutputType([pscustomobject])]
     param ()
 
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/rear-ports/?limit=9999" -Method GET
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/rear-ports/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     
 }

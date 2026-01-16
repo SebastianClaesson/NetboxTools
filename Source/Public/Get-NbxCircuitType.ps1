@@ -13,7 +13,7 @@ function Get-NbxCircuitType {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

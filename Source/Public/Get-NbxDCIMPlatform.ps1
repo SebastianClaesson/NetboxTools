@@ -13,7 +13,7 @@ function Get-NbxDCIMPlatform {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/platforms/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/platforms/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

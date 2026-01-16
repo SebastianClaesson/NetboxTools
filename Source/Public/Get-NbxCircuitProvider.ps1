@@ -13,7 +13,7 @@ function Get-NbxCircuitProvider {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/providers/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/providers/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

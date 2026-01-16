@@ -13,7 +13,7 @@ function Get-NbxDCIMDeviceRole {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

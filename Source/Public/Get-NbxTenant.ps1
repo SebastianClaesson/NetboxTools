@@ -32,7 +32,7 @@ function Get-NbxTenant {
     }
     else {
         Write-Verbose "Getting All tenants at $($script:NbxConfig.URI)/tenancy/tenants"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

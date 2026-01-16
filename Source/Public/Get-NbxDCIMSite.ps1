@@ -13,7 +13,7 @@ function Get-NbxDCIMSite {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/sites/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/sites/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 
 }

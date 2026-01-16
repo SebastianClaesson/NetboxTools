@@ -29,7 +29,7 @@ function Get-NbxCircuit {
         }
     }
     else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuits/?limit=9999" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuits/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
     }
 }
 

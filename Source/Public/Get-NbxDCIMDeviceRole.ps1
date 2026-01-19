@@ -1,19 +1,33 @@
 function Get-NbxDCIMDeviceRole {
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter(ParameterSetName = 'ById')]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-roles/" -Method GET
+        }
     }
 
 }

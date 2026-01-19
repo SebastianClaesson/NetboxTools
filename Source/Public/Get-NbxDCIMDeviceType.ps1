@@ -1,8 +1,33 @@
 function Get-NbxDCIMDeviceType {
 
-    [CmdletBinding()]
-    param ()
+[CmdletBinding(DefaultParameterSetName = 'Default')]
+    param
+    (
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
 
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-types/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
+    )
+
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-types/$($_)/" -Method GET
+            }
+        }
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-types/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/device-types/" -Method GET
+        }
+    }
 
 }

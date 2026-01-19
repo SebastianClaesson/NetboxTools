@@ -1,21 +1,33 @@
 function Get-NbxDCIMCable {
 
-    [CmdletBinding()]
-    #region Parameters
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter(ValueFromPipelineByPropertyName = $true)]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
 
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/cables/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/cables/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/cables/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/cables/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/dcim/cables/" -Method GET
+        }
     }
 
 }

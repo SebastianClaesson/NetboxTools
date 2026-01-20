@@ -31,7 +31,7 @@ function Get-NbxVirtualMachineInterface {
     }
     else {
         Write-Verbose "Getting All interfaces at $($script:NbxConfig.URI)/virtualization/interfaces"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/interfaces/" -Method GET
     }
 
 }

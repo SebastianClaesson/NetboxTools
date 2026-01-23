@@ -23,3 +23,42 @@ If you are experiencing performance issues when querying, please set the max pag
 ```pwsh
 $NbxConfig.MaxPageSize = 100
 ```
+
+## Query parameter in action for Get- cmdlets 
+
+We've restructed the Get- cmdlets to include a hashtable when building a query.
+For example:
+
+```pwsh
+$Query = @{
+    assigned_object_id = 373
+    description = 'demo'
+    created__gt = (Get-date '2022-01-23')
+}
+
+Get-NbxIPAMAddress -Query $Query
+
+
+id                   : 232
+url                  : https://netbox.demo/api/ipam/ip-addresses/232/
+display_url          : https://netbox.demo/ipam/ip-addresses/232/
+display              : 192.168.0.4/32
+family               : @{value=4; label=IPv4}
+address              : 192.168.0.4/32
+vrf                  : 
+tenant               : 
+status               : @{value=active; label=Active}
+role                 : 
+assigned_object_type : virtualization.vminterface
+assigned_object_id   : 373
+assigned_object      : @{id=373; url=https://netbox.demo/api/virtualization/interfaces/373/; display=demo_ipconfig; virtual_machine=; name=demo_ipconfig; description=}
+nat_inside           : 
+nat_outside          : {}
+dns_name             : 
+description          : demo
+comments             : 
+tags                 : {}
+custom_fields        : @{}
+created              : 2024-01-29 19:38:44
+last_updated         : 2024-01-29 19:38:44
+```

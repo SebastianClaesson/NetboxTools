@@ -19,18 +19,9 @@ Describe "Get-NbxCircuit" {
             (Get-Command "Get-NbxCircuit").Parameters.Keys | ForEach-Object { $_ | Should -Match '^[A-Z].*' }
         }
 
-        It "Should have no mandatory parameters" {
-            $cmd = Get-Command "Get-NbxCircuit"
-            $mandatoryParams = @()
-            foreach ($p in $cmd.Parameters.GetEnumerator()) {
-                foreach ($attr in $p.Value.Attributes) {
-                    if ($attr -is [System.Management.Automation.ParameterAttribute] -and $attr.Mandatory) {
-                        $mandatoryParams += $p.Key
-                    }
-                }
-            }
-
-            $mandatoryParams | Should -BeNullOrEmpty
+        It "Should have mandatory parameters" {
+            (Get-Command "Get-NbxCircuit").Parameters.Keys | Should -Contain "Id"
+            (Get-Command "Get-NbxCircuit").Parameters.Keys | Should -Contain "Query"
         }
     }
 

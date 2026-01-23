@@ -1,19 +1,33 @@
 function Get-NbxCircuitType {
 
-    [CmdletBinding()]
+    [CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/circuits/circuit-types/" -Method GET
+        }
     }
 
 }

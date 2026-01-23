@@ -1,12 +1,26 @@
 function Get-NbxTag {
-
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    Write-Verbose "Getting All tags at $($script:NbxConfig.URI)/extras/tags"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/$($_)/" -Method GET
+            }
+        }
+        'Default' {
+        write-Verbose "Getting All tags at $($script:NbxConfig.URI)/extras/tags"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/extras/tags/" -Method GET
+        }
+    }
+
 }

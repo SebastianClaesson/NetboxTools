@@ -16,12 +16,28 @@ function Get-NbxVirtualizationCluster {
         Additional information about the function.
 #>
 
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    Write-Verbose "Getting All virtualization clusters at $($script:NbxConfig.URI)/virtualization/clusters"
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/clusters/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/clusters/$($_)/" -Method GET
+            }
+        }
+        'Default' {
+        write-Verbose "Getting All clusters at $($script:NbxConfig.URI)/virtualization/clusters"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/clusters/" -Method GET
+        }
+    }
+
 }

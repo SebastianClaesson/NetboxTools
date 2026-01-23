@@ -14,7 +14,7 @@ function Get-NbxVirtualizationClusterGroup {
     }
     else {
         Write-Verbose "Getting All virtualization cluster groups at $($script:NbxConfig.URI)/virtualization/cluster-groups"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/cluster-groups/" -Method GET
     }
 
 }

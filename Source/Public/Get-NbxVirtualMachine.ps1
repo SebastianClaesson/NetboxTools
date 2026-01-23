@@ -31,7 +31,7 @@ function Get-NbxVirtualMachine {
     }
     else {
         Write-Verbose "Getting All virtual machines at $($script:NbxConfig.URI)/virtualization/virtual-machines"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/virtual-machines/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/virtualization/virtual-machines/" -Method GET
     }
 
 }

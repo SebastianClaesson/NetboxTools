@@ -17,22 +17,28 @@ function Get-NbxTenant {
         Additional information about the function.
 #>
 
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            Write-Verbose "Getting tenant with ID: $($_) at $($script:NbxConfig.URI)/tenancy/tenants/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        Write-Verbose "Getting All tenants at $($script:NbxConfig.URI)/tenancy/tenants"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Default' {
+        write-Verbose "Getting All tenants at $($script:NbxConfig.URI)/tenancy/tenants"
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/tenancy/tenants/" -Method GET
+        }
     }
 
 }

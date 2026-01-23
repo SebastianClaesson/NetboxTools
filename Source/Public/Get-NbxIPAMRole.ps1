@@ -17,21 +17,34 @@ function Get-NbxIPAMRole {
         Additional information about the function.
 #>
 
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            Write-Verbose "Getting IPAM Role with ID: $($_) at $($script:NbxConfig.URI)/ipam/roles/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/$($_)/" -Method GET
+            }
+        }
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/" -Method GET
         }
     }
-    else {
-        Write-Verbose "Getting All IPAM Roles at $($script:NbxConfig.URI)/ipam/roles"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/roles/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
-    }
+
 }

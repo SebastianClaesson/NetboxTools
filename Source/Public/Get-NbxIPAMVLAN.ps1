@@ -1,20 +1,32 @@
 function Get-NbxIPAMVLAN {
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            Write-Verbose "Getting IPAM VLAN with ID: $($_) at $($script:NbxConfig.URI)/ipam/vlans/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        Write-Verbose "Getting All VLANs at $($script:NbxConfig.URI)/ipam/vlans"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/vlans/" -Method GET
+        }
     }
 
 }

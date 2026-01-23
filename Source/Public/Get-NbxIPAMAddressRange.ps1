@@ -1,21 +1,33 @@
 function Get-NbxIPAMAddressRange {
 
-    [CmdletBinding()]
+[CmdletBinding(DefaultParameterSetName = 'Default')]
     param
     (
-        [Parameter()]
-        [uint64[]]$Id
+        [Parameter(Mandatory, ParameterSetName = 'Id')]
+        [uint64[]]
+        $Id,
+
+        [Parameter(Mandatory, ParameterSetName = 'Query')]
+        [hashtable]
+        $Query,
+
+        [Parameter(ParameterSetName = 'Default')]
+        [switch]
+        $All
     )
 
-    if ($Id) {
-        $Id | ForEach-Object {
-            Write-Verbose "Getting IPAM Address Range with ID: $($_) at $($script:NbxConfig.URI)/ipam/ip-ranges/$($_)/"
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/$($_)/" -Method GET
+    switch ($PSCmdlet.ParameterSetName) {
+        'Id' {
+            $Id | ForEach-Object {
+                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/$($_)/" -Method GET
+            }
         }
-    }
-    else {
-        Write-Verbose "Getting All IPAM Address Ranges at $($script:NbxConfig.URI)/ipam/ip-ranges"
-        InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/?limit=$($script:NbxConfig.MaxPageSize)" -Method GET
+        'Query' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/" -Method GET -Query $Query
+        }
+        'Default' {
+            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/ip-ranges/" -Method GET
+        }
     }
 
 }

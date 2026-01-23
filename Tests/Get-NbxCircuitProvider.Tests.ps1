@@ -21,6 +21,7 @@ Describe "Get-NbxCircuitProvider" {
 
         It "Should have mandatory parameters" {
             (Get-Command "Get-NbxCircuitProvider").Parameters.Keys | Should -Contain "Id"
+            (Get-Command "Get-NbxCircuitProvider").Parameters.Keys | Should -Contain "Query"
         }
     }
 

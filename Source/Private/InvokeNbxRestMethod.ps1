@@ -19,18 +19,42 @@ function InvokeNbxRestMethod {
         [string]$OutFile,
 
         [Parameter()]
-        [string]$Token
+        [string]$Token,
+
+        [Parameter()]
+        [hashtable]
+        $Query
     )
+
+    if ($PSBoundParameters.ContainsKey('Query')) {
+        $Query.GetEnumerator() | Select-object -ExpandProperty Key | ForEach-Object -Begin {
+                $QueryString = "?"
+        } -Process {
+            if ($QueryString -eq '?') {
+                $QueryString += "$($_)=$($Query[$_])"
+            } else {
+                $QueryString += "&$($_)=$($Query[$_])"
+            }
+        } -end {
+            $QueryString = $QueryString.tolower()
+        }
+    }
     
+    $InvokeSplat = @{
+        'Uri'         = '{0}{1}' -f $Uri, $QueryString
+        'Method'      = $Method
+        'ContentType' = $ContentType
+    }
+
     if ($script:NbxConfig.AuthenticationType -eq 'Anonymous') {
 
         Write-Verbose "Requests will be sent anonymously."
 
-        $InvokeSplat = @{
-            'Uri'         = $Uri
-            'Method'      = $Method
-            'ContentType' = $ContentType
-        }
+        $InvokeSplat.Add('Headers',@{
+            "Accept"        = 'application/json; indent=4'
+            'ContentType'   = $ContentType
+        })
+        
     }
     elseif ($script:NbxConfig.AuthenticationType -eq 'Token') {
 
@@ -40,28 +64,18 @@ function InvokeNbxRestMethod {
             if (-not $script:NbxConfig.Token) {
                 throw 'Please login with Connect-NbxAPI first and provide a valid token.'
             }
-            $InvokeSplat = @{
-                'Uri'     = $Uri
-                'Method'  = $Method
-                'Headers' = @{
+            $InvokeSplat.Add('Headers',@{
                     'Authorization' = "Token $($script:NbxConfig.Token)"
                     "Accept"        = 'application/json; indent=4'
                     'ContentType'   = $ContentType
-                }
-                'ContentType'   = $ContentType
-            }
+                })
         }
         else {
-            $InvokeSplat = @{
-                'Uri'     = $Uri
-                'Method'  = $Method
-                'Headers' = @{
-                    'Authorization' = "Token $Token"
-                    "Accept"        = 'application/json; indent=4'
-                    'ContentType'   = $ContentType
-                }
+            $InvokeSplat.Add('Headers',@{
+                'Authorization' = "Token $Token"
+                "Accept"        = 'application/json; indent=4'
                 'ContentType'   = $ContentType
-            }
+            })
         }
 
     }

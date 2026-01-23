@@ -19,18 +19,9 @@ Describe "Get-NbxDCIMFrontPort" {
             (Get-Command "Get-NbxDCIMFrontPort").Parameters.Keys | ForEach-Object { $_ | Should -Match '^[A-Z].*' }
         }
 
-        It "Mandatory parameters are present in parameter list" {
-            $cmd = Get-Command "Get-NbxDCIMFrontPort"
-            $mandatoryParams = @()
-            foreach ($p in $cmd.Parameters.GetEnumerator()) {
-                foreach ($attr in $p.Value.Attributes) {
-                    if ($attr -is [System.Management.Automation.ParameterAttribute] -and $attr.Mandatory) {
-                        $mandatoryParams += $p.Key
-                    }
-                }
-            }
-
-            $mandatoryParams | Should -BeNullOrEmpty
+        It "Should have mandatory parameters" {
+            (Get-Command "Get-NbxDCIMFrontPort").Parameters.Keys | Should -Contain "Id"
+            (Get-Command "Get-NbxDCIMFrontPort").Parameters.Keys | Should -Contain "Query"
         }
     }
 

@@ -50,7 +50,3 @@ function Get-NbxIPAMAvailableIP {
     }
 
 }
-
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$Prefix_ID/available-ips/" -Method GET
-
-}

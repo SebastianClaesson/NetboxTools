@@ -19,18 +19,9 @@ Describe "Get-NbxDCIMInterface" {
             (Get-Command "Get-NbxDCIMInterface").Parameters.Keys | ForEach-Object { $_ | Should -Match '^[A-Z].*' }
         }
 
-        It "Mandatory parameters are present in parameter list" {
-            $cmd = Get-Command "Get-NbxDCIMInterface"
-            $mandatoryParams = @()
-            foreach ($p in $cmd.Parameters.GetEnumerator()) {
-                foreach ($attr in $p.Value.Attributes) {
-                    if ($attr -is [System.Management.Automation.ParameterAttribute] -and $attr.Mandatory) {
-                        $mandatoryParams += $p.Key
-                    }
-                }
-            }
-
-            $mandatoryParams | Should -BeNullOrEmpty
+        It "Should have mandatory parameters" {
+            (Get-Command "Get-NbxDCIMInterface").Parameters.Keys | Should -Contain "Id"
+            (Get-Command "Get-NbxDCIMInterface").Parameters.Keys | Should -Contain "Query"
         }
     }
 

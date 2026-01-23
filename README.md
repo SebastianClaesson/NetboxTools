@@ -27,7 +27,8 @@ $NbxConfig.MaxPageSize = 100
 ## Query parameter in action for Get- cmdlets 
 
 We've restructed the Get- cmdlets to include a hashtable when building a query.
-For example:
+When we in this case, want to query for a object with a description, spefici assigned_object_id and created greater date.
+`nFor example:
 
 ```pwsh
 $Query = @{

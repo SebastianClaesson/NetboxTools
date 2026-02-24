@@ -60,10 +60,9 @@ Import-Module Microsoft.Powershell.PlatyPS
 ```powershell
 # you should have module imported in the session
 Import-Module .\Source\NetboxTools.psd1
-New-MarkdownCommandHelp -Command My-NewCommand -OutputFolder .\Docs\Help
+New-MarkdownCommandHelp -Command (Get-Command My-NewCommand) -OutputFolder .\Docs\Help
 ```
-
-Edit the markdown file(s) in the `.\Docs\Help` folder and populate `{{ ... }}` placeholders with missed help content.
+Move the newly creaated markdown from `.\Docs\Help\NetboxTools` to `.\Docs\Help` folder and populate `{{ ... }}` placeholders with missed help content.
 
 - If you've made a lot of changes to the module code, you can easily update the markdown file(s) automatically with:
 

@@ -19,34 +19,14 @@ function Get-NbxIPAMAvailableIP {
         Additional information about the function.
 #>
 
-[CmdletBinding(DefaultParameterSetName = 'Default')]
+[CmdletBinding()]
     param
     (
-        [Parameter(Mandatory, ParameterSetName = 'Id')]
-        [uint64[]]
-        $Id,
-
-        [Parameter(Mandatory, ParameterSetName = 'Query')]
-        [hashtable]
-        $Query,
-
-        [Parameter(ParameterSetName = 'Default')]
-        [switch]
-        $All
+        [Parameter(Mandatory,
+            ValueFromPipelineByPropertyName = $true)]
+        [Alias('Id')]
+        [uint64]$Prefix_ID
     )
 
-    switch ($PSCmdlet.ParameterSetName) {
-        'Id' {
-            $Id | ForEach-Object {
-                InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/available-ips/$($_)/" -Method GET
-            }
-        }
-        'Query' {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/available-ips/" -Method GET -Query $Query
-        }
-        'Default' {
-            InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/available-ips/" -Method GET
-        }
-    }
-
+    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$Prefix_ID/available-ips/" -Method GET
 }

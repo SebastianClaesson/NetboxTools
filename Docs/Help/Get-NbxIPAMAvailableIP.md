@@ -4,7 +4,7 @@ external help file: NetboxTools-Help.xml
 HelpUri: ''
 Locale: sv-SE
 Module Name: NetboxTools
-ms.date: 01-14-2026
+ms.date: 02-24-2026
 PlatyPS schema version: 2024-05-01
 title: Get-NbxIPAMAvailableIP
 ---
@@ -52,28 +52,7 @@ ParameterSets:
   Position: 0
   IsRequired: true
   ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-```
-
-### -Query
-
-Hashtable containing parameters.
-
-```yaml
-Type: System.Collections.Hashtable
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: Query
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
+  ValueFromPipelineByPropertyName: true
   ValueFromRemainingArguments: false
 DontShow: false
 AcceptedValues: []
@@ -89,16 +68,14 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-None. This cmdlet does not accept pipeline input.
+### System.UInt64
+
+Prefix identifier passed to the cmdlet.
 
 ## OUTPUTS
-
-System.String
-
-A textual representation of available IP address(es) (e.g., '192.0.2.1') or objects containing IP details depending on the parameters passed.
 
 ## NOTES
 
 Additional information about the function.
-## RELATED LINKS
 
+## RELATED LINKS

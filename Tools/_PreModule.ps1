@@ -1,5 +1,5 @@
 $script:NbxConfig = @{
-	'Connected'     = $true
+	'Connected'     = $false
 	'Choices'       = @{
 	}
 	'APIDefinition' = $null

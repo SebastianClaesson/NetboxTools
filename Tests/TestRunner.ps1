@@ -1,3 +1,4 @@
+#Requires -Modules @{ ModuleName = 'Pester'; ModuleVersion = '6.0.0' }
 
 param (
     [Parameter(Mandatory)]
@@ -37,7 +38,7 @@ if ($CodeCoveragePath) {
     $PesterConfiguration.CodeCoverage.Path = $AllCodeCoverageFiles
     $PesterConfiguration.CodeCoverage.CoveragePercentTarget = 75
     $PesterConfiguration.CodeCoverage.OutputPath = "./coverage.xml"
-    $PesterConfiguration.CodeCoverage.OutputFormat = 'CoverageGutters'
+    $PesterConfiguration.CodeCoverage.OutputFormat = 'Cobertura'
 }
 
 if ($TestResults.IsPresent) {

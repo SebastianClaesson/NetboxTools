@@ -1,32 +1,48 @@
 function Get-NbxIPAMAvailableIP {
-
     <#
     .SYNOPSIS
-        A convenience method for returning available IP addresses within a prefix
+        Gets available IP addresses within a prefix.
 
     .DESCRIPTION
-        A convenience method for returning available IP addresses within a prefix
+        Gets the IP addresses within a prefix that are not in use, from the NetBox API endpoint 'ipam/prefixes/{id}/available-ips'.
 
-    .PARAMETER Prefix_ID
-        A description of the Prefix_ID parameter.
+    .PARAMETER Prefix
+        The ID of the prefix. Accepts prefix objects from Get-NbxIPAMPrefix, also from the pipeline.
+
+    .PARAMETER Limit
+        The maximum number of IP addresses to return for each prefix.
 
     .EXAMPLE
-        Get-NbxIPAMAvailableIP -Prefix_ID (Get-NbxIPAMPrefix -Prefix 192.0.2.0/24).id
+        Get-NbxIPAMPrefix -Prefix '192.0.2.0/24' | Get-NbxIPAMAvailableIP -Limit 1
 
-        Get (Next) Available IP on the Prefix 192.0.2.0/24
+        Gets the next available IP address in the prefix 192.0.2.0/24.
 
-    .NOTES
-        Additional information about the function.
-#>
+    .INPUTS
+        System.UInt64, NetboxTools.IPAMPrefix
+        You can pipe prefix IDs or prefix objects to this cmdlet.
 
-[CmdletBinding()]
-    param
-    (
-        [Parameter(Mandatory,
-            ValueFromPipelineByPropertyName = $true)]
-        [Alias('Id')]
-        [uint64]$Prefix_ID
+    .OUTPUTS
+        System.Management.Automation.PSObject
+
+    .LINK
+        Get-NbxIPAMPrefix
+    #>
+    [CmdletBinding()]
+    [OutputType([psobject])]
+    param (
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [Alias('Id', 'Prefix_ID')]
+        [NbxIdTransformation('ipam/prefixes')]
+        [uint64[]]$Prefix,
+
+        [Parameter()]
+        [ValidateRange(1, [int]::MaxValue)]
+        [int]$Limit
     )
 
-    InvokeNbxRestMethod -URI "$($script:NbxConfig.URI)/ipam/prefixes/$Prefix_ID/available-ips/" -Method GET
+    process {
+        foreach ($PrefixId in $Prefix) {
+            InvokeNbxRestMethod -Endpoint "ipam/prefixes/$PrefixId/available-ips/" -Limit $Limit
+        }
+    }
 }

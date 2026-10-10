@@ -1,4 +1,4 @@
-#Requires -Modules 'InvokeBuild', 'Microsoft.Powershell.PlatyPS', 'Pester', 'PsScriptAnalyzer'
+#Requires -Modules 'InvokeBuild', 'Microsoft.Powershell.PlatyPS', @{ ModuleName = 'Pester'; ModuleVersion = '6.0.0' }, 'PsScriptAnalyzer'
 
 param (
     [string]$Version = '1.0.0'
@@ -96,8 +96,10 @@ task Compile_Module {
         "#endregion PostCode $($_.BaseName)`n" | Out-File $PSM1Path -Append
     }
     
-    # Manifest
-    Update-ModuleManifest -Path "$ModuleSourcePath\$ModuleName.psd1" -ModuleVersion $Version -FunctionsToExport $ExportedFunctionList
+    # Manifest, aliases are defined by the module itself in Tools\_PostModule.ps1
+    $ExportedAliasList = @((Import-Module "$ModuleSourcePath\$ModuleName.psm1" -Force -PassThru).ExportedAliases.Keys | Sort-Object)
+    Remove-Module $ModuleName -Force
+    Update-ModuleManifest -Path "$ModuleSourcePath\$ModuleName.psd1" -ModuleVersion $Version -FunctionsToExport $ExportedFunctionList -AliasesToExport $ExportedAliasList
     Copy-Item -Path "$ModuleSourcePath\$ModuleName.psd1" -Destination $PSD1Path 
 }
 

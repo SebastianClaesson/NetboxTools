@@ -1,7 +1,11 @@
 #Requires -Modules 'InvokeBuild', 'Microsoft.Powershell.PlatyPS', @{ ModuleName = 'Pester'; ModuleVersion = '6.0.0' }, 'PsScriptAnalyzer'
 
 param (
-    [string]$Version = '1.0.0'
+    [string]$Version = '1.0.0',
+
+    # Prerelease label such as 'preview1', publishes the module as a prerelease version (e.g. 2.0.0-preview1)
+    [ValidatePattern('^([0-9A-Za-z]+)?$')]
+    [string]$Prerelease = ''
 )
 
 [string]$ModuleName = 'NetboxTools'
@@ -99,7 +103,16 @@ task Compile_Module {
     # Manifest, aliases are defined by the module itself in Tools\_PostModule.ps1
     $ExportedAliasList = @((Import-Module "$ModuleSourcePath\$ModuleName.psm1" -Force -PassThru).ExportedAliases.Keys | Sort-Object)
     Remove-Module $ModuleName -Force
-    Update-ModuleManifest -Path "$ModuleSourcePath\$ModuleName.psd1" -ModuleVersion $Version -FunctionsToExport $ExportedFunctionList -AliasesToExport $ExportedAliasList
+    $ManifestParameters = @{
+        Path              = "$ModuleSourcePath\$ModuleName.psd1"
+        ModuleVersion     = $Version
+        FunctionsToExport = $ExportedFunctionList
+        AliasesToExport   = $ExportedAliasList
+    }
+    if ($Prerelease) {
+        $ManifestParameters['Prerelease'] = $Prerelease
+    }
+    Update-ModuleManifest @ManifestParameters
     Copy-Item -Path "$ModuleSourcePath\$ModuleName.psd1" -Destination $PSD1Path 
 }
 

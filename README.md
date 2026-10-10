@@ -14,6 +14,12 @@ The module is published on the [PowerShell Gallery](https://www.powershellgaller
 Install-Module -Name NetboxTools -Scope CurrentUser
 ```
 
+To try a preview version, when one is available:
+
+```powershell
+Install-Module -Name NetboxTools -Scope CurrentUser -AllowPrerelease
+```
+
 The cmdlets target the NetBox 4.x API and are verified against NetBox 4.7.
 
 ## Quick start

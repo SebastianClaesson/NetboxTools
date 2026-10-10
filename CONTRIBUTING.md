@@ -108,6 +108,18 @@ Import-Module .\Source\NetboxTools.psd1 -Force
 Update-MarkdownCommandHelp -Path .\Docs\Help\*.md
 ```
 
+## Releasing
+
+Publishing a GitHub release runs the `build and release` workflow, which builds, tests and publishes the module to the
+PowerShell Gallery. The version is taken from the release tag:
+
+- `v2.0.0` publishes version 2.0.0.
+- `v2.0.0-preview1` publishes the prerelease version 2.0.0-preview1. Mark the GitHub release as a pre-release.
+  Prerelease labels may only contain letters and digits (`preview1`, not `preview.1`). Prereleases are only installed
+  with `Install-Module NetboxTools -AllowPrerelease`.
+
+Versions published to the PowerShell Gallery can be unlisted but not deleted, and a version number can not be reused.
+
 ## Pull Requests
 
 If you like to start contributing to the NetboxTools module. Please make sure that there is a related issue to link to your PR.

@@ -9,6 +9,9 @@ function Get-NbxIPAMAvailablePrefix {
     .PARAMETER Prefix
         The ID of the prefix. Accepts prefix objects from Get-NbxIPAMPrefix, also from the pipeline.
 
+    .PARAMETER Query
+        Filters supported by the NetBox API as a hashtable, e.g. @{ vrf_id = 2 }.
+
     .PARAMETER Limit
         The maximum number of prefixes to return for each prefix.
 
@@ -36,13 +39,16 @@ function Get-NbxIPAMAvailablePrefix {
         [uint64[]]$Prefix,
 
         [Parameter()]
+        [hashtable]$Query,
+
+        [Parameter()]
         [ValidateRange(1, [int]::MaxValue)]
         [int]$Limit
     )
 
     process {
         foreach ($PrefixId in $Prefix) {
-            InvokeNbxRestMethod -Endpoint "ipam/prefixes/$PrefixId/available-prefixes/" -Limit $Limit
+            InvokeNbxRestMethod -Endpoint "ipam/prefixes/$PrefixId/available-prefixes/" -Query $Query -Limit $Limit
         }
     }
 }

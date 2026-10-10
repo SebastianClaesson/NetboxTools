@@ -19,7 +19,8 @@ Gets available prefixes within a prefix.
 ### __AllParameterSets
 
 ```
-Get-NbxIPAMAvailablePrefix [-Prefix] <ulong[]> [[-Limit] <int>] [<CommonParameters>]
+Get-NbxIPAMAvailablePrefix [-Prefix] <ulong[]> [[-Query] <hashtable>] [[-Limit] <int>]
+ [<CommonParameters>]
 ```
 
 ## ALIASES
@@ -53,7 +54,7 @@ SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 1
+  Position: 2
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -80,6 +81,28 @@ ParameterSets:
   Position: 0
   IsRequired: true
   ValueFromPipeline: true
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -Query
+
+Filters supported by the NetBox API as a hashtable, e.g.
+@{ vrf_id = 2 }.
+
+```yaml
+Type: System.Collections.Hashtable
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: false
+  ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
 DontShow: false

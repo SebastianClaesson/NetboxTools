@@ -46,3 +46,16 @@ Describe 'Get-NbxIPAMAvailablePrefix' {
         Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter { $Uri -like '*limit=1' }
     }
 }
+
+Describe 'Get-NbxIPAMAvailablePrefix with -Query' {
+    BeforeEach {
+        Mock Invoke-RestMethod -ModuleName NetboxTools -MockWith { @() }
+    }
+
+    It 'Passes the query to the API' {
+        Get-NbxIPAMAvailablePrefix -Prefix 5 -Query @{ vrf_id = 2 }
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Uri.AbsoluteUri -like '*/ipam/prefixes/5/available-prefixes/?vrf_id=2*'
+        }
+    }
+}

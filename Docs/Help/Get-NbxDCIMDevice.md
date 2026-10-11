@@ -19,7 +19,7 @@ Gets devices from NetBox.
 ### Query (Default)
 
 ```
-Get-NbxDCIMDevice [-Name <string[]>] [-Query <hashtable>] [-Limit <int>] [<CommonParameters>]
+Get-NbxDCIMDevice [-Name <string[]>] [-Query <hashtable>] [-All] [-Limit <int>] [<CommonParameters>]
 ```
 
 ### Id
@@ -76,6 +76,28 @@ Get-NbxDCIMDevice -Query @{ q = 'example' } -Limit 10
 Gets the first 10 devices matching the search 'example'.
 
 ## PARAMETERS
+
+### -All
+
+Returns all objects, which is the default.
+Kept for backward compatibility.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
 ### -Id
 

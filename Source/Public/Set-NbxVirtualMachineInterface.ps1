@@ -31,7 +31,7 @@ function Set-NbxVirtualMachineInterface {
         The maximum transmission unit. Specify $null to clear the value.
 
     .PARAMETER MacAddress
-        The primary MAC address of the interface. Specify $null to clear the value.
+        The primary MAC address of the interface. Requires NetBox 4.7 or later, earlier versions ignore the value. Specify $null to clear the value.
 
     .PARAMETER Mode
         The 802.1Q mode. Common values are: access, tagged, tagged-all, q-in-q. Specify $null to clear the value.
@@ -112,6 +112,7 @@ function Set-NbxVirtualMachineInterface {
         [string]$Name,
 
         [Parameter()]
+        [NbxBoolTransformation()]
         [bool]$Enabled,
 
         [Parameter()]

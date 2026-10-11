@@ -101,3 +101,40 @@ Describe 'ConvertToNbxSlug' {
         InModuleScope NetboxTools { (ConvertToNbxSlug -Name ('a' * 150)).Length | Should -Be 100 }
     }
 }
+
+Describe 'Pipeline input from Import-Csv' {
+    BeforeEach {
+        Initialize-NbxTestConnection
+        Mock Invoke-RestMethod -ModuleName NetboxTools -MockWith { New-NbxTestResponse -Uri $Uri -Method $Method -Body $Body }
+    }
+
+    It 'Does not send empty cells' {
+        "name,slug,status,tenant,latitude`nSite A,,,," | ConvertFrom-Csv | New-NbxDCIMSite
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Json = $Body | ConvertFrom-Json
+            $Names = $Json.PSObject.Properties.Name
+            $Json.name -eq 'Site A' -and $Json.slug -eq 'site-a' -and
+            $Names -notcontains 'status' -and $Names -notcontains 'tenant' -and $Names -notcontains 'latitude'
+        }
+    }
+
+    It 'Converts boolean text to booleans' {
+        "device,name,type,enabled,mgmt_only`n5,eth0,virtual,true,no" | ConvertFrom-Csv | New-NbxDCIMInterface
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Json = $Body | ConvertFrom-Json
+            $Json.enabled -eq $true -and $Json.mgmt_only -eq $false -and $Json.device -eq 5
+        }
+    }
+
+    It 'Writes an error for an invalid reference and continues with the next object' {
+        $Rows = @(
+            [pscustomobject]@{ a_terminations = [pscustomobject]@{ name = 'not a NetBox object' }; b_terminations = 2 }
+            [pscustomobject]@{ a_terminations = 3; b_terminations = 4 }
+        )
+        $Rows | New-NbxDCIMCable -ErrorVariable CableErrors -ErrorAction SilentlyContinue
+        $CableErrors | Should -Not -BeNullOrEmpty
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            ($Body | ConvertFrom-Json).a_terminations[0].object_id -eq 3
+        }
+    }
+}

@@ -5,6 +5,8 @@ function Set-NbxInvokeParameter {
 
     .DESCRIPTION
         Sets additional parameters for Invoke-RestMethod used for all requests to the NetBox API, such as @{ SkipCertificateCheck = $true } or @{ Proxy = 'http://proxy:8080' }.
+        Replaces the parameters set before. SkipCertificateCheck keeps the value of the connection unless it is specified,
+        and Headers are added to the headers of the module without replacing the Authorization header.
 
     .PARAMETER InvokeParameter
         The invoke parameters.
@@ -44,7 +46,13 @@ function Set-NbxInvokeParameter {
     )
 
     if ($PSCmdlet.ShouldProcess('NetBox connection', "Set invoke parameters to '$(($InvokeParameter.GetEnumerator() | ForEach-Object { "$($_.Key)=$($_.Value)" }) -join '; ')'")) {
-        $script:NbxConfig.InvokeParams = $InvokeParameter
+        # Store a copy so later changes to the caller's hashtable do not change the configuration, and keep the
+        # certificate validation of the connection unless it is specified
+        $NewInvokeParams = @{} + $InvokeParameter
+        if (-not $NewInvokeParams.ContainsKey('SkipCertificateCheck')) {
+            $NewInvokeParams['SkipCertificateCheck'] = [bool]$script:NbxConfig.InvokeParams['SkipCertificateCheck']
+        }
+        $script:NbxConfig.InvokeParams = $NewInvokeParams
         if ($PassThru) {
             $script:NbxConfig.InvokeParams
         }

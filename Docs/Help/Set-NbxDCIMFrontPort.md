@@ -375,7 +375,8 @@ Accepts an ID or an object from Get-NbxDCIMRearPort.
 Type: System.UInt64
 DefaultValue: 0
 SupportsWildcards: false
-Aliases: []
+Aliases:
+- Rear_Port
 ParameterSets:
 - Name: (All)
   Position: 8
@@ -397,7 +398,8 @@ Defaults to 1.
 Type: System.Int32
 DefaultValue: 1
 SupportsWildcards: false
-Aliases: []
+Aliases:
+- Rear_Port_Position
 ParameterSets:
 - Name: (All)
   Position: 9

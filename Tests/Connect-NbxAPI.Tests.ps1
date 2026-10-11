@@ -82,3 +82,28 @@ Describe 'Connect-NbxAPI' {
         InModuleScope NetboxTools { $script:NbxConfig.URI } | Should -BeNullOrEmpty
     }
 }
+
+Describe 'Connect-NbxAPI certificate validation' {
+    BeforeEach {
+        InModuleScope NetboxTools { $script:NbxConfig = NewNbxConfig }
+        Mock Invoke-RestMethod -ModuleName NetboxTools -MockWith { [pscustomobject]@{ } }
+    }
+
+    AfterAll {
+        Initialize-NbxTestConnection
+    }
+
+    It 'Validates certificates for a new connection, even when the previous connection skipped validation' {
+        Connect-NbxAPI -Hostname 'lab.local' -Token 'abc' -SkipCertificateCheck -SkipVerification
+        Connect-NbxAPI -Hostname 'netbox.example.com' -Token 'def'
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Uri.Host -eq 'netbox.example.com' -and $SkipCertificateCheck -eq $false
+        }
+    }
+
+    It 'Keeps other invoke parameters of the previous connection' {
+        Set-NbxInvokeParameter -InvokeParameter @{ MaximumRetryCount = 3 }
+        Connect-NbxAPI -Hostname 'netbox.example.com' -Token 'def'
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter { $MaximumRetryCount -eq 3 }
+    }
+}

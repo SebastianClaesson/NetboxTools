@@ -43,7 +43,7 @@ function Set-NbxDCIMInterface {
         The maximum transmission unit. Specify $null to clear the value.
 
     .PARAMETER MacAddress
-        The primary MAC address of the interface. Specify $null to clear the value.
+        The primary MAC address of the interface. Requires NetBox 4.7 or later, earlier versions ignore the value. Specify $null to clear the value.
 
     .PARAMETER Speed
         The speed in Kbps. Specify $null to clear the value.
@@ -150,6 +150,7 @@ function Set-NbxDCIMInterface {
         [string]$Label,
 
         [Parameter()]
+        [NbxBoolTransformation()]
         [bool]$Enabled,
 
         [Parameter()]
@@ -184,6 +185,7 @@ function Set-NbxDCIMInterface {
 
         [Parameter()]
         [Alias('mgmt_only')]
+        [NbxBoolTransformation()]
         [bool]$MgmtOnly,
 
         [Parameter()]
@@ -207,6 +209,7 @@ function Set-NbxDCIMInterface {
 
         [Parameter()]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter()]

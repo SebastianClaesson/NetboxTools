@@ -162,10 +162,16 @@ function New-NbxDCIMCable {
 
     process {
         $Body = ConvertToNbxBody -Command $MyInvocation.MyCommand -BoundParameters $PSBoundParameters -CommandLineParameters $CommandLineParameters -InputObject $_ -Exclude @('Id', 'Force', 'PassThru', 'OptionalAttribute', 'TerminationType')
-        foreach ($Side in 'a_terminations', 'b_terminations') {
-            if ($Body.ContainsKey($Side)) {
-                $Body[$Side] = @(ConvertToNbxObjectReference -InputObject $Body[$Side] -DefaultType $TerminationType)
+        try {
+            foreach ($Side in 'a_terminations', 'b_terminations') {
+                if ($Body.ContainsKey($Side)) {
+                    $Body[$Side] = @(ConvertToNbxObjectReference -InputObject $Body[$Side] -DefaultType $TerminationType)
+                }
             }
+        }
+        catch {
+            $PSCmdlet.WriteError($_)
+            return
         }
 
         if ($PSCmdlet.ShouldProcess(($Body['label'] ?? 'new cable'), 'Create cable')) {

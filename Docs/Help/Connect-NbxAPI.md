@@ -195,6 +195,7 @@ HelpMessage: ''
 ### -SkipCertificateCheck
 
 Skips validation of the certificate of the NetBox instance, for example when it uses a self-signed certificate.
+Applies to this connection only, each Connect-NbxAPI validates certificates unless this is specified.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter

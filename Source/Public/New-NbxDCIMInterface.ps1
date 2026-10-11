@@ -41,7 +41,7 @@ function New-NbxDCIMInterface {
         The maximum transmission unit.
 
     .PARAMETER MacAddress
-        The primary MAC address of the interface.
+        The primary MAC address of the interface. Requires NetBox 4.7 or later, earlier versions ignore the value.
 
     .PARAMETER Speed
         The speed in Kbps.
@@ -142,6 +142,7 @@ function New-NbxDCIMInterface {
         [string]$Label,
 
         [Parameter(ValueFromPipelineByPropertyName)]
+        [NbxBoolTransformation()]
         [bool]$Enabled,
 
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -176,6 +177,7 @@ function New-NbxDCIMInterface {
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mgmt_only')]
+        [NbxBoolTransformation()]
         [bool]$MgmtOnly,
 
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -199,6 +201,7 @@ function New-NbxDCIMInterface {
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter(ValueFromPipelineByPropertyName)]

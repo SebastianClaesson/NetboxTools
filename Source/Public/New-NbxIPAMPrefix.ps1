@@ -137,10 +137,12 @@ function New-NbxIPAMPrefix {
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('is_pool')]
+        [NbxBoolTransformation()]
         [bool]$IsPool,
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_utilized')]
+        [NbxBoolTransformation()]
         [bool]$MarkUtilized,
 
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -169,10 +171,16 @@ function New-NbxIPAMPrefix {
 
     process {
         $Body = ConvertToNbxBody -Command $MyInvocation.MyCommand -BoundParameters $PSBoundParameters -CommandLineParameters $CommandLineParameters -InputObject $_ -Exclude @('Id', 'Force', 'PassThru', 'OptionalAttribute', 'Scope')
-        if ($PSBoundParameters.ContainsKey('Scope')) {
-            $Reference = ConvertToNbxObjectReference -InputObject $Scope
-            $Body['scope_type'] = $Reference.object_type
-            $Body['scope_id'] = $Reference.object_id
+        try {
+            if ($PSBoundParameters.ContainsKey('Scope')) {
+                $Reference = ConvertToNbxObjectReference -InputObject $Scope
+                $Body['scope_type'] = $Reference.object_type
+                $Body['scope_id'] = $Reference.object_id
+            }
+        }
+        catch {
+            $PSCmdlet.WriteError($_)
+            return
         }
 
         if ($PSCmdlet.ShouldProcess(($Body['prefix'] ?? 'new prefix'), 'Create prefix')) {

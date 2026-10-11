@@ -50,8 +50,10 @@ Describe 'Conventions for <Name>' -ForEach $Commands {
     BeforeAll {
         $Command = Get-Command $Name
         $Help = Get-Help $Name -Full
+        # Hidden parameters (DontShow) are only kept for backward compatibility
         $Parameters = $Command.Parameters.Values | Where-Object {
-            $_.Name -notin [System.Management.Automation.Cmdlet]::CommonParameters + [System.Management.Automation.Cmdlet]::OptionalCommonParameters
+            $_.Name -notin [System.Management.Automation.Cmdlet]::CommonParameters + [System.Management.Automation.Cmdlet]::OptionalCommonParameters -and
+            -not $_.Attributes.Where({ $_ -is [System.Management.Automation.ParameterAttribute] -and $_.DontShow })
         }
     }
 

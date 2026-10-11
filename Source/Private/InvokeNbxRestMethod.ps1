@@ -90,6 +90,15 @@ function InvokeNbxRestMethod {
     }
     if ($script:NbxConfig.InvokeParams -is [System.Collections.IDictionary]) {
         foreach ($Key in $script:NbxConfig.InvokeParams.Keys) {
+            if ($Key -eq 'Headers') {
+                # Add custom headers, the Authorization and Accept headers of the module take precedence
+                foreach ($Header in $script:NbxConfig.InvokeParams[$Key].GetEnumerator()) {
+                    if (-not $Headers.ContainsKey($Header.Key)) {
+                        $Headers[$Header.Key] = $Header.Value
+                    }
+                }
+                continue
+            }
             $InvokeSplat[$Key] = $script:NbxConfig.InvokeParams[$Key]
         }
     }

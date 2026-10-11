@@ -19,7 +19,7 @@ Gets cluster groups from NetBox.
 ### Query (Default)
 
 ```
-Get-NbxVirtualizationClusterGroup [-Name <string[]>] [-Query <hashtable>] [-Limit <int>]
+Get-NbxVirtualizationClusterGroup [-Name <string[]>] [-Query <hashtable>] [-All] [-Limit <int>]
  [<CommonParameters>]
 ```
 
@@ -77,6 +77,28 @@ Get-NbxVirtualizationClusterGroup -Query @{ q = 'example' } -Limit 10
 Gets the first 10 cluster groups matching the search 'example'.
 
 ## PARAMETERS
+
+### -All
+
+Returns all objects, which is the default.
+Kept for backward compatibility.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
 ### -Id
 

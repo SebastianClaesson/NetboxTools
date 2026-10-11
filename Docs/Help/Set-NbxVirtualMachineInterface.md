@@ -214,6 +214,7 @@ HelpMessage: ''
 ### -MacAddress
 
 The primary MAC address of the interface.
+Requires NetBox 4.7 or later, earlier versions ignore the value.
 Specify $null to clear the value.
 
 ```yaml

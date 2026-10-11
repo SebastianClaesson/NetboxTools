@@ -121,6 +121,7 @@ function Set-NbxDCIMRearPort {
 
         [Parameter()]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter()]

@@ -145,10 +145,12 @@ function Set-NbxIPAMPrefix {
 
         [Parameter()]
         [Alias('is_pool')]
+        [NbxBoolTransformation()]
         [bool]$IsPool,
 
         [Parameter()]
         [Alias('mark_utilized')]
+        [NbxBoolTransformation()]
         [bool]$MarkUtilized,
 
         [Parameter()]

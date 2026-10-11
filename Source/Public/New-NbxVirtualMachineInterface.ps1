@@ -29,7 +29,7 @@ function New-NbxVirtualMachineInterface {
         The maximum transmission unit.
 
     .PARAMETER MacAddress
-        The primary MAC address of the interface.
+        The primary MAC address of the interface. Requires NetBox 4.7 or later, earlier versions ignore the value.
 
     .PARAMETER Mode
         The 802.1Q mode. Common values are: access, tagged, tagged-all, q-in-q.
@@ -104,6 +104,7 @@ function New-NbxVirtualMachineInterface {
         [string]$Name,
 
         [Parameter(ValueFromPipelineByPropertyName)]
+        [NbxBoolTransformation()]
         [bool]$Enabled,
 
         [Parameter(ValueFromPipelineByPropertyName)]

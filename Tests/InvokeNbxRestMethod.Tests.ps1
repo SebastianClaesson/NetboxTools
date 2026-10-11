@@ -159,3 +159,36 @@ Describe 'ConvertToNbxQueryString' {
         InModuleScope NetboxTools { ConvertToNbxQueryString -Query @{} | Should -Be '' }
     }
 }
+
+Describe 'Filter keys' {
+    BeforeEach {
+        Initialize-NbxTestConnection
+        Mock Invoke-RestMethod -ModuleName NetboxTools -MockWith { New-NbxTestResponse -Uri $Uri -Method $Method -Body $Body }
+    }
+
+    It 'Lower cases filter keys, as NetBox ignores filters it does not recognize' {
+        InModuleScope NetboxTools { ConvertToNbxQueryString -Query @{ Site = 'Lab' } | Should -Be 'site=Lab' }
+    }
+
+    It 'Sends the filter of the query and the -Name parameter in lower case' {
+        Get-NbxDCIMDevice -Query @{ Site = 'lab'; Name = 'a' } -Name 'b'
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Uri.AbsoluteUri -cmatch '[?&]site=lab' -and $Uri.AbsoluteUri -cmatch '[?&]name=b' -and $Uri.AbsoluteUri -cnotmatch 'Site=|Name='
+        }
+    }
+
+    It 'Accepts the hidden -All switch of earlier versions' {
+        Get-NbxDCIMDevice -All
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Uri.AbsoluteUri -eq 'https://netbox.example.com/api/dcim/devices/?limit=1000'
+        }
+    }
+
+    It 'Adds custom headers without replacing the Authorization header' {
+        InModuleScope NetboxTools { $script:NbxConfig.InvokeParams = @{ Headers = @{ 'X-Custom' = 'yes'; Authorization = 'Basic other' } } }
+        Get-NbxTag
+        Should -Invoke Invoke-RestMethod -ModuleName NetboxTools -Times 1 -Exactly -ParameterFilter {
+            $Headers['X-Custom'] -eq 'yes' -and $Headers.Authorization -eq 'Token 0123456789abcdef'
+        }
+    }
+}

@@ -52,7 +52,7 @@ function ConvertToNbxObjectReference {
             continue
         }
 
-        if ($Properties -contains 'url' -and $Properties -contains 'id' -and $Item.url -match '/api/(?<app>[a-z-]+)/(?<model>[a-z-]+)/\d+/?$') {
+        if ($Properties -contains 'url' -and $Properties -contains 'id' -and $Item.url -match '/api/(?<app>[a-z0-9-]+)/(?<model>[a-z0-9-]+)/\d+/?$') {
             $App = $Matches.app -replace '-', ''
             $Model = $Matches.model -replace '-', ''
             $Endpoint = '{0}/{1}' -f $Matches.app, $Matches.model

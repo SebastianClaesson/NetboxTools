@@ -118,10 +118,16 @@ function New-NbxContactAssignment {
 
     process {
         $Body = ConvertToNbxBody -Command $MyInvocation.MyCommand -BoundParameters $PSBoundParameters -CommandLineParameters $CommandLineParameters -InputObject $_ -Exclude @('Id', 'Force', 'PassThru', 'OptionalAttribute', 'Object')
-        if ($PSBoundParameters.ContainsKey('Object')) {
-            $Reference = ConvertToNbxObjectReference -InputObject $Object
-            $Body['object_type'] = $Reference.object_type
-            $Body['object_id'] = $Reference.object_id
+        try {
+            if ($PSBoundParameters.ContainsKey('Object')) {
+                $Reference = ConvertToNbxObjectReference -InputObject $Object
+                $Body['object_type'] = $Reference.object_type
+                $Body['object_id'] = $Reference.object_id
+            }
+        }
+        catch {
+            $PSCmdlet.WriteError($_)
+            return
         }
         if (-not $Body['object_type'] -or -not $Body['object_id']) {
             $PSCmdlet.WriteError([System.Management.Automation.ErrorRecord]::new(

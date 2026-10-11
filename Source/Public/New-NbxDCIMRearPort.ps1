@@ -113,6 +113,7 @@ function New-NbxDCIMRearPort {
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter(ValueFromPipelineByPropertyName)]

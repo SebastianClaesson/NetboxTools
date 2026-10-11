@@ -19,7 +19,8 @@ Gets IP addresses from NetBox.
 ### Query (Default)
 
 ```
-Get-NbxIPAMAddress [-Address <string[]>] [-Query <hashtable>] [-Limit <int>] [<CommonParameters>]
+Get-NbxIPAMAddress [-Address <string[]>] [-Query <hashtable>] [-All] [-Limit <int>]
+ [<CommonParameters>]
 ```
 
 ### Id
@@ -85,6 +86,28 @@ Multiple values return IP addresses matching any of the values.
 ```yaml
 Type: System.String[]
 DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
+
+### -All
+
+Returns all objects, which is the default.
+Kept for backward compatibility.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
 SupportsWildcards: false
 Aliases: []
 ParameterSets:

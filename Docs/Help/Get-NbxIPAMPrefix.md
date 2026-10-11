@@ -19,7 +19,8 @@ Gets prefixes from NetBox.
 ### Query (Default)
 
 ```
-Get-NbxIPAMPrefix [-Prefix <string[]>] [-Query <hashtable>] [-Limit <int>] [<CommonParameters>]
+Get-NbxIPAMPrefix [-Prefix <string[]>] [-Query <hashtable>] [-All] [-Limit <int>]
+ [<CommonParameters>]
 ```
 
 ### Id
@@ -76,6 +77,28 @@ Get-NbxIPAMPrefix -Query @{ q = 'example' } -Limit 10
 Gets the first 10 prefixes matching the search 'example'.
 
 ## PARAMETERS
+
+### -All
+
+Returns all objects, which is the default.
+Kept for backward compatibility.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+DefaultValue: False
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: Query
+  Position: Named
+  IsRequired: false
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+```
 
 ### -Id
 

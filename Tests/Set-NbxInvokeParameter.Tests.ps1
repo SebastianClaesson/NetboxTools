@@ -35,3 +35,25 @@ Describe 'Set-NbxInvokeParameter' {
         InModuleScope NetboxTools { $script:NbxConfig.InvokeParams.ContainsKey('MaximumRetryCount') } | Should -BeFalse
     }
 }
+
+Describe 'Set-NbxInvokeParameter and the connection' {
+    AfterEach {
+        Initialize-NbxTestConnection
+    }
+
+    It 'Keeps SkipCertificateCheck of the connection unless it is specified' {
+        InModuleScope NetboxTools { $script:NbxConfig.InvokeParams = @{ SkipCertificateCheck = $true } }
+        Set-NbxInvokeParameter -InvokeParameter @{ Proxy = 'http://proxy:8080' }
+        InModuleScope NetboxTools {
+            $script:NbxConfig.InvokeParams.SkipCertificateCheck | Should -BeTrue
+            $script:NbxConfig.InvokeParams.Proxy | Should -Be 'http://proxy:8080'
+        }
+    }
+
+    It 'Stores a copy of the hashtable' {
+        $Parameters = @{ MaximumRetryCount = 2 }
+        Set-NbxInvokeParameter -InvokeParameter $Parameters
+        $Parameters['MaximumRetryCount'] = 5
+        InModuleScope NetboxTools { $script:NbxConfig.InvokeParams.MaximumRetryCount | Should -Be 2 }
+    }
+}

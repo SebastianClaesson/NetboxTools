@@ -164,10 +164,16 @@ function New-NbxIPAMAddress {
 
     process {
         $Body = ConvertToNbxBody -Command $MyInvocation.MyCommand -BoundParameters $PSBoundParameters -CommandLineParameters $CommandLineParameters -InputObject $_ -Exclude @('Id', 'Force', 'PassThru', 'OptionalAttribute', 'AssignedObject')
-        if ($PSBoundParameters.ContainsKey('AssignedObject')) {
-            $Reference = ConvertToNbxObjectReference -InputObject $AssignedObject
-            $Body['assigned_object_type'] = $Reference.object_type
-            $Body['assigned_object_id'] = $Reference.object_id
+        try {
+            if ($PSBoundParameters.ContainsKey('AssignedObject')) {
+                $Reference = ConvertToNbxObjectReference -InputObject $AssignedObject
+                $Body['assigned_object_type'] = $Reference.object_type
+                $Body['assigned_object_id'] = $Reference.object_id
+            }
+        }
+        catch {
+            $PSCmdlet.WriteError($_)
+            return
         }
 
         if ($PSCmdlet.ShouldProcess(($Body['address'] ?? 'new IP address'), 'Create IP address')) {

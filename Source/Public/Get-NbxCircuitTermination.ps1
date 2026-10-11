@@ -41,6 +41,7 @@ function Get-NbxCircuitTermination {
     .OUTPUTS
         NetboxTools.CircuitTermination
     #>
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSReviewUnusedParameter', 'All', Justification = 'Kept for backward compatibility, all objects are returned by default.')]
     [CmdletBinding(DefaultParameterSetName = 'Query')]
     [OutputType('NetboxTools.CircuitTermination')]
     param (
@@ -50,6 +51,10 @@ function Get-NbxCircuitTermination {
 
         [Parameter(ParameterSetName = 'Query')]
         [hashtable]$Query,
+
+        # Returns all objects, which is the default. Kept for backward compatibility.
+        [Parameter(ParameterSetName = 'Query', DontShow)]
+        [switch]$All,
 
         [Parameter(ParameterSetName = 'Query')]
         [ValidateRange(1, [int]::MaxValue)]

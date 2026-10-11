@@ -71,6 +71,10 @@ function Get-NbxIPAMVLAN {
         [Parameter(ParameterSetName = 'Query')]
         [hashtable]$Query,
 
+        # Returns all objects, which is the default. Kept for backward compatibility.
+        [Parameter(ParameterSetName = 'Query', DontShow)]
+        [switch]$All,
+
         [Parameter(ParameterSetName = 'Query')]
         [ValidateRange(1, [int]::MaxValue)]
         [int]$Limit

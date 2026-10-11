@@ -124,10 +124,12 @@ function Set-NbxIPAMAddressRange {
 
         [Parameter()]
         [Alias('mark_populated')]
+        [NbxBoolTransformation()]
         [bool]$MarkPopulated,
 
         [Parameter()]
         [Alias('mark_utilized')]
+        [NbxBoolTransformation()]
         [bool]$MarkUtilized,
 
         [Parameter()]

@@ -79,7 +79,9 @@ a hashtable or the object returned by NetBox.
 
 - `Get-*`, `Set-*` and `Remove-*` accept IDs and NetBox objects from the pipeline.
 - `New-*` binds pipeline objects by property name, matching either the parameter name (`DeviceType`) or the NetBox
-  field name (`device_type`). This makes it easy to create objects from a CSV file or to copy objects:
+  field name (`device_type`). This makes it easy to create objects from a CSV file or to copy objects. Empty cells
+  are not sent, and boolean columns accept `true`/`false`, `yes`/`no` or `1`/`0`. An object that fails writes an error
+  and the pipeline continues with the next object:
 
 ```powershell
 # sites.csv: name,status,description
@@ -109,7 +111,9 @@ Specify `$null` to clear a reference on `Set-*`, for example `Set-NbxDCIMDevice 
 
 ### Filtering
 
-`-Query` takes any filter supported by the NetBox API. Values are URL encoded and arrays are sent as repeated parameters.
+`-Query` takes any filter supported by the NetBox API. Filter names are sent in lower case, values are URL encoded and
+arrays are sent as repeated parameters. NetBox ignores filters it does not recognize, so check the filter names in the
+API documentation of your NetBox instance; a misspelled filter returns all objects.
 
 ```powershell
 $Query = @{
@@ -144,16 +148,21 @@ This version makes all cmdlets consistent, which includes some breaking changes:
 - `Add-NbxDCIMInterface`, `Add-NbxDCIMFrontPort`, `Add-NbxDCIMRearPort` and `Add-NbxVirtualMachineInterface` are renamed
   to `New-*`. `Set-NbxInvokeParams` is renamed to `Set-NbxInvokeParameter`. The old names remain as aliases.
 - Parameter names are PascalCase without underscores, such as `-DeviceType` and `-AssetTag`. The previous names
-  (`-Device_Type`, `-Asset_Tag`, `-Custom_Fields`, ...) still work as aliases.
+  (`-Device_Type`, `-Asset_Tag`, `-Custom_Fields`, `-Rear_Port`, ...) still work as aliases.
 - `*-NbxDCIMInterfaceConnection` are removed. The `interface-connections` endpoint does not exist in NetBox 4, use
   `New-NbxDCIMCable`, `Set-NbxDCIMCable`, `Remove-NbxDCIMCable` and `Get-NbxDCIMCable` instead.
-- `Get-*` no longer has the `-All` switch, all objects are returned by default. `-Query` can be combined with `-Name`
-  and `-Limit`.
+- Removed parameters for fields that no longer exist in NetBox: `-Form_Factor` on the interface cmdlets (NetBox 2.x)
+  and `-Site` on `Set-NbxIPAMPrefix` (NetBox 4.2, use `-Scope`). `-Raw` is removed from the cmdlets that had it.
+- `Get-*` returns all objects by default, `-All` is no longer needed but still accepted. `-Query` can be combined with
+  `-Name` and `-Limit`.
 - `Set-*` only returns the updated object with `-PassThru`, and only sends the parameters you specify. Previously some
   `Set-*` cmdlets sent empty values for all unspecified fields.
 - `New-NbxDCIMInterface` requires `-Type`, and `New-NbxIPAMPrefix` no longer sends `is_pool = true` by default. Both now
   follow the NetBox defaults.
-- Query values are no longer converted to lower case.
+- Query values are no longer converted to lower case. Filter names still are, as NetBox filter names are lower case.
+- `Connect-NbxAPI` validates certificates unless `-SkipCertificateCheck` is specified for that connection; the setting is
+  no longer carried over from a previous connection.
+- `-MacAddress` on the interface cmdlets requires NetBox 4.7 or later.
 - `Set-NbxCipherSSL` has no effect in PowerShell 7 and is deprecated. `Set-NbxUntrustedSSL` is deprecated, use
   `Connect-NbxAPI -SkipCertificateCheck`.
 

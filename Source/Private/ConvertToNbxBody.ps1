@@ -9,7 +9,7 @@ function ConvertToNbxBody {
         clear the field. When CommandLineParameters is specified, parameters bound from the
         pipeline are only included when the current input object has the property; this
         works around PowerShell keeping values from a previous pipeline object in
-        $PSBoundParameters. $null values from the pipeline are ignored.
+        $PSBoundParameters. $null and empty values from the pipeline are ignored.
 
         OptionalAttribute is added to the body as-is, named parameters take precedence.
     #>
@@ -65,13 +65,14 @@ function ConvertToNbxBody {
 
         $FromCommandLine = -not $PSBoundParameters.ContainsKey('CommandLineParameters') -or $CommandLineParameters -contains $Key
         if (-not $FromCommandLine) {
-            $OnInput = $false
-            foreach ($Name in $Names) {
-                if ($InputProperties.Contains($Name)) {
-                    $OnInput = $true
-                }
+            $InputName = $Names | Where-Object { $InputProperties.Contains($_) } | Select-Object -First 1
+            if (-not $InputName) {
+                continue
             }
-            if (-not $OnInput) {
+            # Check the value on the input object, PowerShell converts empty text to 0 when binding numbers,
+            # so empty cells from Import-Csv would otherwise be sent as 0
+            $InputValue = $InputObject.PSObject.Properties[$InputName].Value
+            if ($null -eq $InputValue -or ($InputValue -is [string] -and [string]::IsNullOrWhiteSpace($InputValue))) {
                 continue
             }
         }

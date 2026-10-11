@@ -118,15 +118,18 @@ function New-NbxDCIMFrontPort {
         [Nullable[int]]$Positions,
 
         [Parameter()]
+        [Alias('Rear_Port')]
         [NbxIdTransformation('dcim/rear-ports')]
         [uint64]$RearPort,
 
         [Parameter()]
+        [Alias('Rear_Port_Position')]
         [ValidateRange(1, 1024)]
         [int]$RearPortPosition = 1,
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -152,8 +155,14 @@ function New-NbxDCIMFrontPort {
 
     process {
         $Body = ConvertToNbxBody -Command $MyInvocation.MyCommand -BoundParameters $PSBoundParameters -CommandLineParameters $CommandLineParameters -InputObject $_ -Exclude @('Id', 'Force', 'PassThru', 'OptionalAttribute', 'RearPort', 'RearPortPosition')
-        if ($PSBoundParameters.ContainsKey('RearPort')) {
-            $Body['rear_ports'] = @(@{ position = 1; rear_port = $RearPort; rear_port_position = $RearPortPosition })
+        try {
+            if ($PSBoundParameters.ContainsKey('RearPort')) {
+                $Body['rear_ports'] = @(@{ position = 1; rear_port = $RearPort; rear_port_position = $RearPortPosition })
+            }
+        }
+        catch {
+            $PSCmdlet.WriteError($_)
+            return
         }
 
         if ($PSCmdlet.ShouldProcess(($Body['name'] ?? 'new front port'), 'Create front port')) {

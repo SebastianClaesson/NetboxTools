@@ -34,6 +34,7 @@ function Connect-NbxAPI {
 
     .PARAMETER SkipCertificateCheck
         Skips validation of the certificate of the NetBox instance, for example when it uses a self-signed certificate.
+        Applies to this connection only, each Connect-NbxAPI validates certificates unless this is specified.
 
     .PARAMETER SkipVerification
         Does not verify the connection with a request to the API.
@@ -113,9 +114,8 @@ function Connect-NbxAPI {
     $Config = NewNbxConfig
     $Config.Timeout = $PreviousConfig.Timeout
     $Config.InvokeParams = @{} + $PreviousConfig.InvokeParams
-    if ($SkipCertificateCheck) {
-        $Config.InvokeParams['SkipCertificateCheck'] = $true
-    }
+    # Certificate validation is decided for each connection, so it is never skipped for another host by accident
+    $Config.InvokeParams['SkipCertificateCheck'] = $SkipCertificateCheck.IsPresent
     $Config.Hostname = $Hostname
     $Config.Scheme = $Scheme
     $Config.Port = $Port

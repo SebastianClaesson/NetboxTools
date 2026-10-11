@@ -140,3 +140,40 @@ Describe 'ConvertToNbxObjectReference' {
         }
     }
 }
+
+Describe 'NbxBoolTransformation' {
+    BeforeAll {
+        $Transformation = InModuleScope NetboxTools { [NbxBoolTransformation]::new() }
+    }
+
+    It 'Converts <Text> to <Expected>' -TestCases @(
+        @{ Text = 'true'; Expected = $true }
+        @{ Text = 'True'; Expected = $true }
+        @{ Text = 'yes'; Expected = $true }
+        @{ Text = '1'; Expected = $true }
+        @{ Text = 'false'; Expected = $false }
+        @{ Text = 'no'; Expected = $false }
+        @{ Text = '0'; Expected = $false }
+        @{ Text = ''; Expected = $false }
+    ) {
+        param ($Text, $Expected)
+        $Transformation.Transform($null, $Text) | Should -Be $Expected
+    }
+
+    It 'Passes booleans through' {
+        $Transformation.Transform($null, $true) | Should -BeTrue
+    }
+
+    It 'Rejects other text' {
+        { $Transformation.Transform($null, 'maybe') } | Should -Throw '*not a boolean*'
+    }
+}
+
+Describe 'ConvertToNbxObjectReference with digits in the endpoint' {
+    It 'Derives the object type of L2VPN objects' {
+        InModuleScope NetboxTools {
+            (ConvertToNbxObjectReference -InputObject ([pscustomobject]@{ id = 1; url = 'https://nb/api/vpn/l2vpns/1/' })).object_type |
+                Should -Be 'vpn.l2vpn'
+        }
+    }
+}

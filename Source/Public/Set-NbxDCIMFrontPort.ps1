@@ -126,15 +126,18 @@ function Set-NbxDCIMFrontPort {
         [Nullable[int]]$Positions,
 
         [Parameter()]
+        [Alias('Rear_Port')]
         [NbxIdTransformation('dcim/rear-ports')]
         [uint64]$RearPort,
 
         [Parameter()]
+        [Alias('Rear_Port_Position')]
         [ValidateRange(1, 1024)]
         [int]$RearPortPosition = 1,
 
         [Parameter()]
         [Alias('mark_connected')]
+        [NbxBoolTransformation()]
         [bool]$MarkConnected,
 
         [Parameter()]

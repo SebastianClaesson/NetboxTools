@@ -32,6 +32,9 @@ This cmdlet has the following aliases:
 ## DESCRIPTION
 
 Sets additional parameters for Invoke-RestMethod used for all requests to the NetBox API, such as @{ SkipCertificateCheck = $true } or @{ Proxy = 'http://proxy:8080' }.
+Replaces the parameters set before.
+SkipCertificateCheck keeps the value of the connection unless it is specified,
+and Headers are added to the headers of the module without replacing the Authorization header.
 
 ## EXAMPLES
 

@@ -116,10 +116,12 @@ function New-NbxIPAMAddressRange {
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_populated')]
+        [NbxBoolTransformation()]
         [bool]$MarkPopulated,
 
         [Parameter(ValueFromPipelineByPropertyName)]
         [Alias('mark_utilized')]
+        [NbxBoolTransformation()]
         [bool]$MarkUtilized,
 
         [Parameter(ValueFromPipelineByPropertyName)]

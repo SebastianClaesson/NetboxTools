@@ -103,8 +103,12 @@ task Compile_Module {
     # Manifest, aliases are defined by the module itself in Tools\_PostModule.ps1
     $ExportedAliasList = @((Import-Module "$ModuleSourcePath\$ModuleName.psm1" -Force -PassThru).ExportedAliases.Keys | Sort-Object)
     Remove-Module $ModuleName -Force
+    # Update a copy in the output folder, so the version and prerelease label are never written to the source manifest
+    # Update-ModuleManifest requires the version to match the version folder, so set it in the copy first
+    (Get-Content -Path "$ModuleSourcePath\$ModuleName.psd1" -Raw) -replace "(?m)^ModuleVersion = '[^']*'", "ModuleVersion = '$Version'" |
+        Set-Content -Path $PSD1Path -NoNewline
     $ManifestParameters = @{
-        Path              = "$ModuleSourcePath\$ModuleName.psd1"
+        Path              = $PSD1Path
         ModuleVersion     = $Version
         FunctionsToExport = $ExportedFunctionList
         AliasesToExport   = $ExportedAliasList
@@ -113,7 +117,6 @@ task Compile_Module {
         $ManifestParameters['Prerelease'] = $Prerelease
     }
     Update-ModuleManifest @ManifestParameters
-    Copy-Item -Path "$ModuleSourcePath\$ModuleName.psd1" -Destination $PSD1Path 
 }
 
 Get-Module -Name $ModuleName | Remove-Module -Force
